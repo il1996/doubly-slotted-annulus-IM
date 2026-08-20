@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this archive, please cite it as below."
+title: "Reproduction archive for a doubly slotted annulus operator for magnetic equivalent circuits (Paper II)"
+type: dataset
+license: CC-BY-4.0
+version: "1.0.0"
+repository-code: "https://github.com/il1996/doubly-slotted-annulus-IM"
+url: "https://github.com/il1996/doubly-slotted-annulus-IM/releases/tag/v1.0.0"
+date-released: "2026-08-20"
+abstract: >-
+  Complete reproduction archive for the paper "A Doubly Slotted Annulus Operator
+  for Magnetic Equivalent Circuits: Carter's Factor Is Low in the Thin-Gap,
+  Wide-Opening Regime, on an 18.5 kW Cage Induction Machine". Contains the MATLAB
+  chain for the 18.5 kW cage induction machine, the execution transcripts from
+  which every published value originates, the ANSYS Maxwell 2D exports used as
+  the reference, the manuscript source with its five figures, and delivery notes
+  for each verification block.
+authors:
+  - family-names: Laouar
+    given-names: Idris
+    orcid: "https://orcid.org/0009-0004-6663-082X"
+    affiliation: "Electrotechnical Laboratory Skikda (LES), University 20 August 1955 Skikda, Algeria"
+    email: idris.laouar@univ-skikda.dz
+  - family-names: Boukadoum
+    given-names: Ahcene
+    orcid: "https://orcid.org/0000-0001-9238-8249"
+    affiliation: "Electrotechnical Laboratory Skikda (LES), University 20 August 1955 Skikda, Algeria"
+    email: boukadoum2003@yahoo.fr
+  - family-names: Mezhoud
+    given-names: Nabil
+    orcid: "https://orcid.org/0000-0002-9383-2097"
+    affiliation: "Electrotechnical Laboratory Skikda (LES), University 20 August 1955 Skikda, Algeria"
+    email: n.mezhoud@univ-skikda.dz
+keywords:
+  - magnetic equivalent circuit
+  - reluctance network
+  - Dirichlet-to-Neumann operator
+  - doubly slotted air gap
+  - Carter factor
+  - Schur complement
+  - cage induction machine
+  - finite-element validation
+  - reproducibility

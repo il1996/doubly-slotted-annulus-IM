@@ -1,0 +1,56 @@
+Copyright (c) 2026 Idris Laouar, Ahcene Boukadoum, Nabil Mezhoud
+Electrotechnical Laboratory Skikda (LES), University 20 August 1955 Skikda, Algeria
+
+================================================================
+CREATIVE COMMONS ATTRIBUTION 4.0 INTERNATIONAL (CC BY 4.0)
+================================================================
+
+Except where stated otherwise below, the contents of this archive — the
+MATLAB chain in code/MEC_IM/, the manuscript source in code/article/, the
+execution transcripts in outputs/, and the delivery notes in notes/ — are
+licensed under the Creative Commons Attribution 4.0 International Public
+License.
+
+You are free to share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, provide a link to the
+licence, and indicate whether changes were made.
+
+The full legal text of the licence is available at:
+
+    https://creativecommons.org/licenses/by/4.0/legalcode
+
+and the human-readable summary at:
+
+    https://creativecommons.org/licenses/by/4.0/
+
+By exercising the rights granted here you accept the terms of that licence.
+
+----------------------------------------------------------------
+ATTRIBUTION
+----------------------------------------------------------------
+
+Cite the archive as:
+
+    I. Laouar, A. Boukadoum and N. Mezhoud, "Reproduction archive for a
+    doubly slotted annulus operator for magnetic equivalent circuits
+    (Paper II)", release v1.0.0, GitHub, 2026.
+    https://github.com/il1996/doubly-slotted-annulus-IM/releases/tag/v1.0.0
+
+and, where the result rather than the code is used, the paper it supports.
+
+----------------------------------------------------------------
+EXCEPTION — FINITE-ELEMENT EXPORTS
+----------------------------------------------------------------
+
+The directory reference/ANSYS_18_5kW/ contains numerical exports produced
+by ANSYS Maxwell. They are included so that the reference values used in
+the paper can be inspected without a solver licence.
+
+The authors' right to redistribute these exports has NOT yet been confirmed
+against the applicable ANSYS licence agreement. Until that confirmation is
+made, no licence is granted over the contents of reference/ANSYS_18_5kW/,
+and the CC BY 4.0 grant above does not extend to them.
+
+Anyone intending to redistribute that directory should confirm the position
+with the solver vendor first. The rest of the archive is unaffected and can
+be used under CC BY 4.0 as stated.
