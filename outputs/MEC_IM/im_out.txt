@@ -1,0 +1,129 @@
+﻿======================================================================
+   ANALYTIQUE / MEC / FEM  moteur asynchrone 18,5 kW (RUN_ARTICLE)
+======================================================================
+
+===== I. GEOMETRIE (encoches conformes aux figures ANSYS) =====
+entrefer g=0.243 mm  kC=1.266  g_eff=0.308 mm
+stator tc6 : bs0/bs1/bs2=2.00/5.24/8.47  hs=30.548 mm  (dent parallele, err 1.7e-06)
+rotor (epaulement, cercle sup. tangent) : br0/br1/br2=2.00/5.80/2.04  hr=21.711 mm
+bts=5.876  btr=5.903 mm   Abar=80.70 mm2   hys/hyr=20.84/22.80 mm
+bobinage : kw1=0.9250  Nph=144  q=4  (5/6)   Rs=0.4302 ohm   Xs_end3D=0.426 ohm
+--- Constantes identifiees du modele (provenance) ---
+sigma0 = 0,53*tau        <- RUN_FEM_IDENT   (banc 2 dents, PDE Toolbox)
+lam_slot = 2,722 / 1,543 <- RUN_SLOTLEAK    (bancs encoche, valides 0,0-0,2 %)
+Xs_end3D = 0.426 ohm      <- RUN_P4_XSIGMA   (Xsigma implique EF, 3 glissements)
+kd/ky, kfw, kcu          <- RUN_VALIDATION  (recalage pertes 16/07/2026)
+P_stray = 381.5 W (nom.)  <- pertes suppl. en charge, allocation IEC 60034-2-1 (loi I2^2)
+J = 0.17 kg.m2           <- run-up EF (RUN_TRANSIENT)
+(bancs et diagnostics NON re-executes ici : identification separee de la
+ validation ; constantes gelees dans +mec avec commentaires de provenance)
+
+===== II. REGIME ETABLI : ANALYTIQUE vs MEC vs FEM =====
+--- Parametres du schema equivalent (ANALYTIQUE / MEC / EF) ---
+parametre         ANALYTIQUE         MEC          EF
+Rs [ohm]              0.4457      0.4302      0.4450
+Rr' [ohm]             0.4865      0.4234      0.4400
+Xm [ohm]               46.85       50.65        46.0
+Xsigma_s [ohm]         1.964       2.091           -
+Xsigma_r [ohm]         1.708       0.733           -
+Rfe [ohm]              922.1      1782.4        1740
+Lm [mH]               149.13      161.22           -
+Bilan de puissance B6 : erreur max = 1.50e-05 sur 30 glissements
+     s |    T_MEC    T_FEM    err% |    I_MEC    I_FEM    err%
+ 0.005 |     32.1     35.1   -8.8 |      9.6      9.7   -1.4
+ 0.020 |    123.5    128.7   -4.0 |     19.4     20.7   -6.2
+ 0.050 |    267.0    257.3    3.8 |     41.6     42.8   -2.7
+ 0.100 |    346.7    324.8    6.7 |     66.4     67.0   -0.9
+ 0.200 |    302.2    305.0   -0.9 |     87.6     87.0    0.7
+ 0.500 |    162.4    153.8    5.6 |    101.3    100.5    0.8
+ 1.000 |     94.3     99.0   -4.8 |    105.0    108.2   -3.0
+Decrochage : MEC 348.2 N.m (s=0.110) ; Analytique 345.7 (s=0.132) ; FEM 324.9 (s=0.105)
+
+--- Point nominal (s=0.0188) : ANALYTIQUE / MEC / EF ---
+grandeur            ANALYTIQUE         MEC          EF
+Couple [N.m]            102.50      116.53      121.53
+Courant I1 [A]           17.26       18.47       19.70
+Rendement               0.9039      0.9208      0.9160
+cos(phi)                0.8420      0.8599      0.8640
+Pertes fer [W]           488.4       231.7       232.6
+Pertes suppl. [W]        381.5       381.5       381.5
+(les 3 methodes utilisent la MEME allocation de pertes suppl. 381,5 W, IEC 60034-2-1 ;
+ rendement MEC 92.1 % > plage exp. 90,5-91,3 % : ses pertes identifiees sont ~215 W sous l'EF)
+
+===== III. VALIDATION MULTI-ESSAIS (moyennes de regime etabli) =====
+--- EN CHARGE (n=1471.8 tr/min -> s=0.0188) ---
+grandeur                          MEC        FEM   ecart%
+Couple [N.m]                   116.71     121.63    -4.0
+I1 [A]                          18.50      19.73    -6.2
+I_barre [A]                    300.33     324.69    -7.5
+I_anneau [A]                  1052.44    1090.63    -3.5
+P_in [W]                     19014.10   20368.68    -6.7
+Pertes fer [W]                 231.73     232.64    -0.4
+Pertes Cu stator [W]           441.49     520.15   -15.1
+Pertes rotor [W]               352.72     488.45   -27.8
+--- A VIDE ---
+I0 [A]                           8.58       8.49    +1.1
+E1 [V]                         378.53     382.12    -0.9
+Pertes fer [W]                 240.90     249.29    -3.4
+--- ROTOR BLOQUE ---
+Couple [N.m]                    94.26     104.31    -9.6
+I1 [A]                         105.00     108.21    -3.0
+I_barre [A]                   1894.28    1929.44    -1.8
+I_anneau [A]                  6634.47    6529.63    +1.6
+
+===== IV. CHAMPS vs FEM (entrefer harmonique de Laplace, P1) =====
+Bg1 mi-entrefer : vide 0.902 (FEM 0.942) ; charge 0.825 (FEM 0.920) T
+Bt RMS          : vide 0.091 (FEM 0.128) ; charge 0.097 (FEM 0.131) T
+Flux/pole       : vide 12.21 (FEM 12.46) mWb
+--- Sondes locales FEM vs maxima regionaux MEC [T] ---
+culasse stator (vide)            1.84       1.84    +0.0
+dent stator (vide)               1.94       1.63   +19.0
+dent rotor (vide)                2.12       1.93   +10.1
+culasse rotor (vide)             1.67       1.67    -0.1
+culasse stator (chg)             1.72       1.90    -9.3
+dent stator (chg)                1.85       1.68    +9.9
+dent rotor (chg)                 2.05       1.87    +9.6
+culasse rotor (chg)              1.51       1.58    -4.0
+   [draw_cross_section] fermeture de psi : stator 1.54e-17, rotor 5.08e-16 Wb
+   [draw_cross_section] fermeture de psi : stator 8.10e-17, rotor 1.24e-15 Wb
+
+===== V. TRANSITOIRES MONO-TRANCHE (ondulation de denture) =====
+carte a vide    : ondulation mono-tranche = 74.5 N.m crete-a-crete
+carte en charge : ondulation mono-tranche = 105.1 N.m crete-a-crete
+(2 x 19 resolutions de champ en 146 s)
+--- Regime etabli : ondulation crete-a-crete (MEC 1 tranche vs FEM) ---
+       essai |      dT MEC      dT FEM |        dn MEC       dn FEM*
+      a vide |     79.5 Nm     10.3 Nm |     2.709 rpm      2.13 rpm
+   en charge |    101.4 Nm    105.5 Nm |     0.717 rpm     15.96 rpm
+(* dn FEM exagere par le repli du pas de 1 ms ; a vide, dT MEC ~x8 :
+   l'amortissement de denture par la cage est absent du banc de champ)
+EN CHARGE : t95 = 0.141 s (FEM 0.122) ; moyennes n = 1471.1 (FEM 1471.9) tr/min,
+T = 122.7 (FEM 121.9) N.m
+
+===== VI. BILAN DES PERTES ET PERTES SUPPLEMENTAIRES (en charge, s=0.0188) =====
+FEM : Pin-Pout = 1721 W ; pertes listees = 1339 W ; NON identifiees = 381.5 W (2.1 % Pn, IEC 60034-2-1)
+MEC : bilan ferme a 1.5e-05 (B6) ; Cu_s 441, fer 232, rotor 353 (barres 291 + anneaux 61), meca 98 W
+      pertes SUPPLEMENTAIRES en charge = 382.8 W (2.1 % Pn ; loi I2^2 plafonnee, mec.stray_losses)
+ANA : Cu_s 526, fer 488, rotor 431, meca 97, suppl. 382 W (PLL, IEC 60034-2-1)
+      -> rendement : ANALYTIQUE 90.58 % / MEC 92.08 % / EF 91.55 % (plage experimentale 90,5-91,3 %)
+      Note : pertes suppl. = allocation IEC 60034-2-1 (381,5 W) COMMUNE aux 3 methodes ; la physique
+      de denture (RUN_STEPPING) n'en explique que ~17,5 W (surface/inter-barres/3D 2D-inaccessibles).
+
+===== VII. SYNTHESE =====
+Comparaison 3 voies (sec. II) ANALYTIQUE / MEC / EF : schema equivalent, T(s), I(s),
+  rendement (ANA 90.6 / MEC 92.1 / EF 91,6 %) et pertes ; courbe article_II.
+Geometrie conforme figures ANSYS (rotor : epaulement, hr=21.71 mm, Abar=80.70 mm2).
+Zone utile s<=0,05 : couple < 9 %, courant < 7 % ; fort glissement < 7 % ;
+I0 a vide 1.1 % ; culasses locales a +/-0,1 % (vide) ; B6 <= 1.5e-05 partout.
+(maxima de dents MEC > sondes EF de +10..19 % : le maillage conforme
+ resout les BECS satures, les sondes EF sont au corps de dent)
+Transitoires mono-tranche : ondulation en charge 101.4 N.m cc (FEM 105.5) ;
+moyennes et courant reproduits (RUN_TRANSIENT pour la version dq lisse).
+
+Figures : article_II_caracteristiques / article_IV_champs /
+          article_IV_carte_B_avide / article_IV_carte_J_avide /
+          article_IV_carte_B_charge / article_IV_carte_J_charge /
+          article_V_1tranche_a_vide / article_V_1tranche_en_charge  (.png)
+
+Duree totale : 191 s
+=== RUN_ARTICLE termine ===

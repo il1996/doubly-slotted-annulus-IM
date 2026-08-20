@@ -1,0 +1,56 @@
+======================================================================
+  S6 - LE RAPPORT D'ENCOCHAGE A FER FINI ET A FER INFINI
+======================================================================
+  machine    : MAS 48/44, 18,5 kW | p = 2
+  pavage     : n_T = 17, n_O = 4 | N_h = 8192 | base P1 (chapeau)
+  courant    : I_m = 0.2 A, identique dans les quatre resolutions
+  seuil      : dispersion de pavage de la Table 4 = 6.82 %
+
+  ---- 1. LA PERMEABILITE DES DEUX RESOLUTIONS NON SATUREES ----
+    Les deux resolutions appellent mec.magnetizing(ctx,0.2) avec le
+    MEME ctx : meme courbe B(H), seul l'operateur d'entrefer differe.
+    Ce n'est donc pas un mu_r declare, c'est la courbe reelle prise
+    a faible excitation. Permeabilite relative de la courbe :
+
+           B [T]        H [A/m]         mu_r
+            0.20         105.64       1506.6
+            0.50         145.39       2736.8
+            0.80         178.79       3560.6
+            1.00         208.98       3807.8
+            1.20         259.97       3673.2
+            1.50         625.87       1907.2
+
+    -> la permeabilite est FINIE et IDENTIQUE dans les deux
+       resolutions : la premisse du rapporteur est exacte.
+
+  ---- 2. FER FINI (etat publie) ----
+    X_m lisse    :    81.269790 ohm
+    X_m encoche  :    61.014695 ohm
+    k_C publie   :     1.331971
+
+  ---- 3. FER INFINI (mu_r = 100000) ----
+    X_m lisse    :   181.859193 ohm   (x 2.238)
+    X_m encoche  :   113.477204 ohm   (x 1.860)
+    k_C fer inf. :     1.602606
+
+  ---- 4. LE RAPPORT BOUGE-T-IL ? ----
+    k_C fer fini   : 1.331971
+    k_C fer infini : 1.602606
+    deplacement    : +20.318 %
+    seuil (dispersion de pavage, Table 4) : 6.82 %
+
+    controle de coherence : si le fer portait une reluctance
+    negligeable, X_m lisse ne bougerait pas en passant a fer infini.
+    Il est multiplie par 2.238.
+
+  ---- 5. VERDICT ----
+    G6  |k_C(fer infini) - k_C(publie)| < dispersion de pavage ECHOUEE
+
+    LE RAPPORT BOUGE PLUS QUE LA DISPERSION DE PAVAGE.
+    C'est alors la valeur a fer infini qui fait foi -- c'est ce que
+    le facteur de Carter est DEFINI pour etre -- et toutes les
+    valeurs publiees qui en descendent se deplacent.
+    Rien ne doit etre ecrit dans le manuscrit avant arbitrage.
+
+  duree 3 s
+=== S6 termine ===

@@ -1,0 +1,56 @@
+=== M-5 : convergence de la solution couplee en pavage ===
+
+  CONFIGURATION
+    machine   : MAS 48/44, 18,5 kW (mec.machine_18_5kW)
+    base      : chapeau (P1)
+    troncature: N_h = 8192, FIXE
+    vrillage  : harmonique NEUTRALISE
+    point     : s = 0.0188
+    pavages   : (9,4), (17,4), (33,4) -- (17,4) = production
+
+  ---- REFERENCES EF, RELUES ----
+    couple 121.6308 N.m | I1 19.7253 A | pertes fer 232.64 W
+  pavage (9,4) : fait (8 s)
+  pavage (17,4) : fait (13 s)
+  pavage (33,4) : fait (21 s)
+
+  ---- SOLUTION COUPLEE AUX TROIS PAVAGES ----
+    pavage   couple N.m       I1 (A)     P_fe (W)    rendement   X_m0 (ohm)
+  ( 9,4)       114.4059      19.0719       227.84       0.9154       59.867
+  (17,4)       114.3145      19.1056       227.57       0.9153       61.015
+  (33,4)       114.6287      18.9905       228.29       0.9155       61.953
+
+  ---- ECARTS A LA REFERENCE ----
+    pavage       couple           I1         P_fe
+  ( 9,4)         -5.94 %       -3.31 %       -2.07 %
+  (17,4)         -6.02 %       -3.14 %       -2.18 %
+  (33,4)         -5.76 %       -3.73 %       -1.87 %
+
+  ---- DISPERSION SUR LES TROIS PAVAGES (etendue / moyenne) ----
+  couple            0.275 %
+  courant I1        0.604 %
+  pertes fer        0.318 %
+  rendement         0.021 %
+  X_m0              3.424 %
+
+  LECTURE. X_m0 disperse de 3.42 % sur ces trois pavages ; le
+  couple de 0.27 %. Rapport 12.5 : la solution couplee AMORTIT la
+  dispersion de la branche magnetisante.
+
+  ---- GARDE : la colonne (17,4) reproduit-elle le manuscrit ? ----
+    couple (N.m)     calcule   114.3145 | publie   114.3100 | ecart 3.89e-05
+    I1 (A)           calcule    19.1056 | publie    19.1060 | ecart 2.19e-05
+    pertes fer (W)   calcule   227.5667 | publie   227.5700 | ecart 1.46e-05
+    rendement        calcule     0.9153 | publie     0.9153 | ecart 2.65e-05
+    GARDE PASSEE
+
+  ---- PANNEAU LaTeX ----
+
+$n_T$, $n_O$ & torque (\si{\newton\metre}) & $I_1$ (\si{\ampere}) & iron loss (\si{\watt}) & efficiency\\
+\midrule
+9, 4 & \num{114.41} & \num{19.072} & \num{227.84} & \num{0.9154}\\
+\textbf{17, 4} & \textbf{\num{114.31}} & \textbf{\num{19.106}} & \textbf{\num{227.57}} & \textbf{\num{0.9153}}\\
+33, 4 & \num{114.63} & \num{18.991} & \num{228.29} & \num{0.9155}\\
+
+  duree 21 s
+=== M-5 termine ===

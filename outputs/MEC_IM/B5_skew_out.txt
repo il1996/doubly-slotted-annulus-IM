@@ -1,0 +1,103 @@
+=== B5 : le vrillage, tranche ===
+  machine : MAS 48/44 | Ns = 48, Nr = 44, p = 2
+
+  ---- 1. reglage du projet EF, lu dans le .aedt ----
+    fichier : C:\Users\hp\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt
+    174493 lignes lues, 12 occurrences trouvees
+    UseSkewModel     : 4 occurrence(s)
+        l.557 : UseSkewModel=true
+        l.35943 : UseSkewModel=true
+        ... (2 autres, identiques)
+    SkewAngle        : 4 occurrence(s)
+        l.560 : SkewAngle='7.5deg'
+        l.35946 : SkewAngle='7.5deg'
+        ... (2 autres, identiques)
+    NumberOfSlices   : 4 occurrence(s)
+        l.561 : NumberOfSlices='1'
+        l.35947 : NumberOfSlices='1'
+        ... (2 autres, identiques)
+
+    LECTURE. Le modele de vrillage est ACTIVE et l'angle vaut
+    7,5 deg, mais le nombre de TRANCHES vaut UN. Or le vrillage
+    multi-tranches se represente par la rotation RELATIVE des
+    tranches les unes par rapport aux autres : avec une seule
+    tranche il n'y a aucune rotation relative, donc aucun
+    moyennage axial. La solution de champ est celle d'une section
+    droite NON VRILLEE.
+    RESERVE : cette lecture repose sur la semantique du modele
+    multi-tranches, non sur un run de controle. Un run avec
+    UseSkewModel = false donnerait la confirmation directe ; il
+    exige ANSYS et reste a faire. La lecture est neanmoins
+    suffisante pour ce qui suit, car elle va dans le sens de
+    l'affirmation du manuscrit, non contre elle.
+
+    CONFLIT DE DOCUMENTATION A CORRIGER. L'en-tete de
+    +mec\ansys_ref.m annonce "skew 7,5 deg / 5 tranches". Le projet
+    en declare UNE. L'un des deux est faux, et c'est l'en-tete :
+    il n'y a pas d'autre projet 18,5 kW dans le dossier.
+
+  ---- 2. le facteur de vrillage de la chaine MEC ----
+    pas d'encoche stator / pas polaire = 0.083333  (= 2p/Ns = 0.083333)
+    demi-angle electrique de vrillage asq1 = 0.130900 rad
+    facteur au FONDAMENTAL  ksq = sin(asq1)/asq1 = 0.997147
+    -> R'_r et X'_r sont divises par ksq^2 = 0.994301, soit +0.57 %
+    M.opt.skew_harm : NON DEFINI -> vrillage HARMONIQUE ACTIF par defaut (cage.m:59-61)
+
+    facteur de vrillage par harmonique d'espace :
+        nu    |kw_nu| asq = nu*asq1         ksq_nu       1/ksq_nu^2
+         5     0.0531     0.654498       0.930119              1.2
+         7     0.0408     0.916298       0.865825              1.3
+        11     0.1218     1.439897       0.688553              2.1
+        13     0.1218     1.701696       0.582622              2.9
+        23     0.9250     3.010693       0.043354            532.0
+        25     0.9250     3.272492      -0.039886            628.6
+        47     0.9250     6.152286      -0.021216           2221.7
+        49     0.9250     6.414085       0.020350           2414.8
+
+    Les harmoniques de DENTURE (nu = 23, 25, 47, 49) voient leur
+    branche de cage multipliee par plusieurs CENTAINES : elle devient
+    quasi ouverte. C'est l'effet recherche du vrillage -- et c'est
+    exactement ce qui porte l'ondulation de denture.
+
+  ---- 3. effet sur le fondamental (base P1, N_h = 8192) ----
+    operateur 92x92 | X_m0 = 61.015 ohm
+
+           s    R'_r vrille   R'_r non vr.    X'_r vrille        ecart
+      0.0188       0.423392       0.420979       0.732535        0.57 %
+      0.2000       0.425252       0.422829       0.731840        0.57 %
+      1.0000       0.467080       0.464419       0.716357        0.57 %
+
+    Retirer le vrillage du MEC abaisserait R'_r et X'_r de
+    0.57 % -- c'est faible, et T10 l'avait deja chiffre sur X_m
+    (-0,3 %). SUR LE FONDAMENTAL, LA QUESTION EST SANS ENJEU.
+
+  ---- 4. verdict ----
+    "L'ondulation compare deux modeles NON VRILLES."
+
+    Cote REFERENCE  : VRAI. NumberOfSlices = 1 ne produit aucun
+      moyennage axial ; la section est droite.
+    Cote MEC        : FAUX. mec.cage applique ksq = 0.997147 au
+      fondamental ET ksq_nu aux harmoniques, sans que
+      M.opt.skew_harm ne soit jamais mis a 0 dans la chaine de
+      production. Les branches de denture y sont attenuees d'un
+      facteur plusieurs centaines.
+
+    CONSEQUENCE. Sur les grandeurs FONDAMENTALES l'ecart est de
+    0.57 % et la phrase est sans consequence. Sur l'ONDULATION,
+    qui est portee par les harmoniques de denture, les deux
+    modeles ne sont PAS dans le meme etat : le MEC vrille, la
+    reference non. La phrase de la §6.7 doit etre corrigee, et la
+    comparaison d'ondulation declaree pour ce qu'elle est.
+
+    DEUX VOIES, a trancher par les auteurs :
+      (a) poser M.opt.skew_harm = 0 dans la chaine de production et
+          republier l'ondulation -- comparaison loyale, mais toute
+          la calibration C5 de l'ondulation est a refaire ;
+      (b) conserver le vrillage cote MEC et DECLARER que la
+          reference ne l'a pas -- honnete, mais l'accord sur
+          l'ondulation perd sa valeur de validation.
+    La voie (a) est la seule qui preserve la valeur de la
+    comparaison.
+
+  duree 3 s
+=== B5 termine ===

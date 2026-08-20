@@ -1,0 +1,194 @@
+=== B6 : rapport anneau/barre, ecart de MODELE ===
+  machine : MAS 48/44 | p = 2 | Nr = 44
+  pavage nT=17 nO=4 | N_h = 8192 | base P1 | X_m0 = 61.015 ohm
+  reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+  rapport geometrique ideal 1/(2 sin(p*pi/Nr)) = 3.513337
+
+  ---- 1. conditions d'essai lues des .tab ----
+    en charge   : n = 1471.753 tr/min  ->  s = 0.018832
+    rotor bloque: s = 1 (impose)
+
+  ---- 2. les quatre rapports anneau/barre ----
+  source     condition       I barre (A) I anneau (A)      rapport  ecart/ideal
+  reseau     en charge             297.8       1043.9       3.5053       -0.23 %
+  reseau     rotor bloque         1972.1       6910.4       3.5042       -0.26 %
+  reference  en charge             324.7       1090.6       3.3589       -4.39 %
+  reference  rotor bloque         1929.4       6529.6       3.3842       -3.68 %
+
+    LECTURE. Le reseau reproduit le modele d'anneau geometrique
+    ideal a 0.23 % et 0.26 % pres ; la reference en est a 4.39 % et
+    3.68 %, du meme cote dans les deux conditions. Son modele
+    d'anneau n'est donc PAS le modele geometrique ideal.
+
+  ---- 3. decomposition des deux lignes de la Table 16 ----
+  ligne               en charge rotor bloque             
+  I barre                -8.28 %        2.21 %
+  I anneau               -4.28 %        5.83 %
+  dont ecart de modele d'anneau        4.36 %        3.54 %
+
+    La ligne "I anneau" est le PRODUIT de l'erreur sur la barre
+    et de l'ecart de modele d'anneau. Le second est stable et de
+    signe constant ; c'est la premiere qui change de signe entre
+    les deux conditions. Publier "I anneau" comme une precision du
+    reseau sur l'anneau est donc trompeur : a reformuler.
+
+  ---- 4. provenance des deux couples EF au calage (suite de B4) ----
+    "caratéristique en fonction glissement\Torque Plot 2.tab" :
+      129 lignes, 2 colonnes ; abscisse de 0.0050 a 1.0000
+      echelle retenue : x1 (max lu 336.5539)
+      couple a s = 1 lu du fichier : 98.982 N.m
+
+    -- audit de mec.ansys_ref contre son fichier source --
+      30 points confrontes | ecart median 0.00 % | ecart max 3.50 % (s = 0.150)
+      1 point(s) au-dela de 2 % :
+             s    ansys_ref      fichier      ecart
+         0.150       297.00       307.77      -3.5 %
+
+    essai                                               T (N.m)
+    transitoire\rotor bloque, moyenne regime etabli      104.309
+    mec.ansys_ref a s = 1                                98.980
+    couple MEC au calage (base P1)                      102.602
+
+    Le litteral 104,31 du dossier est la MOYENNE DE REGIME ETABLI
+    du transitoire a rotor bloque ; le 98,98 de mec.ansys_ref est le
+    point s = 1 de la caracteristique couple-glissement. Ce sont DEUX
+    ESSAIS DIFFERENTS, comme les 121,53 / 121,63 de l'anomalie A-3.
+    Toute ligne du manuscrit portant sur le calage doit declarer
+    lequel des deux elle emploie.
+
+  duree 8 s
+=== B6 termine ===
+=== B6 : courants d'anneau -- ecart de MODELE, non precision ===
+  machine   : MAS 48/44 | p = 2 | Nr = 44 | Ns = 48
+  pavage    : nT=17 nO=4 | N_h = 8192 | base P1 | X_m0 = 61.015 ohm
+  reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+  manuscrit : C:\Users\hp\Desktop\Matlab program\MEC\article\MEC_DtN_paper_v2.tex
+  glissement nominal : 0.018800 (relu de RUN_B1_IM_P1.m)
+                       0.018832 (deduit de Speed Plot 1.tab, n = 1471.753 tr/min)
+                       ecart entre les deux : -0.168 %
+
+  ---- 1. LE RAPPORT GEOMETRIQUE IDEAL ----
+    1/(2 sin(p*pi/Nr)) = 1/(2 sin(pi/22)) = 3.513337
+    controle : rapport FONDAMENTAL du reseau / rapport ideal - 1 = 2.22e-16
+    -> le reseau implemente le modele ideal a la precision machine.
+    Le RMS physique publie ajoute les branches de cage harmoniques,
+    dont le report d'anneau est 1/(2 sin(pi*nu*p/Nr)) et non 1/(2 sin(pi*p/Nr)) :
+    etat vrillage / condition      I1 barre I tot barre part harm.
+    vrillage ON  / en charge         296.61     297.32      6.87 %
+    vrillage ON  / calage           1966.73    1972.06      7.34 %
+    vrillage OFF / en charge         296.75     305.21     23.38 %
+    vrillage OFF / calage           1991.71    2059.94     25.52 %
+    C'est cette part harmonique -- et elle seule -- qui ecarte le
+    rapport RMS du reseau de la valeur ideale, de quelques dixiemes.
+
+  ---- 2. LES QUATRE RAPPORTS ANNEAU/BARRE ----
+  (regime etabli : t >= 1.000 s en charge, t >= 1.000 s au calage)
+  source     vrillage  condition   I barre (A) I anneau (A)    rapport  ecart/ideal
+  reseau     ON        en charge         297.3       1042.2     3.5053       -0.23 %
+  reseau     ON        calage           1972.1       6910.4     3.5042       -0.26 %
+  reseau     OFF       en charge         305.2       1057.1     3.4636       -1.42 %
+  reseau     OFF       calage           2059.9       7113.8     3.4534       -1.71 %
+  reference  --        en charge         324.7       1090.6     3.3589       -4.39 %
+  reference  --        calage           1929.4       6529.6     3.3842       -3.68 %
+
+    LECTURE. Le reseau reste a 1.71 % du modele ideal au pire des
+    quatre points ; la reference en est a -4.39 % et -3.68 %, du MEME
+    cote dans les deux conditions. Un ecart de signe constant sur
+    deux essais independants n'est pas du bruit : c'est une
+    CONVENTION. Le modele d'anneau de la reference n'est donc pas
+    le modele geometrique ideal.
+
+  ---- 3. LES QUATRE CELLULES MISES EN CAUSE, RELUES DU MANUSCRIT ----
+    MEC_DtN_paper_v2.tex : table n^o 23 du fichier (label tab:im_tests)
+    bloc                   ligne              reseau         EF ecart publie
+    On load                bar current         298.4      324.7      -8.1 %
+    On load                end-ring current       1046       1091      -4.1 %
+    Locked rotor           bar current          1944       1929       0.7 %
+    Locked rotor           end-ring current       6810       6530       4.3 %
+
+    controle de provenance de la colonne EF (Table 16 vs .tab relus)
+    grandeur                     Table 16    .tab relu      ecart
+    I barre en charge               324.7        324.7      0.00 %
+    I anneau en charge               1091       1090.6      0.03 %
+    I barre calage                   1929       1929.4     -0.02 %
+    I anneau calage                  6530       6529.6      0.01 %
+
+  ---- 4. DECOMPOSITION : ecart_anneau = ecart_barre + ecart_du_rapport ----
+    Identite EXACTE, sans approximation :
+      I_an,res/I_an,ref = (I_ba,res/I_ba,ref) * (k_res/k_ref)
+      donc  1 + e_anneau = (1 + e_barre) * (1 + e_rapport)
+      soit  e_anneau = e_barre + e_rapport + e_barre*e_rapport
+    e_rapport = ecart des DEUX MODELES D'ANNEAU, k_res/k_ref - 1.
+
+    (a) SUR LES VALEURS PUBLIEES DE LA TABLE 16
+    condition        e_barre  e_rapport     somme    croise    e_anneau     publie   residu
+    On load           -8.10 %      4.33 %    -3.77 %    -0.35 %      -4.12 %      -4.1 %   -0.02
+                     k_res = 3.5054   k_ref = 3.3600   (ideal 3.5133)
+    Locked rotor       0.78 %      3.48 %     4.26 %     0.03 %       4.29 %       4.3 %   -0.01
+                     k_res = 3.5031   k_ref = 3.3852   (ideal 3.5133)
+
+    BASCULE entre les deux conditions (calage moins charge) :
+      ligne "bar current"      :   +8.88 points  <-- porte l'inversion
+      terme "ecart de modele"  :   -0.84 points
+      ligne "end-ring current" :   +8.41 points
+      part de la bascule imputable a la barre : 105.5 %
+      le terme d'anneau reste du MEME SIGNE (+4.33 % puis +3.48 %) ;
+      la ligne de barre, elle, change de signe (-8.10 % puis +0.78 %).
+
+    A QUI APPARTIENT e_rapport ?  1 + e_rapport = (1 + d_res)/(1 + d_ref)
+    condition             d_res        d_ref    e_rapport
+    On load              -0.23 %       -4.36 %        4.33 %
+    Locked rotor         -0.29 %       -3.65 %        3.48 %
+    d_res est quasi nul, d_ref ne l'est pas : e_rapport est un ecart
+    de la REFERENCE au modele ideal, non une erreur du reseau.
+
+    (b) SUR LE MODELE RECALCULE CE JOUR (meme identite)
+    condition      vrillage    e_barre  e_rapport     somme    croise    e_anneau
+    On load        ON           -8.43 %      4.36 %    -4.07 %    -0.37 %      -4.44 %
+    Locked rotor   ON            2.21 %      3.54 %     5.75 %     0.08 %       5.83 %
+    On load        OFF          -6.00 %      3.12 %    -2.89 %    -0.19 %      -3.07 %
+    Locked rotor   OFF           6.76 %      2.04 %     8.81 %     0.14 %       8.95 %
+    vrillage ON  : bascule barre +10.64 pts, terme d'anneau  -0.81 pts,
+                 ligne anneau +10.27 pts -> part de la barre 103.6 %
+    vrillage OFF : bascule barre +12.77 pts, terme d'anneau  -1.07 pts,
+                 ligne anneau +12.02 pts -> part de la barre 106.2 %
+    La conclusion ne depend ni du millesime du modele ni du vrillage.
+
+  ---- 5. VERDICT ----
+    Les lignes "end-ring current" de la Table 16 ne mesurent PAS la
+    precision du reseau sur l'anneau. Elles mesurent le produit de
+    deux choses : l'erreur du reseau sur le COURANT DE BARRE, et un
+    ECART DE MODELE D'ANNEAU d'environ +3.9 % que la reference porte
+    seule -- segmentation, resistance de contact, effets 3-D. Le
+    +4.3 % du calage est donc en grande partie une convention de la
+    reference, et non une erreur du reseau. Formulation a retenir :
+    << la reference n'emploie pas le modele d'anneau geometrique
+    ideal ; la ligne anneau ne doit pas etre lue comme une precision >>.
+
+  ---- RESERVES A DECLARER ----
+    R1. Les deux RMS de reference sont des valeurs efficaces de
+        FORMES D'ONDE completes : elles contiennent toutes les
+        harmoniques de temps de l'essai. Le RMS du reseau ne
+        contient que les branches de cage modelisees. La comparaison
+        des rapports reste licite (meme grandeur au numerateur et au
+        denominateur des deux cotes), mais elle n'est pas une
+        comparaison de spectres.
+    R2. Le mecanisme exact de l'anneau de la reference n'est pas
+        identifie ici : le projet EF ne publie pas son modele
+        d'anneau. Seul est etabli qu'il differe du modele
+        geometrique ideal de ~4 %, de facon reproductible.
+    R3. La Table 16 est celle de MEC_DtN_paper_v2.tex. La table
+        correspondante d'ArticleII_Carter_IM.tex a deja supprime les
+        lignes d'anneau ; ce bloc justifie cette suppression et donne
+        la phrase de remplacement.
+
+  ---- 6. ANNEXE : les deux couples EF au calage ----
+    essai                                               T (N.m)
+    transitoire\rotor bloque, moyenne regime etabli     104.309
+    caracteristique T(s) au point s = 1                  98.982
+    couple MEC au calage, vrillage ON                   102.602
+    couple MEC au calage, vrillage OFF                   85.706
+    Deux ESSAIS DIFFERENTS, a ne pas confondre.
+
+  duree 18 s
+=== B6 termine ===

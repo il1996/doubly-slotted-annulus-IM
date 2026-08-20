@@ -1,0 +1,62 @@
+=== A8-0 : les ancres de mec.ansys_ref, mesurees ===
+  reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+
+  ---- I0, courant a vide ----
+    fichier : transitoire\a vide\Winding Plot 4.tab (2001 points)
+    vitesse etablie 1499.942 tr/min  ->  s = 3.871e-05
+    phase A  (col 2) : 8.4886 A
+    phase B  (col 3) : 8.4851 A
+    phase C  (col 4) : 8.5222 A
+    MOYENNE DES TROIS PHASES : 8.4986 A
+    ancre R.anchor.I0        : 8.3200 A  ->  ecart -2.10 %
+    valeur employee par B1   : 8.4900 A  ->  ecart -0.10 %
+
+  ---- Rs, resistance statorique ----
+    ancre R.anchor.Rs        : 0.1010 ohm
+    valeur employee par B1   : 0.4450 ohm (colonne EF de tab:im_ec)
+    valeur du modele ctx.Rs  : 0.4302 ohm
+    L'ancre est plus petite d'un facteur 4.41 que les deux autres.
+    Une resistance de phase de 0.101 ohm sur une machine 690 V /
+    18,5 kW donnerait des pertes Joule statoriques de 118 W a
+    19,73 A, contre 520 W avec 0,4450 ohm. INVRAISEMBLABLE.
+
+  ---- Bg1, fondamental a mi-entrefer ----
+    ancre R.anchor.Bg1       : 1.0100 T
+    valeur employee par B1   : 0.9420 T (colonne EF)
+    ecart entre les deux     : +7.2 %
+    B1 §4 compare son 0,9452 T a 0,942 : +0,3 %. Contre l'ancre
+    ce serait -6.4 %. Les deux ne peuvent pas etre la meme grandeur.
+
+  ---- ancres verifiables sur la caracteristique ----
+    fichier Torque Plot 2.tab : 129 points, s de 0.0050 a 1.0000
+    maximum lu               : 336.55 N.m a s = 0.1750
+    ancre T_break / s_break  : 324.95 N.m a s = 0.1050
+    -> ecart -3.45 % sur le couple, -0.0700 sur le glissement
+
+  ---- dispersion locale, par bande de glissement ----
+      bande en s   points    bruit rms      etendue
+   0.005 - 0.050       10        0.77 %   35.1 -  257.3
+   0.050 - 0.150       18        0.64 %  257.3 -  324.9
+   0.135 - 0.210        8       13.22 %  247.6 -  336.6
+   0.400 - 0.900       65        1.27 %   87.6 -  187.6
+   0.900 - 1.000       21        9.90 %   56.9 -  126.7
+
+    bande s >= 0,90 : 21 points, moyenne 89.22, ecart-type 14.42 N.m (16.2 %)
+    min / max : 56.91 / 126.75 N.m
+
+  ---- VERDICT ----
+    I0  : ancre 8.32 contre 8.4986 mesure  ->  FAUSSE (-2.1 %)
+    Rs  : ancre 0.101 contre 0,4450 employe -> FAUSSE (facteur 4.4)
+    Bg1 : ancre 1.01 contre 0,942 employe  -> FAUSSE (+7.2 %)
+    T_break, s_break : retrouves dans le fichier -> VERIFIEES
+    Xm = 46, Rfe = 1740 : employees par B1, non re-mesurables ici
+
+    CONSEQUENCE. La sous-structure anchor melange des valeurs
+    verifiees et des valeurs fausses. Elle ne doit alimenter AUCUN
+    chiffre des deux articles. Les trois fausses sont marquees dans
+    ansys_ref.m plutot que supprimees : les supprimer casserait les
+    scripts de diagnostic qui les lisent, et la marque est plus
+    instructive que l'absence.
+
+  duree 3 s
+=== A8-0 termine ===

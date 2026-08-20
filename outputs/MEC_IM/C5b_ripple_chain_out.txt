@@ -1,0 +1,82 @@
+=== C5b : ondulation sur la chaine du MAILLAGE ===
+  19 positions sur 2 pas d'encoche | reference EF 105.5 N.m c-c
+
+  vrillage ON (etat publie)  Tmoy  112.638 (schema 115.115,  -2.15 %) | Tpp  126.779 N.m
+  vrillage OFF (voie a)      Tmoy  112.741 (schema 114.751,  -1.75 %) | Tpp  126.811 N.m
+
+  ---- ondulation crete-a-crete ----
+  etat                         Tpp (N.m)    EF (N.m)       ecart
+  vrillage ON (etat publie)      126.779       105.5      20.17 %
+  vrillage OFF (voie a)          126.811       105.5      20.20 %
+
+  effet de la neutralisation : Tpp +0.03 % | Tmoy +0.09 %
+  valeur publiee au manuscrit : 101.4 N.m -- ecart de ce run +25.03 %
+
+  duree 164 s
+=== C5b termine ===
+=== C5b : ondulation sur la chaine du MAILLAGE ===
+  19 positions sur 2 pas d'encoche | reference EF 105.5 N.m c-c
+  glissement DEDUIT de n1 = 1469.772776 tr/min : s = 0.020151
+  operateur : base P1, pavage nT=17 nO=4, N_h = 8192
+
+  vrillage ON (etat publie)  Tmoy  120.859 (schema 122.412,  -1.27 %) | Tpp  132.791 N.m
+  vrillage OFF (voie a)      Tmoy  120.966 (schema 122.026,  -0.87 %) | Tpp  132.810 N.m
+
+  ---- ondulation crete-a-crete ----
+  etat                         Tpp (N.m)    EF (N.m)       ecart
+  vrillage ON (etat publie)      132.791       105.5      25.87 %
+  vrillage OFF (voie a)          132.810       105.5      25.89 %
+
+  effet de la neutralisation : Tpp +0.01 % | Tmoy +0.09 %
+  valeur publiee au manuscrit : 101.4 N.m -- ecart de ce run +30.96 %
+
+  duree 167 s
+=== C5b termine ===
+=== C5b : ondulation sur la chaine du MAILLAGE ===
+  19 positions sur 2 pas d'encoche | reference EF 105.5 N.m c-c
+  glissement DEDUIT de n1 = 1469.772776 tr/min : s = 0.020151
+  operateur : base P1, pavage nT=17 nO=4, N_h = 8192
+
+  vrillage ON (etat publie)  carte BRUTE : Tmoy  120.859 (schema 122.412,  -1.27 %) | Tpp  132.791
+                             APRES dq_startup : Tmoy  123.232 | Tpp  127.659 N.m
+  vrillage OFF (voie a)      carte BRUTE : Tmoy  120.966 (schema 122.026,  -0.87 %) | Tpp  132.810
+                             APRES dq_startup : Tmoy  122.848 | Tpp  127.462 N.m
+
+  ---- ondulation crete-a-crete : LA GRANDEUR COMPARABLE ----
+  (celle du manuscrit, 101.4 N.m, est POST-dq_startup)
+  etat                        carte brute     apres dq    EF (N.m)    ecart/EF
+  vrillage ON (etat publie)       132.791      127.659       105.5      21.00 %
+  vrillage OFF (voie a)           132.810      127.462       105.5      20.82 %
+
+  effet de la neutralisation :
+    sur la carte brute  : +0.015 %
+    APRES dq_startup    : -0.155 %
+  valeur publiee 101.4 N.m -- ecart de ce run (post-dq) +25.90 %
+  facteur d'attenuation par l'inertie : 0.961
+
+  duree 173 s
+=== C5b termine ===
+=== C5b : ondulation sur la chaine du MAILLAGE ===
+  19 positions sur 2 pas d'encoche | reference EF 105.5 N.m c-c
+  glissement DEDUIT de n1 = 1469.772776 tr/min : s = 0.020151
+  operateur : base P1, pavage nT=17 nO=4, N_h = 8192
+
+  vrillage ON (etat publie)  carte BRUTE : Tmoy  120.859 (schema 122.412,  -1.27 %) | Tpp  132.791
+                             APRES dq_startup : Tmoy  122.132 | Tpp  127.511 N.m
+  vrillage OFF (voie a)      carte BRUTE : Tmoy  120.966 (schema 122.026,  -0.87 %) | Tpp  132.810
+                             APRES dq_startup : Tmoy  122.257 | Tpp  128.098 N.m
+
+  ---- ondulation crete-a-crete : LA GRANDEUR COMPARABLE ----
+  (celle du manuscrit, 101.4 N.m, est POST-dq_startup)
+  etat                        carte brute     apres dq    EF (N.m)    ecart/EF
+  vrillage ON (etat publie)       132.791      127.511       105.5      20.88 %
+  vrillage OFF (voie a)           132.810      128.098       105.5      21.44 %
+
+  effet de la neutralisation :
+    sur la carte brute  : +0.015 %
+    APRES dq_startup    : +0.460 %
+  valeur publiee 101.4 N.m -- ecart de ce run (post-dq) +25.75 %
+  facteur d'attenuation par l'inertie : 0.960
+
+  duree 181 s
+=== C5b termine ===

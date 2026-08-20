@@ -1,0 +1,52 @@
+=== M-11c : indicateurs a la position rotor appariee ===
+
+  positions identifiees par M-11b (pas dentaire rotor 8.1818 deg) :
+    a vide    phi = 0.9755 deg mec
+    en charge phi = 1.2360 deg mec
+
+  ================ A VIDE ================
+  recalage -35.8698 deg mec ; residu des deux estimateurs 4.3e-05 rad
+  RMSE B_r  0.27246 T (37.8 % de la valeur efficace EF 0.7207)
+  RMSE B_t  0.15195 T (118.5 % de 0.1282)
+  erreur ponctuelle max  0.97892 T (66.7 % de la crete)
+  M-11b annoncait 0.27505 T par interpolation parabolique -> ecart 2.6e-03
+  les deux valeurs de champ du sec. 5.8, ICI et a phi = 0 :
+    Bg1        0.9436 (apparie,  +0.2 % / EF 0.942) contre   0.9452 a phi=0 ( +0.3 %)
+    Bt rms     0.1152 (apparie, -10.0 % / EF 0.128) contre   0.1201 a phi=0 ( -6.2 %)
+  energie d'erreur : MSE 7.42337e-02, reconstruite a 3.7e-16 relatif
+    fondamental              0.0 % de la MSE (1 ordres)
+    denture stator seule    40.7 % de la MSE (18 ordres)
+    denture rotor seule     42.4 % de la MSE (20 ordres)
+    commune aux deux         6.3 % de la MSE (2 ordres)
+    reste du spectre        10.6 % de la MSE (459 ordres)
+    ouverture stator       rms 0.2506 |  16.2 % de la MSE sur 192 points
+    face de dent stator    rms 0.2774 |  83.8 % de la MSE sur 808 points
+    ouverture rotor        rms 0.2599 |  15.7 % de la MSE sur 172 points
+    face de dent rotor     rms 0.2750 |  84.3 % de la MSE sur 828 points
+
+  ================ EN CHARGE ================
+  recalage +112.4791 deg mec ; residu des deux estimateurs 7.6e-05 rad
+  RMSE B_r  0.56061 T (75.2 % de la valeur efficace EF 0.7457)
+  RMSE B_t  0.20026 T (153.0 % de 0.1309)
+  erreur ponctuelle max  1.96141 T (101.3 % de la crete)
+  M-11b annoncait 0.56086 T par interpolation parabolique -> ecart 2.4e-04
+  les deux valeurs de champ du sec. 5.8, ICI et a phi = 0 :
+    Bg1        0.8836 (apparie,  -4.0 % / EF 0.920) contre   0.8983 a phi=0 ( -2.4 %)
+    Bt rms     0.1472 (apparie, +12.4 % / EF 0.131) contre   0.1188 a phi=0 ( -9.3 %)
+  energie d'erreur : MSE 3.14288e-01, reconstruite a 3.5e-16 relatif
+    fondamental              0.2 % de la MSE (1 ordres)
+    denture stator seule    34.7 % de la MSE (18 ordres)
+    denture rotor seule     35.4 % de la MSE (20 ordres)
+    commune aux deux        15.4 % de la MSE (2 ordres)
+    reste du spectre        14.3 % de la MSE (459 ordres)
+    ouverture stator       rms 0.6690 |  27.3 % de la MSE sur 192 points
+    face de dent stator    rms 0.5316 |  72.7 % de la MSE sur 808 points
+    ouverture rotor        rms 0.5920 |  19.2 % de la MSE sur 172 points
+    face de dent rotor     rms 0.5539 |  80.8 % de la MSE sur 828 points
+
+  ---- GARDES ----
+    1 (accord avec l'estimation de M-11b)  PASSEE
+    2 (recalage sans ambiguite)             PASSEE
+    3 (Parseval)                            PASSEE
+  duree 19 s
+=== M-11c termine ===

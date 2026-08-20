@@ -1,0 +1,61 @@
+=== B10 : chaine MAS complete, vrillage harmonique NEUTRALISE ===
+  pavage nT=17 nO=4 | N_h = 8192 | base P1 | skew_harm = 0
+  operateur 92x92 | X_m0 = 61.015 ohm
+  references EF : famille TRANSITOIRE
+
+  ---- 1. SCHEMA EQUIVALENT (point nominal s = 0.0188) ----
+  parametre                   P1 skew=0           EF
+  Rs [ohm]                       0.4302       0.4450
+  Rr' [ohm]                      0.4234          NaN
+  Xsigma_s [ohm]                 0.8673           --   (source : Lk.Xs_slot)
+  Xsigma_r [ohm]                 0.7325           --   (source : r.Xr)
+  Xm sature [ohm]               41.1288      46.0000
+  Rfe [ohm]                   1787.1826    1740.0000
+  X_m NON sature : 61.015 ohm
+  (Rr' et Xr sont identiques a la configuration de production :
+   cage.m:61 donne asq = asq1 au fondamental dans les deux cas)
+
+  ---- 2. POINT NOMINAL ----
+  grandeur                    P1 skew=0           EF      ecart
+  couple [N.m]                 114.3145     121.6300     -6.01 %
+  courant I1 [A]                19.1056      19.7300     -3.16 %
+  cos(phi)                       0.8203       0.8640     -5.05 %
+  pertes fer [W]               227.5667     232.6000     -2.16 %
+  rendement                      0.9153       0.9160    -0.07 pp
+  pertes Joule rotor [W]       413.8551   (dont harmoniques 74.8551)
+
+  ---- 3. A VIDE ----
+    I magnetisant [A]           10.3233       8.4900     21.59 %
+    f.e.m. entrefer [V]        375.0732     382.1000     -1.84 %
+    pertes fer [W]             235.8167     249.3000     -5.41 %
+
+  ---- 4. ROTOR BLOQUE (diagnostic, NON publie en tableau) ----
+    couple [N.m]                85.7058     104.3100    -17.84 %
+    I1 [A]                     110.9194     108.2100      2.50 %
+    I barre [A]               1991.7116    1929.0000      3.25 %
+  pertes Joule rotor [W]     17919.4014   (dont harmoniques 1072.0568)
+  RAPPEL : a s = 1 tous les glissements harmoniques valent 1 et
+  la cage harmonique gouverne le resultat. Ce point est traite en
+  section 5.6 de l'Article II, hors du tableau de comparaison.
+
+  ---- 5. CHAMPS A MI-ENTREFER ----
+  Bg1 a vide [T]                 0.9455       0.9420      0.37 %
+  Bt rms a vide [T]              0.1202       0.1280     -6.09 %
+  Bg1 en charge [T]              0.8988       0.9200     -2.30 %
+  Bt rms en charge [T]           0.1189       0.1310     -9.23 %
+
+  ---- 6. CARACTERISTIQUE (30 glissements) ----
+  bilan de puissance : 1.34e-05 sur 30 glissements
+  decrochage : 344.7 N.m a s = 0.110
+  (reference : 324.9 N.m a s = 0.105, bande LISSE du balayage --
+   rugosite locale 0.26 % pour s <= 0.05, 0.64 % pour s <= 0.15)
+       s    T [N.m]     I1 [A]
+   0.005      31.36      11.08
+   0.020     121.10      20.00
+   0.050     263.31      41.93
+   0.100     343.77      68.31
+   0.120     343.07      75.33
+   1.000      85.70     110.92
+
+  duree 60 s
+=== B10 termine ===

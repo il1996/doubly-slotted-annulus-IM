@@ -1,0 +1,54 @@
+=== M-10 : decomposition du couple au calage ===
+
+  CONFIGURATION
+    machine  : MAS 48/44, 18,5 kW
+    pavage   : n_T = 17, n_O = 4 | N_h = 8192 | base chapeau
+    point    : s = 1 (rotor bloque)
+    reglages : vrillage harmonique ACTIF puis NEUTRALISE
+  vrillage ACTIF : fait
+  vrillage NEUTRALISE : fait
+
+  ---- GARDE : somme des contributions = couple total ? ----
+    vrillage ACTIF         Tem =   102.602253 | Tem1 + sum(T_h) =   102.602253 | ecart 0.00e+00
+    vrillage NEUTRALISE    Tem =    85.705826 | Tem1 + sum(T_h) =    85.705826 | ecart 0.00e+00
+    GARDE PASSEE
+
+  ---- OU PASSE LE CHANGEMENT DE COUPLE ----
+                                              ACTIF     NEUTRALISE  variation
+  couple total (N.m)                       102.6023        85.7058   -16.8964
+    dont FONDAMENTAL                       104.5803       107.2535     2.6732
+    dont HARMONIQUES                        -1.9780       -21.5477   -19.5697
+
+  part du changement portee par le fondamental :  -15.8 %
+  part du changement portee par les harmoniques :  115.8 %
+
+  LECTURE. Le sec. 5.7 attribuait le changement au couple parasite
+  des ordres 23 et 25. La decomposition dit que les HARMONIQUES le portent.
+
+  ---- COUPLE PARASITE ORDRE PAR ORDRE (N.m) ----
+      nu            ACTIF       NEUTRALISE      variation
+       5        -1.121855        -1.053725       0.068130
+       7         0.682672         0.635781      -0.046891
+      11        -3.500603        -4.278110      -0.777508
+      13         2.061638         3.464745       1.403107
+      17        -0.051512        -0.247575      -0.196063
+      19         0.031369         0.339115       0.307747
+      23        -0.186910       -73.941981     -73.755070
+      25         0.114338        54.836447      54.722110
+      29        -0.003851        -0.123301      -0.119450
+      31         0.002752         0.061001       0.058249
+      35        -0.020899        -0.393879      -0.372980
+      37         0.015864         0.339013       0.323149
+      41        -0.000691        -0.028949      -0.028258
+      43         0.000587         0.046765       0.046178
+      47        -0.004871       -10.154829     -10.149958
+      49         0.003926         8.951780       8.947855
+   somme        -1.978046       -21.547700     -19.569654
+
+  ---- PERTES JOULE ROTOR AU CALAGE ----
+  total (W)                            16555.86       17919.40
+    dont harmoniques (W)                 128.42        1072.06
+  part harmonique                          0.8 %           6.0 %
+
+  duree 6 s
+=== M-10 termine ===

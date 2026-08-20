@@ -1,0 +1,34 @@
+=== A-1 : ondulation sous changement de base ===
+  MEME chaine (mesh_refined + gapF.torque), seule la base varie
+  19 positions sur 2 pas d'encoche | s = 0.020151
+  charge MESUREE, fenetre t >= 1.90 (RUN_ARTICLE:354)
+  reference EF CALCULEE de Plot 1.tab : 105.4865 N.m c-c
+
+  base P0 (defaut publie)        X_m0  64.781 | carte  132.805 | post-dq  127.994 | B_t  0.1138
+  base P1 (nT=17 nO=4 Nh=8192)   X_m0  61.015 | carte  132.791 | post-dq  127.511 | B_t  0.1227
+
+  ---- ondulation : carte BRUTE et grandeur TRANSITOIRE ----
+  base                           carte (N.m)     post-dq       vs EF attenuation
+  base P0 (defaut publie)            132.805     127.994      21.34 %      0.9638
+  base P1 (nT=17 nO=4 Nh=8192)       132.791     127.511      20.88 %      0.9602
+
+  effet du changement de base P0 -> P1 :
+    sur la carte brute :   -0.01 %
+    sur le post-dq     :   -0.38 %
+
+  ---- GARDE : B_t et ondulation sont-elles de meme nature ? ----
+  grandeur                                P0          P1   evolution
+  B_t rms (T)                         0.1138      0.1227       7.79 %
+  ecart de B_t a l'EF (%)             -13.13       -6.36       6.77 %
+  ecart d'ondulation a l'EF (%)        21.34       20.88      -0.46 %
+  X_m0 (ohm)                          64.781      61.015      -5.81 %
+  couple du schema (N.m)             122.898     122.412      -0.40 %
+
+  LECTURE. Si l'ondulation suit le COUPLE (donc les courants) et
+  non B_t, elle n'est pas une grandeur de gradient du potentiel de
+  surface : elle est proportionnelle a l'excitation. Sa degradation
+  sous P1 serait alors le report de la hausse de X_m0 sur les
+  courants, non un defaut de la base sur les gradients.
+
+  duree 497 s
+=== A-1 termine ===

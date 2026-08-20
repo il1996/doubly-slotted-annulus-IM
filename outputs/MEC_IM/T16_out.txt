@@ -1,0 +1,23 @@
+=== T16 : base de surface P0 vs P1 ===
+  face/ouverture stator : 0.1065 / 0.0244 rad  (rapport 4.36)
+  pavage nT=17 nO=4 -> colonnes 0.00626 (face) / 0.00611 (ouv.) rad
+  non-uniformite residuelle : 2.5 %
+
+      N_h |      Xm P0     k_C P0 |      Xm P1     k_C P1
+      512 |     61.900     1.3233 |     60.639     1.3402
+     1024 |     63.094     1.2988 |     60.954     1.3333
+     2048 |     64.038     1.2801 |     60.998     1.3323
+     4096 |     64.863     1.2642 |     61.011     1.3321
+     8192 |     65.607     1.2503 |     61.015     1.3320
+
+  dispersion de k_C : P0 5.68 %  ->  P1 0.62 %
+  Carter classique  : 1.2665
+
+  increments de Xm entre doublements de Nh [ohm]
+          Nh         P0         P1
+        1024     1.1935     0.3155
+        2048     0.9444     0.0436
+        4096     0.8252     0.0130
+        8192     0.7443     0.0040
+
+=== T16 termine ===

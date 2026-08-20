@@ -1,0 +1,70 @@
+=== B1 : chaine MAS complete en base P1 ===
+  pavage nT=17 nO=4 | N_h = 8192 | base P1
+  operateur 92x92 | X_m0 = 61.015 ohm
+
+  ---- 1. SCHEMA EQUIVALENT (point nominal s = 0.0188) ----
+  parametre                        P1           EF
+  Rs [ohm]                     0.4302       0.4450
+  Rr' [ohm]                    0.4234       0.4400
+{Unrecognized field name "Xs".
+
+Error in RUN_B1_IM_P1 (line 31)
+pr('Xsigma_s [ohm]',ctx.Lk.Xs,NaN);
+} 
+=== B1 : chaine MAS complete en base P1 ===
+  pavage nT=17 nO=4 | N_h = 8192 | base P1
+  operateur 92x92 | X_m0 = 61.015 ohm
+
+  ---- 1. SCHEMA EQUIVALENT (point nominal s = 0.0188) ----
+  parametre                        P1           EF
+  Rs [ohm]                     0.4302       0.4450
+  Rr' [ohm]                    0.4234       0.4400
+  Xsigma_s [ohm]               0.8673           --   (source : Lk.Xs_slot)
+  Xsigma_r [ohm]               0.7325           --   (source : r.Xr)
+  (les EF ne separent pas les deux fuites : pas de colonne EF)
+  Xm sature [ohm]             41.2493      46.0000
+  Rfe [ohm]                 1787.1505    1740.0000
+  X_m NON sature : 61.015 ohm
+
+  ---- 2. POINT NOMINAL ----
+  grandeur                         P1           EF      ecart
+  couple [N.m]               114.6555     121.5300      -5.7 %
+  courant I1 [A]              19.0842      19.7000      -3.1 %
+  rendement                    0.9190       0.9160       0.3 %
+  cos(phi)                     0.8205       0.8640      -5.0 %
+  pertes fer [W]             227.3691     232.6000      -2.2 %
+
+  ---- 3. TROIS CONDITIONS ----
+  EN CHARGE (s = 0.0188)
+    couple [N.m]             114.6555     121.6300      -5.7 %
+    I1 [A]                    19.0842      19.7300      -3.3 %
+    I barre [A]              296.6144     324.7000      -8.6 %
+    pertes fer [W]           227.3691     232.6000      -2.2 %
+  A VIDE
+    I magnetisant [A]         10.2962       8.4900      21.3 %
+    f.e.m. entrefer [V]      374.9531     382.1000      -1.9 %
+    pertes fer [W]           235.6692     249.3000      -5.5 %
+  ROTOR BLOQUE (s = 1)
+    couple [N.m]             102.6023     104.3100      -1.6 %
+    I1 [A]                   109.5298     108.2100       1.2 %
+    I barre [A]             1966.7339    1929.0000       2.0 %
+
+  ---- 4. CHAMPS A MI-ENTREFER ----
+  Bg1 a vide [T]               0.9452       0.9420       0.3 %
+  Bt rms a vide [T]            0.1201       0.1280      -6.1 %
+  Bg1 en charge [T]            0.8983       0.9200      -2.4 %
+  Bt rms en charge [T]         0.1188       0.1310      -9.3 %
+
+  ---- 5. CARACTERISTIQUE (30 glissements) ----
+  bilan de puissance B6 : 1.34e-05 sur 30 glissements
+  decrochage : 362.1 N.m a s = 0.115  (EF 324.9 a s = 0.105)
+       s    T [N.m]     I1 [A]
+   0.005      31.46      11.06
+   0.020     121.48      19.97
+   0.050     266.24      41.84
+   0.100     358.34      67.64
+   0.120     362.05      74.42
+   1.000     102.60     109.53
+
+  duree 60 s
+=== B1 termine ===

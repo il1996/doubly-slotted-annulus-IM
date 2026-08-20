@@ -1,0 +1,68 @@
+=== M-11b : position rotor du cliche EF, identifiee ===
+
+  CONFIGURATION
+    chaine    : RUN_B1_IM_P1 sec. 4, operateur reconstruit a chaque phi
+    operateur : airgap_dtn_tooth(phi, nT=17, nO=4, N_h=8192, base p1)
+    balayage  : 23 positions sur un pas dentaire rotor (8.1818 deg mec)
+    reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+
+       k  phi (deg)    RMSE vide  RMSE charge |     Bg1 vide   Bg1 charge
+       1     0.0000      0.40554      0.67485 |      0.94519      0.89828
+       2     0.3719      0.33255      0.61439 |      0.94499      0.89528
+       3     0.7438      0.28366      0.58805 |      0.94431      0.89181
+       4     1.1157      0.27820      0.56248 |      0.94323      0.88568
+       5     1.4876      0.31713      0.56797 |      0.94186      0.87976
+       6     1.8595      0.38391      0.59236 |      0.94051      0.87162
+       7     2.2314      0.43665      0.63296 |      0.93912      0.86499
+       8     2.6033      0.45014      0.67590 |      0.93795      0.85756
+       9     2.9752      0.43902      0.71463 |      0.93680      0.85382
+      10     3.3471      0.42944      0.72252 |      0.93597      0.85192
+      11     3.7190      0.43757      0.72239 |      0.93544      0.85449
+      12     4.0909      0.45051      0.72038 |      0.93522      0.85846
+      13     4.4628      0.48322      0.70205 |      0.93544      0.86392
+      14     4.8347      0.51153      0.68311 |      0.93597      0.86925
+      15     5.2066      0.55046      0.65215 |      0.93680      0.87413
+      16     5.5785      0.58401      0.62576 |      0.93795      0.87892
+      17     5.9504      0.61366      0.71371 |      0.93912      0.88412
+      18     6.3223      0.63404      0.83187 |      0.94051      0.88868
+      19     6.6942      0.63165      0.87683 |      0.94186      0.89276
+      20     7.0661      0.60390      0.86673 |      0.94323      0.89567
+      21     7.4380      0.55382      0.81436 |      0.94431      0.89802
+      22     7.8099      0.48532      0.74109 |      0.94499      0.89889
+      23     8.1818      0.40554      0.67485 |      0.94519      0.89827
+
+  balayage termine (210 s)
+
+  ---- GARDE 1 : chaine identique a phi = 0 ----
+    champs   : ecart max 3.0e-05 sur les quatre valeurs de B1
+    RMSE     : ecart max 4.7e-05 sur les deux valeurs de M-11 v2
+    GARDE 1 PASSEE
+
+  ---- GARDE 2 : periodicite ----
+    RMSE(2*pi/Nr) - RMSE(0) : 3.66e-06 T
+    GARDE 2 ECHOUEE -- la parametrisation du balayage est fausse
+
+  ---- IDENTIFICATION DE LA POSITION ----
+    a vide     minimum en phi =  0.9755 deg mec  (pas rotor 8.1818)
+               RMSE : 0.40554 T a phi=0  ->  0.27505 T apres appariement (-32.2 %)
+               second minimum local plus haut de 54.4 % 
+    en charge  minimum en phi =  1.2360 deg mec  (pas rotor 8.1818)
+               RMSE : 0.67485 T a phi=0  ->  0.56086 T apres appariement (-16.9 %)
+               second minimum local plus haut de 11.3 % 
+    GARDE 3 PASSEE -- le minimum est isole
+
+  ---- CE QUE L'APPARIEMENT CHANGE ----
+  grandeur          a phi = 0        apparie  variation
+  RMSE a vide         0.40554        0.27505     -32.2 %
+  RMSE en charge        0.67485        0.56086     -16.9 %
+
+  Les quatre valeurs de champ du sec. 5.8, elles, ne dependent
+  presque pas de phi -- ce sont des grandeurs integrales :
+    Bg1 a vide          0.94519 a phi=0 | dispersion sur le pas : 1.06 %
+    Bt rms vide         0.12013 a phi=0 | dispersion sur le pas : 35.76 %
+    Bg1 charge          0.89828 a phi=0 | dispersion sur le pas : 5.35 %
+    Bt rms charge       0.11880 a phi=0 | dispersion sur le pas : 44.04 %
+
+  GARDES : 1 OK | 2 KO | 3 OK
+  duree 210 s
+=== M-11b termine ===

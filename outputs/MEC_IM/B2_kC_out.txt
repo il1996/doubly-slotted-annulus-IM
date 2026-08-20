@@ -1,0 +1,39 @@
+=== B2 : k_C(N_h), bases P0 et P1 ===
+  MAS 48/44 18,5 kW | X_g = 2.9719e-03 | 1/X_g = 336.5
+  pavage FIXE nT=17 nO=4 | Carter classique = 1.2665
+
+     N_h | Xm lisse P0  Xm dent P0    k_C P0 | Xm lisse P1  Xm dent P1    k_C P1
+     512 |      81.912      61.900    1.3233 |      81.270      60.639    1.3402
+    1024 |      81.944      63.094    1.2988 |      81.270      60.954    1.3333
+    2048 |      81.973      64.038    1.2801 |      81.270      60.998    1.3323
+    4096 |      82.003      64.863    1.2642 |      81.270      61.011    1.3321
+    8192 |      82.032      65.607    1.2503 |      81.270      61.015    1.3320
+
+  --- derive de chaque colonne sur le balayage ---
+  X_m LISSE  P0       81.912 ->    82.032     +0.15 %
+  X_m ENCOCHE P0      61.900 ->    65.607     +5.99 %
+  k_C P0               1.323 ->     1.250     -5.51 %
+  X_m LISSE  P1       81.270 ->    81.270     +0.00 %
+  X_m ENCOCHE P1      60.639 ->    61.015     +0.62 %
+  k_C P1               1.340 ->     1.332     -0.62 %
+
+  EN P0 : le numerateur (lisse) ne bouge pas, le denominateur
+  (encoche) derive. Le rapport k_C herite INTEGRALEMENT de la
+  derive du denominateur. L'argument de compensation de la §6.4
+  est donc FAUX, et ce tableau le montre en deux colonnes.
+
+  --- increments de X_m encoche entre doublements, et rapports ---
+       N_h           dP0    rap.P0           dP1    rap.P1
+      1024        1.1935     0.791        0.3155     0.138
+      2048        0.9444     0.874        0.0436     0.298
+      4096        0.8252     0.902        0.0130     0.304
+      8192        0.7443       NaN        0.0040       NaN
+  Rapports P0 -> 1 : queue LOGARITHMIQUE (T17 le demontre en
+  forme fermee). Rapports P1 ~0,3 : convergence geometrique.
+
+  dispersion de k_C : P0 5.68 %  ->  P1 0.62 %
+  valeur convergee P1 : k_C = 1.3320  (Carter 1.2665, ecart +5.2 %)
+  X_m encoche convergee P1 : 61.015 ohm
+
+  duree 9 s
+=== B2 termine ===

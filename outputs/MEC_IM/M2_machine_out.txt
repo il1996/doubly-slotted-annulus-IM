@@ -1,0 +1,119 @@
+=== M-2 : donnees de la machine asynchrone 18,5 kW ===
+
+  Toutes les valeurs sont lues de mec.machine_18_5kW / mec.geometry /
+  mec.winding. Aucune n'est transcrite.
+
+  ---- 1. VALEURS NOMINALES ----
+  puissance utile nominale P_n                        18.5000 kW
+  tension composee U_ll                              690.0000 V
+  couplage                                                  Y 
+  frequence f                                         50.0000 Hz
+  phases m                                                  3
+  paires de poles p                                         2
+  vitesse synchrone                                 1500.0000 tr/min
+
+  ---- 2. GEOMETRIE PRINCIPALE ----
+  longueur active L                                  164.7824 mm
+  entrefer mecanique g                                 0.2430 mm
+  alesage statorique D_s                             163.7775 mm
+  diametre exterieur stator D_so                     266.5506 mm
+  diametre exterieur rotor D_r                       163.2915 mm
+  diametre d'arbre D_sh                               74.2665 mm
+  coefficient de foisonnement k_Fe                     0.9700 -
+  encoches statoriques N_s                                 48
+  barres rotoriques N_r                                    44
+  pas d'encoche stator tau_s                          10.7192 mm
+  pas d'encoche rotor tau_r                           11.6590 mm
+  culasse stator h_ys                                 20.8382 mm
+  culasse rotor h_yr                                  22.8015 mm
+
+  ---- 3. ENCOCHE STATORIQUE (trapezoidale semi-fermee) ----
+  ouverture b_s0                                       2.0000 mm
+  largeur cote entrefer b_s1                           5.2360 mm
+  largeur cote fond b_s2                               8.4724 mm
+  hauteur d'isthme h_s0                                0.5000 mm
+  hauteur de biseau h_s1                               2.5000 mm
+  hauteur droite h_s2                                 24.7242 mm
+  section d'encoche                                  199.0136 mm2
+
+  ---- 4. ENCOCHE ROTORIQUE (a epaulement, deux cercles) ----
+  ouverture b_r0                                       2.0000 mm
+  diametre cercle superieur b_r1                       5.8043 mm
+  diametre cercle inferieur b_r2                       2.0382 mm
+  hauteur d'isthme h_r0                                1.0000 mm
+  entraxe des cercles h_r1                            16.7898 mm
+  section de barre                                    80.6984 mm2
+  section d'anneau                                   565.1160 mm2
+  diametre moyen d'anneau                            141.5805 mm
+
+  ---- 5. BOBINAGE ----
+  conducteurs par cote de bobine N_tc                      18
+  couches                                                   2
+  voies paralleles a                                        2
+  pas de bobinage y_q [pas d'encoche]                      10
+  facteur de bobinage fondamental k_w1                 0.9250 -
+  spires en serie par phase N_ph                          144
+
+  ---- 6. MATERIAUX ----
+  tole                                               M800-50A 
+  epaisseur de tole                                    0.5000 mm
+  masse volumique tole                              7700.0000 kg/m3
+  conductivite tole                                    1.0300 MS/m
+  Bertotti k_h                                         0.0430 W/kg/(T^2 Hz)
+  Bertotti k_c                                         4.3000 e-4 W/kg/(T Hz)^2
+  Bertotti k_e                                         1.2000 e-3 W/kg/(T Hz)^1.5
+  cuivre sigma_20                                     57.0000 MS/m
+  cuivre alpha                                         3.8100 e-3 /K
+  echauffement bobinage                               80.0000 K
+  aluminium sigma_20                                  37.0000 MS/m
+  aluminium alpha                                      3.7000 e-3 /K
+  echauffement cage                                   80.0000 K
+  inertie J                                            0.1700 kg.m2
+
+
+  ---- 7. LIGNES LaTeX ----
+
+\multicolumn{3}{@{}l}{\emph{Ratings}}\\
+Rated output $P_{\mathrm{n}}$              & \num{18.5} & \si{\kilo\watt}\\
+Line voltage $U_{\ell\ell}$, star          & \num{690} & \si{\volt}\\
+Supply frequency $f$                       & \num{50} & \si{\hertz}\\
+Pole pairs $p$ / phases $m$                & \num{2} / \num{3} & ---\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Geometry}}\\
+Active length $L$                          & \num{164.7824} & \si{\milli\metre}\\
+Mechanical gap $g$                         & \num{0.243} & \si{\milli\metre}\\
+Stator bore $D_{\mathrm{s}}$               & \num{163.7775} & \si{\milli\metre}\\
+Stator outer diameter $D_{\mathrm{so}}$    & \num{266.5506} & \si{\milli\metre}\\
+Rotor outer diameter $D_{\mathrm{r}}$      & \num{163.2915} & \si{\milli\metre}\\
+Shaft diameter $D_{\mathrm{sh}}$           & \num{74.2665} & \si{\milli\metre}\\
+Stacking factor $k_{\mathrm{Fe}}$          & \num{0.97} & ---\\
+Stator slots $N_{\mathrm{s}}$ / rotor bars $N_{\mathrm{r}}$ & \num{48} / \num{44} & ---\\
+Slot pitch $\tau_{\mathrm{s}}$ / $\tau_{\mathrm{r}}$ & \num{10.7192} / \num{11.6590} & \si{\milli\metre}\\
+Stator / rotor yoke depth                  & \num{20.838} / \num{22.801} & \si{\milli\metre}\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Stator slot, semi-closed trapezoidal}}\\
+Opening $b_{\mathrm{s}0}$                  & \num{2.000} & \si{\milli\metre}\\
+Width at gap / at bottom $b_{\mathrm{s}1}$, $b_{\mathrm{s}2}$ & \num{5.2360} / \num{8.4724} & \si{\milli\metre}\\
+Heights $h_{\mathrm{s}0}$, $h_{\mathrm{s}1}$, $h_{\mathrm{s}2}$ & \num{0.50} / \num{2.50} / \num{24.7242} & \si{\milli\metre}\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Rotor slot, shouldered}}\\
+Opening $b_{\mathrm{r}0}$                  & \num{2.000} & \si{\milli\metre}\\
+Upper / lower circle $b_{\mathrm{r}1}$, $b_{\mathrm{r}2}$ & \num{5.8043} / \num{2.0382} & \si{\milli\metre}\\
+Isthmus height / circle spacing            & \num{1.00} / \num{16.7898} & \si{\milli\metre}\\
+Bar / end-ring section                     & \num{80.70} / \num{565.12} & \si{\milli\metre\squared}\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Winding}}\\
+Conductors per coil side $N_{\mathrm{tc}}$ & \num{18} & ---\\
+Layers / parallel paths                    & \num{2} / \num{2} & ---\\
+Coil pitch $y_q$ (full pitch \num{12})     & \num{10} & slots\\
+Fundamental winding factor $k_{w1}$        & \num{0.9250} & ---\\
+Series turns per phase $N_{\mathrm{ph}}$   & \num{144} & ---\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Materials}}\\
+Lamination                                 &  M800-50A, \num{0.50}\,\si{\milli\metre} & ---\\
+Bertotti $k_h$ / $k_c$ / $k_e$             & \num{0.043} / \num{4.3e-04} / \num{1.2e-03} & ---\\
+Copper $\sigma_{20}$, $\alpha$, $\Delta\theta$ & \num{57}\,\si{\mega\siemens\per\metre}, \num{3.81e-03}, \num{80}\,\si{\kelvin} & ---\\
+Aluminium $\sigma_{20}$, $\alpha$, $\Delta\theta$ & \num{37}\,\si{\mega\siemens\per\metre}, \num{3.70e-03}, \num{80}\,\si{\kelvin} & ---\\
+Rotor inertia $J$                          & \num{0.170} & \si{\kilogram\metre\squared}\\
+
+=== M-2 termine ===

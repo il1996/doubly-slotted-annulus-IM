@@ -1,0 +1,95 @@
+=== C5 : ondulation, vrillage MEC neutralise ===
+  base P1 | nT=17 nO=4 N_h=8192 | s = 0.0188
+  19 positions sur DEUX pas d'encoche statoriques
+  reference EF : 105.5 N.m c-c (section droite, NON vrillee)
+
+  vrillage ON (etat publie)  Tmoy   116.638 | Tpp   159.363 N.m | X_m0 61.015
+  vrillage OFF (voie a)      Tmoy   116.730 | Tpp   159.587 N.m | X_m0 61.015
+
+  ---- ondulation crete-a-crete ----
+  etat                          Tpp (N.m)     EF (N.m)       ecart
+  vrillage ON (etat publie)       159.363        105.5      51.06 %
+  vrillage OFF (voie a)           159.587        105.5      51.27 %
+
+  effet de la neutralisation : Tpp +0.14 % | Tmoy +0.08 %
+  courant rotorique I2 : 16.3296 -> 16.3368 A (+0.04 %)
+
+  LECTURE. La reference est une SECTION DROITE. Seule la ligne
+  "vrillage OFF" la compare a un modele dans le MEME etat. La
+  ligne "ON" est conservee pour montrer ce que valait l'accord
+  publie -- elle ne doit pas etre citee comme validation.
+
+  duree 72 s
+=== C5 termine ===
+=== C5 : ondulation, vrillage MEC neutralise ===
+  base P1 | nT=17 nO=4 N_h=8192 | s = 0.0188
+  19 positions sur DEUX pas d'encoche statoriques
+  reference EF : 105.5 N.m c-c (section droite, NON vrillee)
+
+  [16 harmoniques de cage retenus sur 16]
+  vrillage ON (etat publie)  Tmoy   -38.922 | Tpp    99.686 N.m | X_m0 61.015
+  vrillage OFF (voie a)      Tmoy   -41.356 | Tpp   139.872 N.m | X_m0 61.015
+
+  ---- ondulation crete-a-crete ----
+  etat                          Tpp (N.m)     EF (N.m)       ecart
+  vrillage ON (etat publie)        99.686        105.5      -5.51 %
+  vrillage OFF (voie a)           139.872        105.5      32.58 %
+
+  effet de la neutralisation : Tpp +40.31 % | Tmoy +6.25 %
+  courant rotorique I2 : 16.3296 -> 16.3368 A (+0.04 %)
+
+  LECTURE. La reference est une SECTION DROITE. Seule la ligne
+  "vrillage OFF" la compare a un modele dans le MEME etat. La
+  ligne "ON" est conservee pour montrer ce que valait l'accord
+  publie -- elle ne doit pas etre citee comme validation.
+
+  duree 72 s
+=== C5 termine ===
+=== C5 : ondulation, vrillage MEC neutralise ===
+  base P1 | nT=17 nO=4 N_h=8192 | s = 0.0188
+  19 positions sur DEUX pas d'encoche statoriques
+  reference EF : 105.5 N.m c-c (section droite, NON vrillee)
+
+  [16 harmoniques de cage retenus sur 16]
+  vrillage ON (etat publie)  Tmoy   -39.052 (schema 114.655, -134.06 %) | Tpp    96.318 N.m
+  vrillage OFF (voie a)      Tmoy   -38.914 (schema 114.314, -134.04 %) | Tpp   120.581 N.m
+
+  ---- ondulation crete-a-crete ----
+  etat                          Tpp (N.m)     EF (N.m)       ecart
+  vrillage ON (etat publie)        96.318        105.5      -8.70 %
+  vrillage OFF (voie a)           120.581        105.5      14.29 %
+
+  effet de la neutralisation : Tpp +25.19 % | Tmoy -0.35 %
+  courant rotorique I2 : 16.3296 -> 16.3368 A (+0.04 %)
+
+  LECTURE. La reference est une SECTION DROITE. Seule la ligne
+  "vrillage OFF" la compare a un modele dans le MEME etat. La
+  ligne "ON" est conservee pour montrer ce que valait l'accord
+  publie -- elle ne doit pas etre citee comme validation.
+
+  duree 73 s
+=== C5 termine ===
+=== C5 : ondulation, vrillage MEC neutralise ===
+  base P1 | nT=17 nO=4 N_h=8192 | s = 0.0188
+  19 positions sur DEUX pas d'encoche statoriques
+  reference EF : 105.5 N.m c-c (section droite, NON vrillee)
+
+  [16 harmoniques de cage retenus sur 16]
+  vrillage ON (etat publie)  Tmoy   116.715 (schema 114.655,  +1.80 %) | Tpp   158.156 N.m
+  vrillage OFF (voie a)      Tmoy   130.402 (schema 114.314, +14.07 %) | Tpp   146.177 N.m
+
+  ---- ondulation crete-a-crete ----
+  etat                          Tpp (N.m)     EF (N.m)       ecart
+  vrillage ON (etat publie)       158.156        105.5      49.91 %
+  vrillage OFF (voie a)           146.177        105.5      38.56 %
+
+  effet de la neutralisation : Tpp -7.57 % | Tmoy +11.73 %
+  courant rotorique I2 : 16.3296 -> 16.3368 A (+0.04 %)
+
+  LECTURE. La reference est une SECTION DROITE. Seule la ligne
+  "vrillage OFF" la compare a un modele dans le MEME etat. La
+  ligne "ON" est conservee pour montrer ce que valait l'accord
+  publie -- elle ne doit pas etre citee comme validation.
+
+  duree 74 s
+=== C5 termine ===

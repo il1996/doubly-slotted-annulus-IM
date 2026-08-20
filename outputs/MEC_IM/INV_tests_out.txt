@@ -1,0 +1,69 @@
+=== INVARIANTS : tests a reponse connue de l'operateur d'entrefer ===
+  machine MAS 48/44 | pavage nT=6 nO=2 | N_h=2048 | base chapeau
+  grille fine 384 + 352 colonnes | X = ln(Rs/Rr) = 2.971852e-03
+
+  ---- I-1 et I-4 : representation de la constante ----
+  base       grille     I-1  Y*1/max|Y| I-4  ecart Lam
+  p0         pavee            1.57e-12       1.24e-16
+  p1         pavee            9.94e-02       3.03e-03
+  p0         uniforme         2.69e-14       2.48e-16
+  p1         uniforme         6.23e-15       1.24e-16
+
+  ---- le defaut de la base chapeau depend-il de la troncature ? ----
+       N_h   p1 pavee I-4   p0 pavee I-4
+       256       8.78e-04       2.48e-16
+      1024       2.88e-03       1.24e-16
+      4096       3.04e-03       2.48e-16
+
+  I-4 : 4.391224e-04 H mesure contre 4.377977e-04 H analytique (+0.303 %)
+
+  I-5 : couple 9.251049e-05 N.m a phi=0, 9.251049e-05 N.m tourne de 0.137 rad
+
+  I-6 : -4.944e-17 N.m aligne contre 7.329072e-04 N.m en quadrature
+
+  I-7 : 9.251049302465e-05 N.m (Maxwell)
+        9.251049302465e-05 N.m (energie, derivee analytique) ; signes +1
+
+  I-8 : 9.251049e-05 N.m a r=0,2g, 9.251049e-05 N.m a r=0,8g
+
+  invariant                                            mesure      seuil  verdict
+  I-1  Y*1 = 0 (base p1, grille pavee)               9.94e-02      1e-12  ECHOUE  <--
+  I-2  Y = Y' (reciprocite)                          2.26e-16      1e-12  PASSE
+  I-3  valeurs propres >= 0                          0.00e+00      1e-10  PASSE
+  I-4  permeance homopolaire = mu0*2pi*L/X           3.03e-03      1e-12  ECHOUE  <--
+  I-5  couple invariant par rotation rigide          1.83e-14      1e-10  PASSE
+  I-6  couple nul en champ aligne                    6.75e-14      1e-12  PASSE
+  I-7  Maxwell contre derivee de l'energie           1.22e-14      1e-10  PASSE
+  I-8  couple independant du rayon                   3.12e-14      1e-10  PASSE
+
+  6 invariants sur 8 verifies
+  GARDE ECHOUEE -- un invariant viole est un defaut, pas une imprecision
+
+  ---- DIAGNOSTIC DES DEUX ECHECS ----
+  I-1 et I-4 testent la meme propriete : la base de surface represente-
+  t-elle EXACTEMENT la fonction constante ? Le croisement ci-dessus la
+  localise sans ambiguite.
+    - le creneau (p0) l'a, sur les deux grilles ;
+    - le chapeau (p1) l'a sur grille UNIFORME (6e-15) et la PERD sur la
+      grille PAVEE (1e-01), qui est celle de production ;
+    - et l'ecart CROIT avec N_h puis sature, au lieu de decroitre : ce
+      n'est donc pas de la troncature, et raffiner ne le retire pas.
+  CAUSE. Le chapeau de demi-largeur h ne forme une partition de l'unite
+  que si les demi-largeurs s'accordent d'une colonne a la suivante. Le
+  pavage emploie DELIBEREMENT des largeurs differentes pour les colonnes
+  de face de dent et pour celles d'ouverture : aux jonctions, les
+  chapeaux laissent un manque ou un recouvrement.
+  CE QUI EST ETABLI. Sur le mode HOMOPOLAIRE, la permeance de la couronne
+  sort a +0,303 % de sa valeur analytique, et un potentiel uniforme
+  debite un flux qui devrait etre nul.
+  CE QUI NE L'EST PAS. La propagation de ce biais aux grandeurs publiees,
+  k_C et X_m au premier chef. Ce test ne la mesure pas et on ne la deduit
+  pas : elle demande sa propre mesure.
+  LE CORRECTIF. Une fonction chapeau ASYMETRIQUE, de demi-largeurs gauche
+  et droite egales aux demi-pas locaux, retablit la partition de l'unite
+  sur une grille quelconque. Sa transformee de Fourier reste analytique.
+
+  AUCUN de ces tests n'emploie la reference elements finis, ni k_C,
+  ni aucune constante identifiee. Ils tiennent a toute resolution.
+  duree 3 s
+=== INVARIANTS termine ===

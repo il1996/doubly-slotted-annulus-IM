@@ -1,0 +1,45 @@
+=== M-11 : indicateurs d'erreur des formes d'onde ===
+
+  CONFIGURATION
+    machine  : MAS 48/44, 18,5 kW
+    chaine   : mec.mesh_refined(6 colonnes, 3 couches) + mec.solve_mesh
+    champ    : me.gapF.field au rayon moyen d'entrefer
+    reference: C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+
+  solutions calculees (16 s)
+
+  ---- INDICATEURS D'ERREUR SUR B_r ----
+  L'alignement angulaire est fait sur la PHASE DU FONDAMENTAL,
+  comme partout dans ce dossier : aucun decalage n'est ajuste.
+
+  cas              RMSE (T)   RMSE norm.  err max (T) err max norm.
+  a vide            0.87367      121.22 %      2.07370      141.21 %
+  en charge         1.19041      159.63 %      2.48783      128.43 %
+
+  ---- SPECTRE SPATIAL DE B_r, A VIDE (T) ----
+      nu            MEC            FEA        ecart
+       1       0.921236       0.941900       -2.19 %
+       5       0.034951       0.090168      -61.24 %
+       7       0.030304       0.042086      -27.99 %
+      11       0.004215       0.020466      -79.40 %
+      13       0.010228       0.008786       16.40 %
+      17       0.023517       0.033296      -29.37 %
+      19       0.074546       0.024553      203.61 %
+      23       0.366511       0.122679      198.76 %
+      25       0.091628       0.068755       33.27 %
+
+  ---- GARDE : le fondamental redonne-t-il les valeurs publiees ? ----
+    fondamental a vide   : 0.9212 contre 0.9419 T -> -2.19 % (publie 0,3 %)
+    fondamental en charge: 0.8585 contre 0.9197 T -> -6.66 % (publie 2,4 %)
+    GARDE ECHOUEE -- chaine differente du manuscrit
+
+  ---- LECTURE ----
+  Le fondamental est juste a 2.2 % a vide, mais la RMSE ponctuelle
+  vaut 121.2 % de la valeur efficace de reference et l'erreur maximale
+  141.2 % de la crete. C'est exactement ce que la revue annonce :
+  un fondamental juste est compatible avec de fortes erreurs locales,
+  et seules les secondes disent ce que vaut le champ SOUS LES
+  OUVERTURES, ou cet operateur revendique son avantage.
+
+  duree 16 s
+=== M-11 termine ===

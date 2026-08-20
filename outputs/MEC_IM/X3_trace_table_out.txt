@@ -1,0 +1,97 @@
+=== X3 : table de verification de la conformite de la trace ===
+  machine : MAS 48/44, 18,5 kW | L = 0.1648 m
+  X_g = 2.971852e-03 | 1/X_g = 336.5
+  pente predite  2*mu0*L/pi        = 1.318260e-07
+  limite du rapport Yss/(0.5*ln N) = 2.636519e-07   (soit 2 x la pente)
+  constante d'Euler-Mascheroni gamma = 0.5772156649
+
+  ---- 1. hors diagonale (di = dj = 0.006 rad, dth = 0.050 rad) ----
+           N    somme numerique       forme fermee     ecart rel.
+       1e+03    -1.05686220e-09    -9.56244844e-10      1.05e-01
+       1e+04    -1.20047405e-09    -9.56244844e-10      2.55e-01
+       1e+05    -1.00846059e-09    -9.56244844e-10      5.46e-02
+       1e+06    -9.56460929e-10    -9.56244844e-10      2.26e-04
+       1e+07    -9.56222853e-10    -9.56244844e-10      2.30e-05
+  La serie hors diagonale CONVERGE : la queue n'y vit pas.
+
+  ---- 2. terme propre (i = j, dth = 0) ----
+  -- largeur de colonne d = 0.006 rad : gamma + ln|2 sin(d/2)| = -4.538782 --
+           N     Yss(i,i) somme       forme fermee   ecart rel. increment/decade
+       1e+03     3.21266538e-07     3.12292220e-07    2.87e-02               --
+       1e+04     6.16480084e-07     6.15832706e-07    1.05e-03   2.95213546e-07
+       1e+05     9.19364438e-07     9.19373193e-07    9.52e-06   3.02884354e-07
+       1e+06     1.22292309e-06     1.22291368e-06    7.69e-06   3.03558649e-07
+       1e+07     1.52645207e-06     1.52645417e-06    1.37e-06   3.03528984e-07
+  increment par decade predit : 2*mu0*L/pi * ln 10 = 3.03540487e-07
+
+  -- largeur de colonne d = 0.012 rad : gamma + ln|2 sin(d/2)| = -3.845639 --
+           N     Yss(i,i) somme       forme fermee   ecart rel. increment/decade
+       1e+03     4.10238935e-07     4.03666418e-07    1.63e-02               --
+       1e+04     7.06577846e-07     7.07206905e-07    8.89e-04   2.96338911e-07
+       1e+05     1.01075718e-06     1.01074739e-06    9.69e-06   3.04179337e-07
+       1e+06     1.31429640e-06     1.31428788e-06    6.48e-06   3.03539214e-07
+       1e+07     1.61782898e-06     1.61782836e-06    3.83e-07   3.03532587e-07
+  increment par decade predit : 2*mu0*L/pi * ln 10 = 3.03540487e-07
+
+  -- largeur de colonne d = 0.024 rad : gamma + ln|2 sin(d/2)| = -3.152510 --
+           N     Yss(i,i) somme       forme fermee   ecart rel. increment/decade
+       1e+03     5.00129832e-07     4.95038836e-07    1.03e-02               --
+       1e+04     7.98065246e-07     7.98579323e-07    6.44e-04   2.97935414e-07
+       1e+05     1.10212950e-06     1.10211981e-06    8.79e-06   3.04064256e-07
+       1e+06     1.40566576e-06     1.40566030e-06    3.89e-06   3.03536259e-07
+       1e+07     1.70920028e-06     1.70920078e-06    2.94e-07   3.03534520e-07
+  increment par decade predit : 2*mu0*L/pi * ln 10 = 3.03540487e-07
+
+  LECTURE. L'ecart a la forme fermee complete tombe sous 1e-3 des
+  N = 1e5 et continue de decroitre, aux TROIS largeurs de colonne.
+  La constante additive suit ln|2 sin(d/2)| : elle n'est pas un
+  ajustement, c'est le terme que la sommation produit. Le terme
+  propre CROIT SANS LIMITE en ln N -- aucune troncature ne le borne.
+
+  ---- 3. base P1 (chapeau) : queue residuelle au-dela de N ----
+           N    queue P1 restante          x N^2
+       1e+02       1.71109103e-07       0.001711
+       1e+03       4.33546262e-09       0.004335
+       1e+04       5.41152949e-11       0.005412
+       1e+05       5.49394209e-13       0.005494
+       1e+06       5.49180166e-15       0.005492
+  Le produit queue x N^2 se stabilise : decroissance en 1/N^2,
+  conforme a SUM_{n>N} 1/n^3. La troncature redevient un choix de
+  precision, non une source de biais.
+
+  ---- 4. pourquoi le PMSM ne derive pas : troncature verrouillee ----
+  epaisseurs logarithmiques :
+    MAS 48/44  X = ln(Rs/Rr)   = 2.971852e-03  -> 1/X =  336.5
+    PMSM 15/14 X = ln(Rs/r_mi) = 1.389915e-01  -> 1/X =    7.2
+    La queue s'installe pour n >> 1/X : elle commence donc PLUS TOT
+    sur le PMSM (n ~ 7) que sur la MAS (n ~ 336). L'epaisseur
+    n'explique PAS l'absence de derive -- elle la contredirait.
+
+  (a) chaine PMSM : numax = Nsurf/2, colonnes d = 2*pi/Nsurf
+     Nsurf        N      d (rad)    ln N + C(d)       terme propre
+       540      270 1.163553e-02       1.721940     4.36120982e-08
+      1080      540 5.817764e-03       1.721944     4.35633662e-08
+      1260      630 4.986655e-03       1.721945     4.35563960e-08
+      2160     1080 2.908882e-03       1.721945     4.35389610e-08
+      4320     2160 1.454441e-03       1.721945     4.35267486e-08
+      8640     4320 7.272205e-04       1.721946     4.35206400e-08
+    derive du terme propre sur le balayage : -0.21 %
+    (ln(pi) + gamma = 1.721946 -- valeur vers laquelle la colonne
+     "ln N + C(d)" tend, sans dependre de Nsurf)
+
+  (b) chaine MAS : pavage FIXE nT=17, nO=4, N_h balaye seul
+       N_h      d (rad)    ln N + C(d)       terme propre
+       512 6.260000e-03       1.741964     2.22819137e-07
+      1024 6.260000e-03       2.435111     3.21353366e-07
+      2048 6.260000e-03       3.128258     4.10582033e-07
+      4096 6.260000e-03       3.821405     5.01441691e-07
+      8192 6.260000e-03       4.514552     5.92981348e-07
+    derive du terme propre sur le balayage : +166.13 %
+
+    VERDICT. Le terme divergent est stationnaire a -0.21 % sur la
+    chaine PMSM et croit de +166 % sur la chaine MAS, pour la meme
+    base P0 et le meme operateur. La difference n'est pas dans la
+    machine : elle est dans le COUPLAGE entre troncature et pavage.
+
+  duree 5 s
+=== X3 termine ===

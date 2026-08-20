@@ -1,0 +1,59 @@
+=== R1 : reconciliation de l'ondulation (108,2 / 128 N.m) ===
+
+  CONFIGURATION
+    machine        : MAS 48/44, 18,5 kW (mec.machine_18_5kW)
+    maillage       : mec.mesh_refined(M,G,6,i3,theta,3,ib)
+    entrefer       : traitement INTERNE du maillage (me.gapF)
+                     -- PAS l'operateur dentaire ctx.AG
+    base ctx.AG    : defaut de build_context (P0, pavage 6/2)
+    solveur        : mec.solve_mesh(me,BH,M.opt)
+    glissement     : s = 0.02015148  (deduit de n1 = 1469.772776 tr/min)
+    positions      : 19 sur 2 pas d'encoche, pas = 0.014544 rad mec
+                     soit 0.8333 deg mec = 1.6667 deg ELECTRIQUES
+    etendue        : 15.0000 deg mec = 30.0000 deg ELECTRIQUES
+    reference EF   : C:\Users\hp\Desktop\ANSYS résultat 18.5KW\transitoire\en charge\Plot 1.tab
+                     T_pp = 105.486548 N.m sur t >= 1.90 s (colonne 3)
+
+  FICHIERS APPELES (chemin et derniere modification)
+    RUN_ARTICLE.m                2026-08-06 22:34:05
+    +mec\mesh_refined.m          2026-08-01 18:37:28
+    +mec\solve_mesh.m            2026-07-25 21:28:08
+    +mec\equivalent_circuit.m    2026-07-20 00:08:58
+    +mec\dq_startup.m            2026-07-19 17:14:12
+
+  ---- GARDE : les deux chaines donnent-elles le meme couple moyen ? ----
+  chaine                                          T moyen        T c-c
+  (A) courants TOURNANTS  [RUN_ARTICLE:335]    104.025647   112.064109
+  (B) courants FIGES      [reconstruction]     120.496227   132.805142
+  couple du schema equivalent                  122.897523           --
+  ecart des moyennes (A) vs (B) : -13.6690 %
+  (A) vs schema : -15.3558 %   |   (B) vs schema : -1.9539 %
+
+  ---- GRANDEUR INTERMEDIAIRE : B_t le long du bore, theta = 0 ----
+  B_t rms (A) : 0.10302311 T
+  B_t rms (B) : 0.10302311 T
+  ecart max point a point : 0.000e+00 T
+  A theta = 0 les deux variantes ont ph = 0 : elles DOIVENT
+  coincider. Si oui, l'ecart n'est ni dans le maillage ni dans
+  le traitement d'entrefer -- il est dans l'EXCITATION.
+
+  ---- PIEGE N.12 : carte BRUTE vs grandeur TRANSITOIRE ----
+  chaine                                      carte brute      post-dq  attenuation
+  (A) courants TOURNANTS  [RUN_ARTICLE:335]    112.064109   108.224433     0.965737
+  (B) courants FIGES      [reconstruction]     132.805142   127.994395     0.963776
+  L'attenuation vaut ~0,96 dans les DEUX cas : le piege n.12 est
+  formellement EXCLU comme cause de l'ecart de 18 %.
+
+  ---- VERDICT ----
+  chaine                                            carte      post-dq        vs EF
+  (A) courants TOURNANTS  [RUN_ARTICLE:335]    112.064109   108.224433      2.5955 %
+  (B) courants FIGES      [reconstruction]     132.805142   127.994395     21.3372 %
+  inflation de (B) sur (A) : +18.5082 % sur la carte, +18.2676 % post-dq
+
+  MECANISME. Sur 30.0000 deg ELECTRIQUES d'etendue, figer les
+  courants statoriques fait varier l'ANGLE DE CHARGE d'autant.
+  La variation du couple FONDAMENTAL s'ajoute alors a l'ondulation
+  de denture. (B) ne mesure donc pas l'ondulation de denture seule.
+
+  duree 178 s
+=== R1 termine ===

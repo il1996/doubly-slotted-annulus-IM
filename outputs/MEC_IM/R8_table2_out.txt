@@ -1,0 +1,70 @@
+=== R8 : Table 2 de l'Article II, configuration loyale ===
+
+  CONFIGURATION
+    machine      : MAS 48/44, 18,5 kW, 690 V (mec.machine_18_5kW)
+    pavage       : n_T = 17, n_O = 4 ; N_h = 8192
+    point        : s = 0.0188
+    vrillage     : harmonique NEUTRALISE (M.opt.skew_harm = 0)
+                   ET actif, pour verifier la note
+    reference EF : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+
+  ---- REFERENCES ----
+    I0  = 8.4886 A     RELUE  (transitoire\a vide\Winding Plot 4.tab, t > 1.0 s)
+    E1  = 382.12 V   RELUE  (transitoire\a vide\Winding Plot 2.tab)
+    T   = 121.63 N.m RELUE  (transitoire\en charge\Plot 1.tab)
+    X_m = 46.0 ohm   *** NON RELUE *** : mec.ansys_ref la declare
+          "non re-mesurable depuis les .tab disponibles, statut NON VERIFIE".
+          Elle est employee telle quelle et son statut est declare.
+  reglage 1/2 : fait (53 s)
+  reglage 2/2 : fait (93 s)
+
+  ---- TABLE 2 REGENEREE : VRILLAGE HARMONIQUE NEUTRALISE ----
+  fermeture                   X_m0 (ohm) X_m charge (ohm)     I0 (A)     E1 (V) couple (N.m)
+  Carter                          71.990        50.446      8.612     378.68      116.075
+  piecewise const. (publ.)        64.781        43.075      9.921     375.92      114.751
+  hat (converged)                 61.015        41.129     10.323     375.07      114.314
+  REFERENCE EF                       ---          46.0     8.4886     382.12       121.63
+
+  ecarts a la reference :
+  fermeture                     X_m charge         I0         E1       couple
+  Carter                              9.7 %       1.5 %      -0.9 %        -4.6 %
+  piecewise const. (publ.)           -6.4 %      16.9 %      -1.6 %        -5.7 %
+  hat (converged)                   -10.6 %      21.6 %      -1.8 %        -6.0 %
+
+  ---- LA NOTE DE LA TABLE 2, VERIFIEE ----
+  Elle affirme que l'ecart entre les deux reglages est "le cage
+  harmonique, non la fermeture". Si c'est vrai, le decalage doit
+  etre le MEME pour les trois fermetures.
+
+  fermeture                    I0 vrill. ON  I0 vrill. OFF     decalage
+  Carter                             1.12 %         1.46 %      0.339 pt
+  piecewise const. (publ.)          16.54 %        16.87 %      0.326 pt
+  hat (converged)                   21.29 %        21.61 %      0.319 pt
+
+  fermeture                    Xm vrill. ON  Xm vrill. OFF     decalage
+  Carter                            10.10 %         9.67 %     -0.439 pt
+  piecewise const. (publ.)          -6.06 %        -6.36 %     -0.301 pt
+  hat (converged)                  -10.33 %       -10.59 %     -0.262 pt
+
+  ---- GARDE : coincidence avec les valeurs citees ailleurs ----
+    cite ailleurs dans le .tex : I0 +21.6 % | X_m -10.6 %
+    Table 2 regeneree          : I0 +21.6 % | X_m -10.6 %
+    ecart                      : 0.014 pt | 0.010 pt
+    GARDE PASSEE : les chiffres coincident SANS note explicative.
+    La note des lignes 808-818 du .tex n'a plus d'objet.
+
+  ---- PANNEAU LaTeX POUR LA TABLE 2 ----
+
+Carter                 & \num{71.990} & \num{50.446} & \num{8.612} & \num{378.68} & \num{116.075}\\
+piecewise const. (publ.)& \num{64.781} & \num{43.075} & \num{9.921} & \num{375.92} & \num{114.751}\\
+\textbf{hat (converged)}& \textbf{\num{61.015}} & \textbf{\num{41.129}} & \textbf{\num{10.323}} & \textbf{\num{375.07}} & \textbf{\num{114.314}}\\
+\midrule
+FEA reference          & --- & \num{46.0} & \num{8.4886} & \num{382.12} & \num{121.63}\\
+\midrule
+\multicolumn{6}{l}{\emph{deviation from the reference}}\\
+Carter                 & --- & $+9.7\%$ & $+1.5\%$ & $-0.9\%$ & $-4.6\%$\\
+piecewise const. (publ.)& --- & $-6.4\%$ & $+16.9\%$ & $-1.6\%$ & $-5.7\%$\\
+hat (converged)        & --- & $-10.6\%$ & $+21.6\%$ & $-1.8\%$ & $-6.0\%$\\
+
+  duree 93 s
+=== R8 termine ===

@@ -1,0 +1,46 @@
+=== B9 : colonne P0 de tab:balance, et controle croise P1 ===
+  references EF, famille TRANSITOIRE (decision 1) :
+    couple au calage  104.31 N.m   (transitoire rotor bloque)
+    B_g1 a vide         0.942 T
+    B_g1 en charge      0.920 T
+    B_t rms en charge   0.131 T
+
+  --- P0 (publiee) : pavage nT=6 nO=2 | N_h = 3088 | base P0
+      operateur 92x92 | X_m0 = 64.781 ohm
+      fait (15 s cumulees)
+  --- P1 (convergee) : pavage nT=17 nO=4 | N_h = 8192 | base P1
+      operateur 92x92 | X_m0 = 61.015 ohm
+      fait (34 s cumulees)
+
+  ---- tab:balance : LES QUATRE LIGNES, DEUX BASES ----
+  grandeur                                 P0           P1         EF
+  couple au calage [N.m]              99.5038     102.6023   104.3100
+  B_t rms en charge [T]                0.1101       0.1188     0.1310
+  B_g1 a vide [T]                      0.9437       0.9452     0.9420
+  B_g1 en charge [T]                   0.8933       0.8983     0.9200
+
+  ---- ECARTS, FORMES SUR LES VALEURS PLEINES ----
+  grandeur                                 P0           P1
+  couple au calage                     -4.61 %       -1.64 %
+  B_t rms en charge                   -15.98 %       -9.32 %
+  B_g1 a vide                           0.18 %        0.34 %
+  B_g1 en charge                       -2.91 %       -2.36 %
+
+  X_m0 : P0 64.781 ohm | P1 61.015 ohm  (ecart -5.81 %)
+
+  ---- CONTROLES ----
+  1. La colonne P1 doit reproduire B1_im_p1_out.txt :
+     couple calage 102.6023 | B_t charge 0.1188 | B_g1 vide 0.9452
+     | B_g1 charge 0.8983.  Ecarts observes :
+       couple calage      102.6023  vs   102.6023  ->  -0.000 %
+       B_t charge           0.1188  vs     0.1188  ->  -0.003 %
+       B_g1 vide            0.9452  vs     0.9452  ->  -0.001 %
+       B_g1 charge          0.8983  vs     0.8983  ->  -0.003 %
+     Un ecart superieur a 0,05 % signale une difference de
+     configuration entre ce script et B1 : la trouver avant de
+     publier la colonne P0.
+  2. X_m0 en P0 doit valoir 64,78 ohm (valeur du manuscrit).
+     Sinon la configuration P0 n'est pas celle qui a ete publiee.
+
+  duree 35 s
+=== B9 termine ===

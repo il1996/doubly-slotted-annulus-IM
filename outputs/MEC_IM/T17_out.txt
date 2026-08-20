@@ -1,0 +1,37 @@
+=== T17 : sommation analytique de la queue ===
+  X_g = 2.9719e-03   1/X_g = 336.5
+
+  1. Verification hors diagonale (di=dj=0.006 rad, dth=0.050 rad)
+              N  somme numerique     forme fermee   ecart rel.
+           1000    -1.056862e-09    -9.562448e-10    1.05e-01
+          10000    -1.200474e-09    -9.562448e-10    2.55e-01
+         100000    -1.008461e-09    -9.562448e-10    5.46e-02
+        1000000    -9.564609e-10    -9.562448e-10    2.26e-04
+
+  2. Terme propre (i = j, dth = 0) : croissance en ln N
+              N         Yss(i,i)    /(0.5*ln N)
+           1000     3.212665e-07   9.301619e-08
+          10000     6.164801e-07   1.338669e-07
+         100000     9.193644e-07   1.597100e-07
+        1000000     1.222923e-06   1.770362e-07
+     Le rapport se stabilise : la croissance est bien
+     logarithmique, coefficient (4*mu0*L/pi)*(1/2) = 1.3183e-07
+     => AUCUN Nh ne fait converger la base P0. T1 mesurait cela.
+
+  3. Base P1 : queue residuelle au-dela de N
+              N  queue P1 restante          x N^2
+            100       1.711091e-07         0.0017
+           1000       4.335463e-09         0.0043
+          10000       5.411529e-11         0.0054
+         100000       5.493942e-13         0.0055
+     Le produit queue x N^2 se stabilise : decroissance en 1/N^2,
+     conforme a SUM_{n>N} 1/n^3. La troncature devient un choix
+     de precision, non une source de biais.
+
+  CONCLUSION T17. La forme fermee explique ANALYTIQUEMENT ce que
+  T1 et T2 avaient mesure : la divergence de la base P0 est portee
+  par le terme propre, elle est exacte et non numerique. Elle
+  justifie a posteriori le passage a P1 (T16), dont la queue est
+  bornee en 1/N^2.
+
+=== T17 termine ===

@@ -1,0 +1,30 @@
+=== B3 : le prix de la base P1, chiffre ===
+  pavage nT=17 nO=4 | N_h = 8192 | point nominal s = 0.0188
+
+  modele             Xm0 (ohm)   Xm charge     I0 (A)     E1 (V) couple (N.m)
+  CARTER                71.990      50.648      8.584     378.53     116.530
+  P0 (publie)           64.781      43.214      9.893     375.80     115.115
+  P1 (converge)         61.015      41.249     10.296     374.95     114.655
+  REFERENCE EF              --        46.0       8.49      382.1      121.63
+
+  --- ecarts a la reference EF ---
+  modele             Xm charge         I0         E1      couple
+  CARTER                 10.1 %       1.1 %      -0.9 %       -4.2 %
+  P0 (publie)            -6.1 %      16.5 %      -1.7 %       -5.4 %
+  P1 (converge)         -10.3 %      21.3 %      -1.9 %       -5.7 %
+
+  --- LE PRIX : P0 publie -> P1 converge ---
+  Xm0 non sature         64.781 ->     61.015     -5.81 %
+  Xm sature charge       43.214 ->     41.249     -4.55 %
+  courant a vide          9.893 ->     10.296     +4.08 %
+  f.e.m. entrefer       375.795 ->    374.953     -0.22 %
+  couple                115.115 ->    114.655     -0.40 %
+
+  LECTURE. La base P1 n'ameliore PAS l'accord : elle le degrade
+  sur le courant a vide. Ce qu'elle apporte est que la valeur
+  EXISTE -- en P0 la serie diverge (T17, forme fermee), donc
+  X_m n'y est pas defini. On echange un chiffre flatteur mais
+  non convergent contre un chiffre defavorable mais VRAI.
+
+  duree 12 s
+=== B3 termine ===

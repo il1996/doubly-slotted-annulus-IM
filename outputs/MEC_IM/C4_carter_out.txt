@@ -1,0 +1,40 @@
+=== C-4 : coefficient de Carter, decomposition par surface ===
+
+  CONFIGURATION
+    machine   : MAS 48/44, 18,5 kW, 690 V (mec.machine_18_5kW)
+    geometrie : mec.geometry, aucune dimension transcrite
+
+  ---- 1. DIMENSIONS LUES ----
+    entrefer mecanique g            = 0.2430 mm
+    alesage stator D_s              = 163.7775 mm  (R_s = 81.8888 mm)
+    diametre exterieur rotor D_r    = 163.2915 mm  (R_r = 81.6458 mm)
+    encoches stator N_s             = 48
+    encoches rotor   N_r            = 44
+    ouverture stator b_0s           = 2.0000 mm
+    ouverture rotor  b_0r           = 2.0000 mm
+    pas d'encoche stator tau_s      = 10.7192 mm
+    pas d'encoche rotor  tau_r      = 11.6590 mm
+    rapports b_0/g : stator 8.2305 | rotor 8.2305
+
+  ---- 2. DEUX FORMULES DE gamma ----
+                                      approchee (a)     exacte (b)
+  gamma stator                             5.120033       5.143654
+  gamma rotor                              5.120033       5.143654
+  k_C stator                               1.131310       1.131996
+  k_C rotor                                1.119461       1.120079
+  PRODUIT k_C = k_C^s * k_C^r              1.266458       1.267924
+
+  ---- 3. GARDE : reproduit-on la valeur publiee 1.2665 ? ----
+    formule approchee (a) : 1.266458  ecart -0.0033 %  OUI
+    formule exacte    (b) : 1.267924  ecart +0.1125 %  NON
+
+    mec.carter.m emploie la formule (a) : c'est elle qui fait foi
+    dans la chaine, et c'est elle que le manuscrit doit citer.
+
+  ---- 4. CONTROLE : mec.carter appelee directement ----
+    mec.carter(tau_s,b_0s,g) = 1.131310
+    mec.carter(tau_r,b_0r,g) = 1.119461
+    produit                  = 1.266458
+    identique au calcul (a)  : OUI
+
+=== C-4 termine ===

@@ -1,0 +1,39 @@
+{Unrecognized field name "FEA".
+
+Error in RUN_C4B_TABLES_16_17 (line 20)
+ROOT=M.FEA.dir;
+} 
+=== C4b : Tables 16 et 17, pleine precision ===
+  base P1 | nT=17 nO=4 N_h=8192 | X_m0 = 61.014695 ohm
+
+---- TABLE 16 : trois conditions, valeurs PLEINES ----
+  grandeur                        reseau P1             EF        ecart
+  -- EN CHARGE (s = 0.0188) --
+  couple [N.m]                   114.655478     121.630000     -5.7342 %
+  I1 [A]                          19.084155      19.730000     -3.2734 %
+  I barre [A]                    296.614417     324.700000     -8.6497 %
+  I anneau [A]                  1042.106434    1091.000000     -4.4815 %
+  P entree [W]                 18713.545689   20369.000000     -8.1273 %
+  pertes fer [W]                 227.369065     232.600000     -2.2489 %
+  -- A VIDE --
+  I magnetisant [A]               10.296202       8.490000     21.2745 %
+  f.e.m. entrefer [V]            374.953104     382.100000     -1.8704 %
+  pertes fer [W]                 235.669169     249.300000     -5.4676 %
+  -- ROTOR BLOQUE (s = 1) --
+  couple [N.m]                   102.602253     104.310000     -1.6372 %
+  I1 [A]                         109.529779     108.210000      1.2196 %
+  I barre [A]                   1966.733859    1929.000000      1.9561 %
+  I anneau [A]                  6909.799017    6530.000000      5.8162 %
+  (rapport anneau/barre ideal = 3.513337, applique au reseau)
+  controle EF relu : couple charge NaN | I1 charge 19.7253
+                     I0 a vide 8.4886 | E1 a vide 382.1209
+
+---- TABLE 17 : densites locales, chaine du MAILLAGE ----
+  region                     MEC vide      EF vide       ecart |   MEC charge    EF charge       ecart
+  culasse stator             1.879314     1.840000     2.1366 % |     1.798220     1.900000    -5.3569 %
+  dent stator                1.968712     1.630000    20.7798 % |     1.902159     1.680000    13.2238 %
+  dent rotor                 2.151882     1.930000    11.4965 % |     2.087811     1.870000    11.6476 %
+  culasse rotor              1.710736     1.670000     2.4393 % |     1.585654     1.580000     0.3578 %
+
+  duree 21 s
+=== C4b termine ===

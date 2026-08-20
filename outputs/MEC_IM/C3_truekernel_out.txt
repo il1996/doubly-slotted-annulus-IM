@@ -1,0 +1,48 @@
+=== C-3 : queue logarithmique sur le noyau EXACT ===
+
+  CONFIGURATION
+    geometrie : MAS 48/44, celle de la Table 5
+    X_g = ln(R_s/R_r) = 2.971852e-03 | L = 0.164782 m
+    largeur de colonne d = 6.0 mrad
+    increment par decade predit : 2*mu0*L/pi*ln10 = 3.035405e-07 H
+
+  ---- SOMME DIAGONALE, DEUX NOYAUX ----
+           N     noyau degenere        noyau EXACT          ecart
+       1e+03       3.212665e-07       4.951458e-07        54.123 %
+       1e+04       6.164801e-07       7.903923e-07        28.211 %
+       1e+05       9.193644e-07       1.093277e-06        18.917 %
+       1e+06       1.222923e-06       1.396835e-06        14.221 %
+       1e+07       1.526452e-06       1.700364e-06        11.393 %
+
+  ---- INCREMENT PAR DECADE ----
+      decade           degenere              EXACT
+  1e+03->1e+04       2.952135e-07       2.952465e-07
+  1e+04->1e+05       3.028844e-07       3.028844e-07
+  1e+05->1e+06       3.035586e-07       3.035586e-07
+  1e+06->1e+07       3.035290e-07       3.035290e-07
+
+  predit : 3.035405e-07 H
+  degenere, derniere decade : 3.035290e-07  ecart -0.0038 %
+  EXACT,    derniere decade : 3.035290e-07  ecart -0.0038 %
+
+  ---- LA CORRECTION Delta_n, MESUREE ----
+    somme de la correction, N = 1e7 : 1.739122e-07 H
+    sa valeur a N = 1e3             : 1.738793e-07 H
+    ecart entre les deux            : 3.293e-11 H
+    => la correction est ACQUISE des les premiers ordres :
+       elle converge, et ne peut donc pas annuler la divergence.
+
+  ---- GARDE ----
+    increment degenere contre 2*mu0*L/pi*ln10 : ecart 3.79e-05
+    GARDE PASSEE
+
+  ---- VERDICT ----
+    Les deux noyaux ont le MEME increment par decade a 0.0000 % pres.
+    La divergence est donc une propriete de l'operateur REEL, et
+    non un artefact de la degenerescence. Ce qui differe est la
+    CONSTANTE : +1.739122e-07 H, acquise des les premiers ordres et
+    independante de N. C'est exactement la portee que le
+    manuscrit enonce desormais.
+
+  duree 1 s
+=== C-3 termine ===

@@ -1,0 +1,50 @@
+=== R3 : verification EF du rapport lisse/encoche ===
+
+  CONFIGURATION
+    machine        : MAS 48/44, 18,5 kW
+    R_s (alesage)  : 0.08188875 m
+    R_r (rotor)    : 0.08164575 m
+    entrefer g     : 0.00024300 m = 0.2430 mm
+    R mi-entrefer  : 0.08176725 m
+    longueur L     : 0.16478245 m
+    projet EF      : C:\Users\hp\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt
+
+  ---- 1. GARDE ANALYTIQUE (a verifier sur le run lisse) ----
+    Lambda_lisse = mu0*(2*pi*R*L)/g
+                 = 4.3779802798e-04 H (unite de permeance)
+                 avec R = 0.08176725 m (mi-entrefer)
+    Tolerance exigee : quelques dixiemes de pour cent.
+    Variante au rayon d'ALESAGE R_s : 4.3844856301e-04 H
+    (l'ecart entre les deux conventions vaut 0.1486 % :
+     il est INFERIEUR a la tolerance, donc sans consequence.)
+
+  ---- 2. VALEUR MEC A CONFRONTER ----
+    source : R2_kc_tiling.mat (base chapeau, N_h = 8192)
+    k_C au pavage de production (17, 4) : 1.331971
+    INTERVALLE sur les neuf pavages    : 1.297821 a 1.388919
+    dispersion                          : 6.8155 %
+    Carter classique                    : 1.266458
+    NB : R2 etablit que ce rapport n'est PAS convergé en
+    pavage. La confrontation EF doit porter sur l'INTERVALLE,
+    non sur la seule valeur de production.
+
+  ---- 3. RAPPORT EF ----
+    LES DEUX .tab SONT ABSENTS -- le rapport EF n'est PAS produit.
+    Attendus : R3_fe\slotted_flux.tab
+            et R3_fe\smooth_flux.tab
+
+  ---- 4. SPECIFICATION DES DEUX RESOLUTIONS A LANCER ----
+    A tenir IDENTIQUE entre les deux runs :
+      - entrefer mecanique g = 0.2430 mm, rayons R_s et R_r inchanges ;
+      - excitation : MEME bobine, MEME FMM, MEME courant ;
+      - permeabilite : lineaire OU saturee, mais DECLAREE et IDENTIQUE ;
+      - maillage de reference, critere de convergence, vrillage ;
+      - meme projet IM_18kW_690V.aedt (ne PAS en creer un nouveau :
+        la comparabilite avec le reste de la validation en depend).
+    SEULE difference : encoches supprimees DES DEUX COTES dans le run
+    lisse, alesage et surface rotorique rendus cylindriques.
+    A exporter : flux totalise par la bobine, en .tab, sous
+      MEC_IM/R3_fe/slotted_flux.tab  et  MEC_IM/R3_fe/smooth_flux.tab
+    Ce script formera alors le rapport et verifiera la garde.
+
+=== R3 : BLOQUE, en attente des deux resolutions ANSYS ===

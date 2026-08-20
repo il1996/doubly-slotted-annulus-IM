@@ -1,0 +1,74 @@
+=== B8 : exposition au facteur de vrillage ===
+  pavage nT=17 nO=4 | N_h = 8192 | base P1
+  references EF : famille TRANSITOIRE (decision 1 du 6 aout)
+    en charge 121.63 N.m / 19.73 A | a vide 8.49 A | calage 104.31 N.m
+
+  vrillage ACTIF  (production) : fait
+  vrillage HARM. NEUTRALISE   : fait
+
+  ---- 1. EFFET DE LA NEUTRALISATION, GRANDEUR PAR GRANDEUR ----
+  grandeur                      vrillage ON   vrillage OFF  variation
+  couple net [N.m]                 114.6555       114.3145     -0.30 %
+    dont fondamental               114.6928       114.7947      0.09 %
+    dont parasite                   -0.0373        -0.4803  -1186.81 %
+  courant I1 [A]                    19.0842        19.1056      0.11 %
+  courant de barre [A]             297.3173       305.2077      2.65 %
+  cos(phi)                           0.8205         0.8203     -0.02 %
+  rendement                          0.9190         0.9153     -0.40 %
+  pertes Joule rotor [W]           344.7463       413.8551     20.05 %
+    dont harmoniques                 6.0473        74.8551   1137.83 %
+  pertes fer [W]                   227.3691       227.5667      0.09 %
+  courant a vide [A]                10.2962        10.3233      0.26 %
+  f.e.m. entrefer [V]              374.9531       375.0732      0.03 %
+  couple au calage [N.m]           102.6023        85.7058    -16.47 %
+  I1 au calage [A]                 109.5298       110.9194      1.27 %
+  I barre au calage [A]           1966.7339      1991.7116      1.27 %
+  (X_m0 = 61.015 ohm dans les deux cas : la cage n'entre pas
+   dans la branche magnetisante -- controle)
+
+  ---- 2. COUPLES PARASITES PAR HARMONIQUE [N.m] ----
+      nu      vrillage ON     vrillage OFF
+       5         -0.00919         -0.00864
+       7         -0.00468         -0.00454
+      11         -0.01428         -0.01898
+      13         -0.00788         -0.01455
+      17         -0.00016         -0.00084
+      19         -0.00010         -0.00113
+      23         -0.00058         -0.22817
+      25         -0.00033         -0.15932
+      29         -0.00001         -0.00032
+      31         -0.00001         -0.00016
+      35         -0.00005         -0.00096
+      37         -0.00004         -0.00083
+      41         -0.00000         -0.00007
+      43         -0.00000         -0.00012
+      47         -0.00001         -0.02220
+      49         -0.00001         -0.01945
+   somme         -0.03732         -0.48026
+
+  ---- 3. ECARTS A LA REFERENCE (famille transitoire) ----
+  grandeur                      vrill. ON   vrill. OFF           EF
+  couple en charge [N.m]            -5.7 %        -6.0 %     121.6300
+  courant I1 [A]                    -3.3 %        -3.2 %      19.7300
+  courant de barre [A]              -8.4 %        -6.0 %     324.7000
+  courant a vide [A]                21.3 %        21.6 %       8.4900
+  f.e.m. entrefer [V]               -1.9 %        -1.8 %     382.1000
+  couple au calage [N.m]            -1.6 %       -17.8 %     104.3100
+  I1 au calage [A]                   1.2 %         2.5 %     108.2100
+  I barre au calage [A]              2.0 %         3.3 %    1929.0000
+
+  ---- 4. RESIDU DU FONDAMENTAL ----
+  ksq(nu=1) = 0.997147 dans LES DEUX configurations (cage.m:61)
+  R'_r et X'_r restent divises par ksq^2 = 0.994301, soit +0.57 %
+  que la reference, non vrillee, n'a pas. IRREDUCTIBLE sans
+  modifier cage.m. A DECLARER dans la note de tab:im_ec.
+
+  ---- 5. VERDICT ----
+  Neutraliser le vrillage harmonique deplace le couple net de
+  -0.30 % et l'ecart a la reference de -5.7 % a -6.0 %.
+  La comparaison LOYALE est la colonne OFF : la reference est une
+  tranche droite. Si l'ecart y est plus grand, c'est le resultat,
+  et il se publie tel quel.
+
+  duree 36 s
+=== B8 termine ===

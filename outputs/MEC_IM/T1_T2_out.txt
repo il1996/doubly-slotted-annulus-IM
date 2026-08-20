@@ -1,0 +1,41 @@
+=== T1/T2 : troncature harmonique ===
+  X_g = ln(Rs/Rr) = 2.9719e-03   1/X_g = 336.5
+  pavage FIXE nT=6 nO=2  (384 + 352 colonnes)
+
+      N_h     Xm dente     Xm lisse        k_C      t [s]
+      337       60.647       81.890     1.3503        0.6
+      512       61.978       81.912     1.3216        0.2
+      674       62.632       81.927     1.3081        0.1
+     1024       63.205       81.944     1.2965        0.1
+     1348       63.581       81.956     1.2890        0.1
+     2048       64.231       81.973     1.2762        0.2
+     2696       64.614       81.985     1.2688        0.2
+     3088       64.781       81.991     1.2657        0.3
+     5392       65.495       82.015     1.2522        0.4
+     6176       65.659       82.020     1.2492        0.5
+    10784       66.311       82.044     1.2373        0.8
+
+T1  k_C sur [512 1024 2048 3088 6176]
+    min 1.2492  max 1.3216  moyenne 1.2818
+    dispersion 5.65 %   [Carter classique 1.2665]
+    DERIVE (>=0,5 %) : a declarer AVANT le rapporteur.
+
+T2  X_m vs ln(N_h), N_h >= 1/X_g = 337
+    pente 1.5348 ohm par e-fold   ordonnee 52.358
+    R^2 = 0.97547
+    pas d'alignement logarithmique net (R^2 = 0.9755).
+
+    increments successifs de X_m [ohm] et leurs rapports :
+          337 ->     512 : +1.331   rapport suivant 0.492
+          512 ->     674 : +0.654   rapport suivant 0.875
+          674 ->    1024 : +0.573   rapport suivant 0.657
+         1024 ->    1348 : +0.376   rapport suivant 1.728
+         1348 ->    2048 : +0.650   rapport suivant 0.590
+         2048 ->    2696 : +0.384   rapport suivant 0.434
+         2696 ->    3088 : +0.166   rapport suivant 4.293
+         3088 ->    5392 : +0.715   rapport suivant 0.229
+         5392 ->    6176 : +0.163   rapport suivant 3.991
+         6176 ->   10784 : +0.652
+
+  duree totale 6 s
+=== T1/T2 termine ===

@@ -1,0 +1,67 @@
+=== T12 : localisation de l'erreur de couple au calage (s = 1) ===
+
+  grandeur                   CARTER        DtN         EF
+  couple [N.m]                94.26      99.50     104.31   DtN   -4.6 %
+  I1 [A]                     105.00     107.87     108.21   DtN   -0.3 %
+  I2' rapporte [A]           103.95     106.69        NaN   DtN    NaN %
+  Im magnetisant [A]           1.11       1.25        NaN   DtN    NaN %
+  cos(phi)                   0.2354     0.2415         --
+
+  --- phases (Uph reference reelle) ---
+  angle [deg]                CARTER        DtN
+  arg(I1)                   -76.382    -76.026
+  arg(I2)                   -76.181    -75.792
+  arg(E1)                    -9.314     -9.790
+  arg(I2)-arg(I1)             0.202      0.235  <- dephasage barre/stator
+{Unrecognized field name "Rr_used".
+
+Error in RUN_T12_CALAGE (line 46)
+Rr_D=rD.Rr_used; if isempty(Rr_D), Rr_D=NaN; end
+} 
+=== T12 : localisation de l'erreur de couple au calage (s = 1) ===
+
+  grandeur                   CARTER        DtN         EF
+  couple [N.m]                94.26      99.50     104.31   DtN   -4.6 %
+  I1 [A]                     105.00     107.87     108.21   DtN   -0.3 %
+  I2' rapporte [A]           103.95     106.69        NaN   DtN    NaN %
+  Im magnetisant [A]           1.11       1.25        NaN   DtN    NaN %
+  cos(phi)                   0.2354     0.2415         --
+
+  --- phases (Uph reference reelle) ---
+  angle [deg]                CARTER        DtN
+  arg(I1)                   -76.382    -76.026
+  arg(I2)                   -76.181    -75.792
+  arg(E1)                    -9.314     -9.790
+  arg(I2)-arg(I1)             0.202      0.235  <- dephasage barre/stator
+
+  --- decomposition de l'ecart de couple (DtN vs EF) ---
+  facteur amplitude  (I_barre +0.7 %)^2      :  +1.40 %
+  facteur resistance (Rr' 0.4234 vs 0.4400)  :  -3.77 %
+  produit des deux                           :  -2.42 %
+  ecart OBSERVE sur le couple                :  -4.61 %
+  RESIDU non explique par les amplitudes     :  -2.24 %
+
+  --- test : echange de la fermeture, tout le reste egal ---
+  Xm0 Carter 71.99 ohm -> DtN 64.78 ohm  (-10.0 %)
+  couple    94.26 -> 99.50 N.m  (+5.56 %)
+  I1        105.00 -> 107.87 A    (+2.73 %)
+  I2        103.95 -> 106.69 A    (+2.64 %)
+
+  (I2_DtN/I2_Carter)^2 = 1.0535   T_DtN/T_Carter = 1.0556
+  residu apres correction par I2^2 : +0.20 %
+
+  LECTURE. Si le rapport des couples suit (I2)^2, l'echange de
+  fermeture n'agit QUE par l'amplitude : la branche magnetisante
+  n'est alors PAS en cause, contrairement a l'hypothese de T12.
+  Au calage Im vaut ~1 % de I2 : la branche magnetisante ne peut
+  structurellement pas porter 4,6 % de couple.
+
+  --- ce qui reste : la resistance rotorique au calage ---
+  Rr' MEC 0.4234 vs EF 0.4400 ohm : -3.8 %
+  couple attendu de (I_barre +0.7 %)^2 x Rr' : -2.42 %
+  couple observe                             : -4.61 %
+  A s = 1 la frequence rotorique vaut 50 Hz : mec.bar_skin est
+  sollicite a son extreme. C'est la, et non dans le couplage, que
+  se situe l'erreur de couple au calage.
+
+=== T12 termine ===

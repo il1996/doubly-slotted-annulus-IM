@@ -1,0 +1,73 @@
+=== B7 : sondes locales de la Table 17 ===
+  machine   : MAS 48/44, 18,5 kW
+  circuit   : base P1, N_h = 8192, pavage nT=17 nO=4, X_m0 = 61.015 ohm
+  maillage  : mec.mesh_refined, nc = 6, nr = 3
+  entrefer du maillage : mec.airgap_fourier, base P0 IMPOSEE
+
+  ---- 0. la chaine de sondes n'est pas la chaine de performance ----
+    reseau de performance : mec.airgap_dtn_tooth, base P1, N_h = 8192
+    chaine de sondes      : mec.airgap_fourier,   base P0, N_h = 100
+    airgap_fourier.m:63   : basis = 'p0' par defaut
+    mesh_refined.m:271    : appel SANS argument de base
+    mesh_refined.m:258    : NhF = 100 (M.opt.gap_fourier_Nh)
+    => rapport de troncature entre les deux chaines : 82
+
+  points : a vide (s = 1e-4) | en charge (n = 1469.773 tr/min -> s = 0.020151)
+  courants : I1 a vide 10.296 A | I1 en charge 20.063 A
+
+  reference : sondes lues des cartes de champ ANSYS (.docx),
+              valeurs NON re-derivables depuis les .tab.
+
+  ---- 1. les sondes derivent-elles avec la troncature ? ----
+    N_h =  100 fait (16 s)
+    N_h =  200 fait (24 s)
+    N_h =  400 fait (31 s)
+    N_h =  800 fait (38 s)
+
+    -- A VIDE : maxima regionaux MEC [T] --
+    region               Nh=100     Nh=200     Nh=400     Nh=800       derive        FEA
+    culasse stator       1.8793     1.8926     1.8970     1.8992        1.06 %      1.837
+    dent stator          1.9687     1.8908     1.9252     1.9412       -1.40 %      1.633
+    dent rotor           2.1519     2.0741     2.0377     2.0324       -5.55 %      1.929
+    culasse rotor        1.7107     1.7236     1.7283     1.7300        1.13 %      1.674
+
+    -- EN CHARGE : maxima regionaux MEC [T] --
+    region               Nh=100     Nh=200     Nh=400     Nh=800       derive        FEA
+    culasse stator       1.7982     1.8236     1.8300     1.8332        1.94 %      1.896
+    dent stator          1.9022     1.8688     1.8601     1.8780       -1.27 %      1.684
+    dent rotor           2.0878     2.0126     1.9905     2.0017       -4.12 %      1.870
+    culasse rotor        1.5857     1.6125     1.6187     1.6212        2.24 %      1.577
+
+  ---- 2. Table 17 au reglage de production (N_h = 100) ----
+    region             MEC vide   FEA vide      ecart |    MEC chg    FEA chg      ecart
+    culasse stator       1.8793      1.837       2.3 % |     1.7982      1.896      -5.2 %
+    dent stator          1.9687      1.633      20.6 % |     1.9022      1.684      13.0 %
+    dent rotor           2.1519      1.929      11.6 % |     2.0878      1.870      11.6 %
+    culasse rotor        1.7107      1.674       2.2 % |     1.5857      1.577       0.5 %
+
+  ---- 3. verdict ----
+    derive maximale des huit sondes sur un facteur 8 de troncature :
+    5.55 %
+
+    LES SONDES DERIVENT. La Table 17 est donc publiee a une
+    troncature (N_h = 100) qui n'est pas une valeur convergee,
+    dans une base P0 que la section 3 de l'Article I montre non
+    conforme, et sur des grandeurs LOCALES -- le cas le plus
+    defavorable des trois. Elle ne peut pas etre publiee sans
+    que sa configuration ne soit declaree ET sa derive donnee.
+
+    DANS LES DEUX CAS, deux points sont a porter au manuscrit :
+      - la Table 17 ne sort PAS de la meme chaine que les autres
+        tables de l'Article II (operateur, base et troncature
+        differents) : "une grandeur, une chaine" impose de le dire ;
+      - les huit valeurs de reference sont des maxima LUS SUR DES
+        CARTES, non des sorties de .tab : elles ne sont pas
+        re-derivables et doivent etre declarees comme telles.
+    Le bloc C1 devra en outre promouvoir inst_currents / surfU /
+    regional_max dans +mec : ce sont aujourd'hui des fonctions
+    LOCALES de RUN_ARTICLE.m, donc non appelables ailleurs, ce qui
+    force toute reprise a les dupliquer -- comme ce bloc a du le
+    faire.
+
+  duree 38 s
+=== B7 termine ===

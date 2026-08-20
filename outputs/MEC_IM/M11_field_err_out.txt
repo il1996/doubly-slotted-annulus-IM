@@ -1,0 +1,134 @@
+=== M-11 v2 : indicateurs d'erreur des formes d'onde ===
+
+  CONFIGURATION -- chaine du sec. 5.8, identifiee (U-12)
+    machine   : MAS 48/44, 18,5 kW
+    operateur : mec.airgap_dtn_tooth(nT=17, nO=4, N_h=8192, base p1)
+    champ     : AT.field(Usurf, R_moy, theta) -- operateur condense
+    source    : copie conforme de RUN_B1_IM_P1.m sec. 4
+    reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+
+    operateur 92x92 | X_m0 = 61.015 ohm
+    solutions calculees (18 s)
+
+  ---- GARDE 1 : la chaine reproduit-elle le sec. 5.8 ? ----
+  grandeur                    ici  B1 publie   ecart abs.         EF      ecart
+  Bg1 a vide [T]           0.9452     0.9452      1.0e-05     0.9420       0.3 %
+  Bt rms a vide [T]        0.1201     0.1201      3.0e-05     0.1280      -6.1 %
+  Bg1 en charge [T]        0.8983     0.8983      2.3e-05     0.9200      -2.4 %
+  Bt rms charge [T]        0.1188     0.1188      3.3e-06     0.1310      -9.3 %
+  GARDE 1 PASSEE
+
+  ---- 2. INDICATEURS D'ERREUR PONCTUELLE ----
+  Le MEC est EVALUE AUX ANGLES DE LA GRILLE EF (1000 points), sans
+  interpolation : la difference est ponctuelle et exacte.
+  L'alignement est fait sur la PHASE DU FONDAMENTAL, comme partout
+  dans ce dossier ; aucun decalage n'est ajuste.
+
+  cas          comp rms EF (T)   RMSE (T)  RMSE norm.    err max  err max n.
+  a vide        B_r     0.7207     0.4055       56.3 %     1.3608       92.7 %
+  a vide        B_t     0.1282     0.1669      130.2 %     0.9443      132.5 %
+  en charge     B_r     0.7457     0.6748       90.5 %     1.9221       99.2 %
+  en charge     B_t     0.1309     0.1744      133.2 %     0.6680      102.5 %
+
+  recalage applique, et accord des DEUX estimateurs de phase
+  (exact par l'operateur contre lecture sur la grille EF) :
+    a vide     -36.3793 deg mec ; residu 4.05e-05 rad
+    en charge  +112.8090 deg mec ; residu 1.98e-05 rad
+  GARDE 2 (les deux estimateurs concordent a 1e-3 rad) PASSEE
+
+  diagnostic, NON employe : le recalage qui minimiserait la RMSE,
+  balaye sur +- un pas d'encoche stator (7.50 deg mec)
+    a vide     decale de +0.000 deg mec, RMSE 0.4055 T (+0.0 %)
+    en charge  decale de +5.625 deg mec, RMSE 0.3140 T (-53.5 %)
+  Un optimum EN ZERO signe un recalage sans ambiguite. Un optimum
+  ecarte signe qu'un second degre de liberte n'est pas apparie :
+  la POSITION MECANIQUE DU ROTOR, que le MEC fixe a phi = 0 et que
+  le cliche EF ne declare pas. Voir l'attribution par famille.
+
+  ---- 3. SPECTRE SPATIAL DE B_r AU MI-ENTREFER (T) ----
+  MEC exact : amplitude harmonique de l'operateur (aucun
+  echantillonnage) ; MEC 2000 pts : lecture sur la grille de B1.
+
+  A VIDE
+     nu     MEC exact  MEC 2000 pts            EF       ecart
+      1      0.945211      0.945190      0.941900       0.35 %
+      5      0.075866      0.075867      0.090168     -15.86 %
+      7      0.009612      0.009584      0.042086     -77.16 %
+     11      0.006766      0.007161      0.020466     -66.94 %
+     13      0.025158      0.025328      0.008786     186.33 %
+     17      0.055003      0.055005      0.033296      65.20 %
+     19      0.015394      0.015419      0.024553     -37.30 %
+     23      0.065611      0.065606      0.122679     -46.52 %
+     25      0.195637      0.195639      0.068755     184.54 %
+
+  EN CHARGE
+     nu     MEC exact  MEC 2000 pts            EF       ecart
+      1      0.898254      0.898277      0.919739      -2.34 %
+      5      0.093052      0.093053      0.049075      89.61 %
+      7      0.041872      0.041956      0.018762     123.18 %
+     11      0.044336      0.045553      0.047561      -6.78 %
+     13      0.037186      0.037962      0.036361       2.27 %
+     17      0.031170      0.031380      0.023234      34.16 %
+     19      0.134026      0.133981      0.074595      79.67 %
+     23      0.531300      0.531293      0.290147      83.11 %
+     25      0.145853      0.145886      0.190115     -23.28 %
+
+  ---- 4. OU VIT LA RMSE : energie de l'erreur par ordre ----
+  grille EF : 1000 points, non-uniformite max 3.4e-13
+  a vide     MSE 1.64462e-01 ; reconstruite 1.64462e-01 (ecart rel. 1.5e-15)
+             six ordres dominants (n) : n=86 (7.3 %) n=134 (6.9 %) n=94 (6.9 %) n=90 (6.6 %) n=98 (6.5 %) n=130 (6.5 %)
+             fondamental              0.0 % de la MSE  (1 ordres)
+             denture stator seule    41.9 % de la MSE  (18 ordres)
+             denture rotor seule     46.6 % de la MSE  (20 ordres)
+             commune aux deux         4.4 % de la MSE  (2 ordres)
+             reste du spectre         7.2 % de la MSE  (459 ordres)
+             part NON contaminee par la position rotor : 49.1 %
+  en charge  MSE 4.55418e-01 ; reconstruite 4.55418e-01 (ecart rel. 2.8e-15)
+             six ordres dominants (n) : n=46 (45.0 %) n=42 (10.4 %) n=94 (9.5 %) n=50 (5.8 %) n=90 (5.2 %) n=38 (3.5 %)
+             fondamental              0.1 % de la MSE  (1 ordres)
+             denture stator seule    22.9 % de la MSE  (18 ordres)
+             denture rotor seule     20.8 % de la MSE  (20 ordres)
+             commune aux deux        45.2 % de la MSE  (2 ordres)
+             reste du spectre        11.1 % de la MSE  (459 ordres)
+             part NON contaminee par la position rotor : 34.0 %
+  GARDE 3 (Parseval) PASSEE
+
+  ---- 5. LOCALISATION DE L'ERREUR ----
+  Masques construits sur le PAVAGE de l'operateur : une colonne de
+  face porte le potentiel de la dent, une colonne d'ouverture est
+  de l'air. Test direct de l'hypothese du sec. 6.4.
+  cas         zone                      rms err   part MSE       pts
+  a vide      ouverture stator           0.4536      24.0 %       192
+  a vide      face de dent stator        0.3932      76.0 %       808
+  a vide      ouverture rotor            0.3509      12.9 %       172
+  a vide      face de dent rotor         0.4160      87.1 %       828
+  a vide      ouv. stator ET rotor       0.5606       6.1 %        32
+  en charge   ouverture stator           0.7666      24.8 %       192
+  en charge   face de dent stator        0.6512      75.2 %       808
+  en charge   ouverture rotor            0.3902       5.8 %       172
+  en charge   face de dent rotor         0.7200      94.2 %       828
+  en charge   ouv. stator ET rotor       0.7201       3.6 %        32
+
+  ---- LECTURE ----
+  Le fondamental est juste a 0.3 % a vide et -2.4 % en charge --
+  ce sont les valeurs publiees. La RMSE ponctuelle sur B_r vaut
+  56.3 % de la valeur efficace de reference a vide et 90.5 % en
+  charge, l'erreur ponctuelle maximale 92.7 % et 99.2 % de la crete.
+  C'est ce que la revue annonce : un fondamental juste est
+  compatible avec de fortes erreurs locales, et seules les secondes
+  disent ce que vaut le champ SOUS LES OUVERTURES.
+
+  DEUX MESURES DE NATURE DIFFERENTE. A vide, le recalage qui
+  minimiserait la RMSE est celui qu'on applique : la comparaison
+  n'a aucun degre de liberte restant et le chiffre est une mesure.
+  En charge, un decalage de 5.625 deg mec abaisserait la RMSE de
+  53 % : la position mecanique du rotor du cliche EF n'est pas
+  reproduite par la chaine, et la RMSE en charge est donc une BORNE
+  SUPERIEURE, non une mesure. Ce que la separation par famille
+  chiffre : la part portee par des ordres etrangers a la denture
+  rotor -- la seule non contaminee -- vaut 49.1 % a vide et 34.0 %
+  en charge.
+
+  GARDES : 1 OK | 2 OK | 3 OK
+  duree 142 s
+=== M-11 v2 termine ===
