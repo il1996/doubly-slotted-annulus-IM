@@ -15,7 +15,7 @@ plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 8.5, 'axes.linew
 ARCH = r'C:\Users\hp\AppData\Local\Temp\claude\C--Users-hp-Desktop-claude\fb8f7acf-d703-40c5-b60c-b7b9dd7398fa\scratchpad\repo\doubly-slotted-annulus-IM'
 OUT = os.path.join(ARCH, 'code', 'article', 'figures')
 W = os.path.join(ARCH, 'outputs', 'python')
-MECO = os.path.join(ARCH, 'code', 'MEC_IM')           # fresh MATLAB outputs of this session (copied to outputs/ afterwards)
+MECO = os.path.join(ARCH, 'outputs', 'MEC_IM')        # MATLAB transcripts and .mat files of the archive
 REF = os.path.join(ARCH, 'reference', 'ANSYS_18_5kW')
 os.makedirs(OUT, exist_ok=True)
 C = {'fe': '#1b4f72', 'neu': '#c0392b', 'op': '#e67e22', 'op2': '#f0b27a', 'cav': '#1e8449', 'carter': '#5d6d7e', 'grey': '#95a5a6', 'grad': '#7d3c98'}
