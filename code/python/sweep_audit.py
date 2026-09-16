@@ -1,5 +1,5 @@
 import numpy as np, os
-REF = "/tmp/claude-0/-home-claude/7143d4e0-b0a2-5917-b5fc-cf31bb630d6a/scratchpad/repo/reference/ANSYS_18_5kW/carat#U00e9ristique en fonction glissement"
+REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'reference', 'ANSYS_18_5kW', 'carat#U00e9ristique en fonction glissement')
 T = np.loadtxt(os.path.join(REF,"Torque Plot 2.tab"), skiprows=1)
 I = np.loadtxt(os.path.join(REF,"Winding Plot 1.tab"), skiprows=1)
 s=T[:,0]; tq=T[:,1]; cur=I[:,1]

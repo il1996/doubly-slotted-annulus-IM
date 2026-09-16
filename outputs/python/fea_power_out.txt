@@ -1,0 +1,34 @@
+﻿================================================================================
+a vide
+ I rms [8.4885815  8.48510904 8.52223612] mean 8.498642223377002
+ E(2D induced) rms [382.12087912 382.11547563 380.35132297] mean 381.5292259057137
+ V rms [398.17264916 398.47116675 398.47116675] mean 398.37166088612156
+ P_elec (mean sum v.i) = 195.18 W ; S = 10156.9 VA ; PF = 0.0192
+ P through 2D induced voltage (sum e.i) = 1577.78 W
+ 3 R I^2 with R=0.4457: 96.6 W ; P_elec - Pcu = 98.6
+ phasor |Ia|=8.3658 A rms, |Ea|=381.749 V rms, angle(Ea)-angle(Ia) = 80.40 deg
+ psi phasor 1.72891 Wb peak; w*psi = 384.067 V rms
+ |Va|=397.974 V rms; angle(Va)-angle(Ia)=88.78 deg -> PF_fund=0.0212
+ Z=V/I = 1.0108 + j47.5610 ohm ; E/I: 7.6114 + j44.9930
+ (V-E)/I = -6.6006 + j2.5679 ohm  (expected R_s + j X_end)
+ (V+E)/I = 8.6222 + j92.5540 ohm
+================================================================================
+en charge
+ I rms [19.72532565 19.721836   19.72054086] mean 19.722567504451778
+ E(2D induced) rms [370.46620524 370.77459445 370.58094159] mean 370.6072470940766
+ V rms [398.17264916 398.47116675 398.47116675] mean 398.37166088612156
+ P_elec (mean sum v.i) = 19551.39 W ; S = 23570.7 VA ; PF = 0.8295
+ P through 2D induced voltage (sum e.i) = 20422.72 W
+ 3 R I^2 with R=0.4457: 520.1 W ; P_elec - Pcu = 19031.3
+ phasor |Ia|=19.5982 A rms, |Ea|=370.081 V rms, angle(Ea)-angle(Ia) = 20.01 deg
+ psi phasor 1.67595 Wb peak; w*psi = 372.302 V rms
+ |Va|=397.974 V rms; angle(Va)-angle(Ia)=33.44 deg -> PF_fund=0.8345
+ Z=V/I = 16.9455 + j11.1898 ohm ; E/I: 17.7433 + j6.4621
+ (V-E)/I = -0.7978 + j4.7277 ohm  (expected R_s + j X_end)
+ (V+E)/I = 34.6888 + j17.6519 ohm
+================================================================================
+rotor bloque
+ I rms [108.21186355 101.61478311 103.36642732] mean 104.39769132977915
+ E(2D induced) rms [169.45061117 192.2765761  187.8184247 ] mean 183.18187065370566
+ phasor |Ia|=108.2492 A rms, |Ea|=169.087 V rms, angle(Ea)-angle(Ia) = 64.40 deg
+ psi phasor 0.76546 Wb peak; w*psi = 170.044 V rms

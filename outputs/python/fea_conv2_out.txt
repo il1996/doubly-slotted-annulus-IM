@@ -1,0 +1,22 @@
+﻿==== transitoire/en charge
+ sum of currents rms: 4.179567492418755e-14
+ neutral shift rms: 4.6684046192386495
+ phase col0: R=-0.7482  L=14.6790 mH  R2=0.970453  resid rms 16.276 V
+ phase col1: R=-0.7528  L=14.6621 mH  R2=0.969807  resid rms 16.432 V
+ phase col2: R=-0.7494  L=14.6580 mH  R2=0.970324  resid rms 16.307 V
+   vn harmonic 1: 0.01 V rms
+   vn harmonic 3: 0.92 V rms
+   vn harmonic 5: 0.01 V rms
+   vn harmonic 7: 0.03 V rms
+   vn harmonic 9: 0.45 V rms
+==== transitoire/a vide
+ sum of currents rms: 2.7859402109645315e-14
+ neutral shift rms: 5.668317199781963
+ phase col0: R=-6.4006  L=8.2447 mH  R2=0.943934  resid rms 14.417 V
+ phase col1: R=-6.3972  L=8.1680 mH  R2=0.942984  resid rms 14.517 V
+ phase col2: R=-6.3452  L=8.1707 mH  R2=0.936469  resid rms 15.362 V
+   vn harmonic 1: 1.15 V rms
+   vn harmonic 3: 4.04 V rms
+   vn harmonic 5: 2.54 V rms
+   vn harmonic 7: 2.21 V rms
+   vn harmonic 9: 1.65 V rms

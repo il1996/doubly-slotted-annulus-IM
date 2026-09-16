@@ -1,0 +1,10 @@
+﻿FE (A), real slots               n=12  min 1.2391  max 1.2986  mean 1.2686  (+-2.35 % about the mean)
+FE (B), flux-barrier openings    n=12  min 1.3507  max 1.4662  mean 1.4073  (+-4.10 % about the mean)
+operator + cavities (33,16)      n=12  min 1.2439  max 1.3068  mean 1.2751  (+-2.47 % about the mean)
+operator Phi_O=0 (33,16)         n=12  min 1.3819  max 1.5200  mean 1.4490  (+-4.76 % about the mean)
+operator Phi_O=0 (17,4)          n=12  min 1.4285  max 1.6050  mean 1.5136  (+-5.83 % about the mean)
+cavity (33,16) against FE (A) at the same positions: deviation min +0.39 % max +0.63 % (n=12)
+Table 5 increments along n_O at n_T = 65, Phi_O = 0, hat:  [-0.0953 -0.0555 -0.027 ]
+Table 5 increments along n_T at n_O = 16, Phi_O = 0, hat:  [-0.0269 -0.018  -0.0129]
+Table 5 asym. hat along n_T at n_O = 16: [1.8274, 1.6402, 1.5471, 1.5011] increments [-0.1872 -0.0931 -0.046 ]
+cavity increments along n_O at n_T = 33 (hat): [-0.0409 -0.0151 -0.0062] ratios [0.37 0.41]

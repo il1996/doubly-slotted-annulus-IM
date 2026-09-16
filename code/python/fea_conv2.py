@@ -1,6 +1,6 @@
 import numpy as np, os
 for sub in ["transitoire/en charge","transitoire/a vide"]:
-    REF = "/tmp/claude-0/-home-claude/7143d4e0-b0a2-5917-b5fc-cf31bb630d6a/scratchpad/repo/reference/ANSYS_18_5kW/"+sub
+    REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'reference', 'ANSYS_18_5kW', *sub.split('/'))
     load=lambda p: np.loadtxt(p, skiprows=1)
     V=load(os.path.join(REF,"Winding Plot 3.tab")); I=load(os.path.join(REF,"Winding Plot 4.tab")); E=load(os.path.join(REF,"Winding Plot 2.tab"))
     t=I[:,0]; dt=t[1]-t[0]; m=(t>=1.0)&(t<=2.0)

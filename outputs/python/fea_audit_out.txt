@@ -1,0 +1,101 @@
+﻿====================================================================================================
+RUN: a vide
+ speed file: la vitesse en fonction du temps.tab  t range 0.0 2.0 n 2001
+   speed mean 1.0-2.0: 1499.9419 rpm, min 1498.688 max 1501.304
+   speed mean 1.5-2.0: 1499.9305 rpm, min 1498.836 max 1501.053
+   speed mean 1.9-2.0: 1499.9134 rpm, min 1498.928 max 1501.053
+ torque col: "Moving1.LoadTorque [NewtonMeter]"
+   mean 1.0-2.0: 0.00000  std 0.0000  pk-pk 0.0000
+   mean 1.5-2.0: 0.00000  std 0.0000  pk-pk 0.0000
+   mean 1.9-2.0: 0.00000  std 0.0000  pk-pk 0.0000
+   mean 1.0-1.5: 0.00000  std 0.0000  pk-pk 0.0000
+ torque col: "Moving1.Torque [NewtonMeter]"
+   mean 1.0-2.0: 0.65364  std 2.8526  pk-pk 10.3462
+   mean 1.5-2.0: 0.66100  std 2.9107  pk-pk 10.3462
+   mean 1.9-2.0: 0.72137  std 2.9935  pk-pk 10.3462
+   mean 1.0-1.5: 0.64629  std 2.7933  pk-pk 9.6255
+ current file: Winding Plot 4.tab ['"Current(Phase_A) [A]"', '"Current(Phase_C) [A]"', '"Current(Phase_B) [A]"']
+   rms 1.0-2.0: A 8.4886  C 8.4851  B 8.5222  mean3 8.4986
+   rms 1.5-2.0: A 8.4849  C 8.4918  B 8.5250  mean3 8.5006
+   rms 1.9-2.0: A 8.4855  C 8.4940  B 8.5260  mean3 8.5018
+ induced voltage: ['"InducedVoltage(Phase_A) [V]"', '"InducedVoltage(Phase_C) [V]"', '"InducedVoltage(Phase_B) [V]"']
+   rms 1.0-2.0: A 382.121  C 382.115  B 380.351  mean3 381.529
+   rms 1.5-2.0: A 382.363  C 381.871  B 380.297  mean3 381.511
+   rms 1.9-2.0: A 382.407  C 381.799  B 380.304  mean3 381.503
+   flux linkage peak 1.0-2.0: [np.float64(1.7159768273441), np.float64(1.71013544453251), np.float64(1.70975645773574)]
+   flux linkage peak 1.9-2.0: [np.float64(1.71346229056533), np.float64(1.71013544453251), np.float64(1.70955245320132)]
+  "CoreLoss [W]": [1.0-2.0] mean 249.29038 rms 249.36154  [1.5-2.0] mean 249.17186 rms 249.24551  [1.9-2.0] mean 249.08300 rms 249.15763  
+  "SolidLoss [kW]": [1.0-2.0] mean 0.00491 rms 0.00501  [1.5-2.0] mean 0.00492 rms 0.00501  [1.9-2.0] mean 0.00494 rms 0.00503  
+  "StrandedLossR [kW]": [1.0-2.0] mean 0.09658 rms 0.09859  [1.5-2.0] mean 0.09663 rms 0.09864  [1.9-2.0] mean 0.09666 rms 0.09868  
+  "RingSolidLoss(EndConnection) [kW]": [1.0-2.0] mean 0.00077 rms 0.00079  [1.5-2.0] mean 0.00077 rms 0.00079  [1.9-2.0] mean 0.00077 rms 0.00079  
+  "Current(EndConnection) [kA]": [1.0-2.0] mean 0.00088 rms 0.02735  [1.5-2.0] mean 0.00093 rms 0.02746  [1.9-2.0] mean 0.00112 rms 0.02749  
+  "RingCurrent(EndConnection) [kA]": [1.0-2.0] mean -0.00234 rms 0.08172  [1.5-2.0] mean -0.00238 rms 0.08139  [1.9-2.0] mean -0.00277 rms 0.08104  
+  puissance entre et sortie.tab | "Pout [kW]": [1.0-2.0] mean 0.00063  [1.5-2.0] mean 0.00179  [1.9-2.0] mean 0.01127  
+  puissance entre et sortie.tab | "Pin [kW]": [1.0-2.0] mean 0.19518  [1.5-2.0] mean 0.19805  [1.9-2.0] mean 0.20684  
+  puissance #U00e9lectromagn#U00e9tique.tab | "Pem [kW]": [1.0-2.0] mean 0.10267  [1.5-2.0] mean 0.10382  [1.9-2.0] mean 0.11331  
+  puissance de perte m#U00e9canique.tab | "Pro [W]": [1.0-2.0] mean 102.03922  [1.5-2.0] mean 102.03766  [1.9-2.0] mean 102.03534  
+====================================================================================================
+RUN: en charge
+ speed file: Speed Plot 1.tab  t range 0.0 2.0 n 2001
+   speed mean 1.0-2.0: 1471.7525 rpm, min 1462.846 max 1480.669
+   speed mean 1.5-2.0: 1471.7641 rpm, min 1463.449 max 1479.952
+   speed mean 1.9-2.0: 1471.8545 rpm, min 1463.920 max 1479.884
+ torque col: "-Moving1.LoadTorque [NewtonMeter]"
+   mean 1.0-2.0: 121.07000  std 0.0000  pk-pk 0.0000
+   mean 1.5-2.0: 121.07000  std 0.0000  pk-pk 0.0000
+   mean 1.9-2.0: 121.07000  std 0.0000  pk-pk 0.0000
+   mean 1.0-1.5: 121.07000  std 0.0000  pk-pk 0.0000
+ torque col: "Moving1.Torque [NewtonMeter]"
+   mean 1.0-2.0: 121.63083  std 35.2970  pk-pk 110.4159
+   mean 1.5-2.0: 121.61102  std 35.3302  pk-pk 110.0688
+   mean 1.9-2.0: 121.88736  std 35.5017  pk-pk 105.4865
+   mean 1.0-1.5: 121.65060  std 35.2638  pk-pk 110.4159
+ current file: Winding Plot 4.tab ['"Current(Phase_A) [A]"', '"Current(Phase_C) [A]"', '"Current(Phase_B) [A]"']
+   rms 1.0-2.0: A 19.7253  C 19.7218  B 19.7205  mean3 19.7226
+   rms 1.5-2.0: A 19.7304  C 19.6961  B 19.7292  mean3 19.7186
+   rms 1.9-2.0: A 19.8098  C 19.7579  B 19.7636  mean3 19.7771
+ induced voltage: ['"InducedVoltage(Phase_A) [V]"', '"InducedVoltage(Phase_C) [V]"', '"InducedVoltage(Phase_B) [V]"']
+   rms 1.0-2.0: A 370.466  C 370.775  B 370.581  mean3 370.607
+   rms 1.5-2.0: A 370.685  C 370.625  B 370.529  mean3 370.613
+   rms 1.9-2.0: A 370.496  C 370.676  B 370.606  mean3 370.593
+   flux linkage peak 1.0-2.0: [np.float64(1.67669155056153), np.float64(1.66649971614858), np.float64(1.67807653515255)]
+   flux linkage peak 1.9-2.0: [np.float64(1.6755284279445), np.float64(1.66196225457981), np.float64(1.6766703851255)]
+  "CoreLoss [W]": [1.0-2.0] mean 232.64239 rms 232.67042  [1.5-2.0] mean 232.65484 rms 232.68335  [1.9-2.0] mean 232.62119 rms 232.65018  
+  "SolidLoss [kW]": [1.0-2.0] mean 0.37208 rms 0.37548  [1.5-2.0] mean 0.37198 rms 0.37537  [1.9-2.0] mean 0.37459 rms 0.37795  
+  "StrandedLossR [kW]": [1.0-2.0] mean 0.52015 rms 0.52768  [1.5-2.0] mean 0.51994 rms 0.52746  [1.9-2.0] mean 0.52303 rms 0.53048  
+  "RingSolidLoss(EndConnection) [kW]": [1.0-2.0] mean 0.11637 rms 0.11753  [1.5-2.0] mean 0.11633 rms 0.11749  [1.9-2.0] mean 0.11717 rms 0.11832  
+  "Current(EndConnection) [kA]": [1.0-2.0] mean -0.01226 rms 0.32469  [1.5-2.0] mean -0.27283 rms 0.32698  [1.9-2.0] mean 0.02942 rms 0.06891  
+  "RingCurrent(EndConnection) [kA]": [1.0-2.0] mean 0.08746 rms 1.09063  [1.5-2.0] mean -0.33211 rms 1.08670  [1.9-2.0] mean -1.53126 rms 1.53549  
+  Output Variables Plot 3.tab | "Pem [kW]": [1.0-2.0] mean 18.74593  [1.5-2.0] mean 18.74304  [1.9-2.0] mean 18.78665  
+  Output Variables Plot 3.tab | "Pout [kW]": [1.0-2.0] mean 18.64769  [1.5-2.0] mean 18.64480  [1.9-2.0] mean 18.68839  
+  Output Variables Plot 3.tab | "Pin [kW]": [1.0-2.0] mean 20.36868  [1.5-2.0] mean 20.36545  [1.9-2.0] mean 20.41557  
+  Output Variables Plot 2.tab | "Efficience []": [1.0-2.0] mean 0.90905  [1.5-2.0] mean 0.90904  [1.9-2.0] mean 0.90886  
+  Output Variables Plot 1.tab | "factor_puissance []": [1.0-2.0] mean 0.85759  [1.5-2.0] mean 0.85745  [1.9-2.0] mean 0.85956  
+  Output Variables Plot 4.tab | "Pro [W]": [1.0-2.0] mean 98.24080  [1.5-2.0] mean 98.24235  [1.9-2.0] mean 98.25442  
+====================================================================================================
+RUN: rotor bloque
+ torque col: "Moving1.Torque [kNewtonMeter]"
+   mean 1.0-2.0: 0.10431  std 0.3156  pk-pk 0.9923
+   mean 1.5-2.0: 0.10419  std 0.3152  pk-pk 0.9294
+   mean 1.9-2.0: 0.10422  std 0.3150  pk-pk 0.9029
+   mean 1.0-1.5: 0.10443  std 0.3160  pk-pk 0.9923
+ current file: Winding Plot 3.tab ['"Current(Phase_A) [A]"', '"Current(Phase_C) [A]"', '"Current(Phase_B) [A]"']
+   rms 1.0-2.0: A 108.2119  C 101.6148  B 103.3664  mean3 104.3977
+   rms 1.5-2.0: A 108.1635  C 101.6048  B 103.3936  mean3 104.3873
+   rms 1.9-2.0: A 108.1621  C 101.6015  B 103.3898  mean3 104.3845
+ induced voltage: ['"InducedVoltage(Phase_A) [V]"', '"InducedVoltage(Phase_C) [V]"', '"InducedVoltage(Phase_B) [V]"']
+   rms 1.0-2.0: A 169.451  C 192.277  B 187.818  mean3 183.182
+   rms 1.5-2.0: A 169.537  C 192.224  B 187.828  mean3 183.196
+   rms 1.9-2.0: A 169.540  C 192.230  B 187.836  mean3 183.202
+   flux linkage peak 1.0-2.0: [np.float64(0.937371113384288), np.float64(0.812910135067894), np.float64(0.821989800637631)]
+   flux linkage peak 1.9-2.0: [np.float64(0.801888778540621), np.float64(0.812910135067894), np.float64(0.821989800637631)]
+  "CoreLoss [W]": [1.0-2.0] mean 119.72979 rms 121.97376  [1.5-2.0] mean 119.95793 rms 122.20270  [1.9-2.0] mean 120.07384 rms 122.31400  
+  "SolidLoss [kW]": [1.0-2.0] mean 15.08559 rms 15.08729  [1.5-2.0] mean 15.08466 rms 15.08637  [1.9-2.0] mean 15.08437 rms 15.08608  
+  "StrandedLossR [kW]": [1.0-2.0] mean 14.58461 rms 14.59419  [1.5-2.0] mean 14.58154 rms 14.59110  [1.9-2.0] mean 14.58076 rms 14.59031  
+  "RingSolidLoss(EndConnection) [kW]": [1.0-2.0] mean 4.03307 rms 4.03327  [1.5-2.0] mean 4.03259 rms 4.03278  [1.9-2.0] mean 4.03244 rms 4.03264  
+  "Current(EndConnection) [kA]": [1.0-2.0] mean 0.01043 rms 1.92944  [1.5-2.0] mean 0.00507 rms 1.92861  [1.9-2.0] mean 0.00372 rms 1.92861  
+  "RingCurrent(EndConnection) [kA]": [1.0-2.0] mean -0.00812 rms 6.52963  [1.5-2.0] mean -0.00460 rms 6.53219  [1.9-2.0] mean -0.00323 rms 6.53202  
+  Output Variables Plot 2.tab | "Pem [kW]": [1.0-2.0] mean 0.00000  [1.5-2.0] mean 0.00000  [1.9-2.0] mean 0.00000  
+  Output Variables Plot 2.tab | "Pout [kW]": [1.0-2.0] mean 0.00000  [1.5-2.0] mean 0.00000  [1.9-2.0] mean 0.00000  
+  Output Variables Plot 2.tab | "Pin [kW]": [1.0-2.0] mean 34.20449  [1.5-2.0] mean 34.20024  [1.9-2.0] mean 34.19914  
+  Output Variables Plot 1.tab | "factor_puissance []": [1.0-2.0] mean 0.45626  [1.5-2.0] mean 0.45621  [1.9-2.0] mean 0.45619  

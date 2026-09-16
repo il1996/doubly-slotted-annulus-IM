@@ -1,0 +1,5 @@
+﻿corr(E_A, dpsi_A/dt) = 0.9875516501634082  ratio rms 1.0126202720772188
+sign +1: fitted L_ext = 14.6775 mH, R2 = 0.9095, resid rms 96.56 V
+sign -1: fitted L_ext = 52.7550 mH, R2 = 0.1919, resid rms 755.51 V
+sign +1: V - (+1)E = R I + L dI/dt -> R=-0.7485 ohm, L=14.6757 mH, R2=0.96781
+sign -1: V - (-1)E = R I + L dI/dt -> R=34.2475 ohm, L=52.8048 mH, R2=0.97137

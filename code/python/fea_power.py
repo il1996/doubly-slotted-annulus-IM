@@ -1,5 +1,5 @@
 import numpy as np, os
-REF = "/tmp/claude-0/-home-claude/7143d4e0-b0a2-5917-b5fc-cf31bb630d6a/scratchpad/repo/reference/ANSYS_18_5kW"
+REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'reference', 'ANSYS_18_5kW')
 def load(p): return np.loadtxt(p, skiprows=1)
 for label, sub, cur in [("a vide","transitoire/a vide","Winding Plot 4.tab"),("en charge","transitoire/en charge","Winding Plot 4.tab"),("rotor bloque","transitoire/rotor bloqu#U00e9","Winding Plot 3.tab")]:
     d=os.path.join(REF,sub)
