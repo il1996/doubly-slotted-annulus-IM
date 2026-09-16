@@ -23,7 +23,9 @@ import scipy.io as sio
 HERE = r"C:\Users\hp\Desktop\claude\T2_ansys"
 EXP = os.path.join(HERE, "exports")
 REF = r"C:\Users\hp\Desktop\ANSYS résultat 18.5KW\transitoire\a vide"
-Z7 = r"C:\Users\hp\AppData\Local\Temp\claude\C--Users-hp-Desktop-claude\fb8f7acf-d703-40c5-b60c-b7b9dd7398fa\scratchpad\repo\doubly-slotted-annulus-IM\code\MEC_IM\Z7_noload_net.mat"
+Z7 = r"C:\Users\hp\AppData\Local\Temp\claude\C--Users-hp-Desktop-claude\fb8f7acf-d703-40c5-b60c-b7b9dd7398fa\scratchpad\repo\doubly-slotted-annulus-IM\outputs\MEC_IM\Z7_noload_net.mat"
+if not os.path.exists(Z7):
+    raise SystemExit("Z7_noload_net.mat not found: " + Z7)
 RS, LS, F = 0.44574, 6.251120231328e-3, 50.0
 W = 2 * np.pi * F; XEXT = W * LS
 T0, T1 = 1.0, 2.0
@@ -36,10 +38,19 @@ def read_tab(f):
     return names, data
 
 
+UNIT = {'A': 1.0, 'mA': 1e-3, 'kA': 1e3, 'uA': 1e-6, 'V': 1.0, 'mV': 1e-3, 'kV': 1e3, 'Wb': 1.0, 'mWb': 1e-3, 'uWb': 1e-6,
+        'W': 1.0, 'mW': 1e-3, 'kW': 1e3, 'NewtonMeter': 1.0, 'mNewtonMeter': 1e-3, 'rpm': 1.0, 's': 1.0, 'ms': 1e-3}
+
+
 def col(names, data, key):
+    """Column by quantity name, converted to SI from the unit given in the header as 'name [unit]'."""
     for j, n in enumerate(names):
         if n.startswith(key):
-            return data[:, j]
+            m = re.search(r'\[([^\]]+)\]', n)
+            u = m.group(1).strip() if m else ''
+            if u and u not in UNIT:
+                raise ValueError("unknown unit %r in column %r" % (u, n))
+            return data[:, j] * (UNIT[u] if u else 1.0)
     raise KeyError(key)
 
 

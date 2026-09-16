@@ -1,0 +1,24 @@
+BATCH START 16/09/2026  9:05:10,02 
+NL_V550 begin  9:05:10,02 
+NL_V550 end  9:05:10,02 exit 0 
+NL_V410 begin  9:05:10,02 
+NL_V410 end  9:05:10,02 exit 0 
+NL_V275 begin  9:05:10,02 
+NL_V275 end  9:05:10,02 exit 0 
+NL_V140 begin  9:05:10,02 
+NL_V140 end  9:05:10,02 exit 0 
+BATCH DONE 16/09/2026  9:05:44,84 
+COM CHAIN START 09:07:07
+NL_V550 solve begin 09:07:07
+NL_V550 solve end 09:32:21
+NL_V550 export end 09:32:52 exported=True
+NL_V410 solve begin 09:32:52
+NL_V410 solve end 09:57:35
+NL_V410 export end 09:58:05 exported=True
+NL_V275 solve begin 09:58:05
+NL_V275 solve end 10:20:52
+NL_V275 export end 10:21:26 exported=True
+NL_V140 solve begin 10:21:26
+NL_V140 solve end 10:44:29
+NL_V140 export end 10:45:00 exported=True
+COM CHAIN DONE 10:45:00

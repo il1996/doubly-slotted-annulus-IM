@@ -1,0 +1,33 @@
+=== T2 : numerical no-load test, FE side (window [1.0, 2.0) s, R_s = 0.44574 ohm, X_ext = w L_ext = 1.9638 ohm) ===
+run                                         V_line     U_ph    I0 (A) E_exp (V) |E_2D| (V)    chk %   X_m,2D    Im(Z)    Re(Z)   phi_I
+reference run 'a vide', 690 V, free rotor      690   398.37    8.3666    381.37    381.89   15.718   45.644   45.642    0.491  -88.87
+         | phase spread of I0 0.34 % | THD_I 17.8 % | speed 1499.9 rpm | export E vs jwPsi 15.73 % (lag -9.00 deg) | E_2D vs jwPsi 0.347 % | |jwPsi| 382.94 V
+NL_V690, 1500 rpm imposed                      690   398.37    8.3851    381.35    381.87   15.717   45.541   45.540    0.286  -89.12
+         | phase spread of I0 0.37 % | THD_I 17.9 % | speed 1500.0 rpm | core loss 248.2 W | torque -0.351 N m | export E vs jwPsi 15.73 % (lag -9.00 deg) | E_2D vs jwPsi 0.373 % | |jwPsi| 382.92 V
+NL_V550, 1500 rpm imposed                      550   317.54    3.0346    311.39    311.58   15.705  102.675  102.675    0.041  -89.73
+         | phase spread of I0 0.09 % | THD_I 34.1 % | speed 1500.0 rpm | core loss 163.8 W | torque -0.078 N m | export E vs jwPsi 15.73 % (lag -9.00 deg) | E_2D vs jwPsi 0.541 % | |jwPsi| 312.68 V
+NL_V410, 1500 rpm imposed                      410   236.71    2.0636    232.53    232.66   15.705  112.743  112.743   -0.006  -89.78
+         | phase spread of I0 0.09 % | THD_I 36.8 % | speed 1500.0 rpm | core loss 96.4 W | torque -0.023 N m | export E vs jwPsi 15.73 % (lag -9.00 deg) | E_2D vs jwPsi 0.559 % | |jwPsi| 233.49 V
+NL_V275, 1500 rpm imposed                      275   158.77    1.4283    155.88    155.97   15.705  109.200  109.200   -0.010  -89.78
+         | phase spread of I0 0.09 % | THD_I 35.8 % | speed 1500.0 rpm | core loss 47.1 W | torque -0.010 N m | export E vs jwPsi 15.73 % (lag -9.00 deg) | E_2D vs jwPsi 0.555 % | |jwPsi| 156.52 V
+NL_V140, 1500 rpm imposed                      140    80.83    0.8058     79.20     79.25   15.706   98.344   98.344    0.031  -89.73
+         | phase spread of I0 0.10 % | THD_I 32.7 % | speed 1500.0 rpm | core loss 14.1 W | torque -0.003 N m | export E vs jwPsi 15.73 % (lag -9.00 deg) | E_2D vs jwPsi 0.540 % | |jwPsi| 79.52 V
+  chk = |E_2D - InducedVoltage| / |InducedVoltage| on the fundamental phasors (the construction check)
+
+=== comparison with the network closures (RUN_Z7 : E_2D = U_ph - R_s I - j X_ext I, X_ext(network) = 1.1863 ohm, R_s(network) = 0.4302 ohm) ===
+ V_line |     FE I0 FE X_m,2D | Carter                       | operateur (17,4) Phi_O=0     | operateur+cavite (33,16)    
+    690 |    8.3851    45.541 | I0  8.6123 ( +2.7 %) X  45.054 ( -1.1 %) | I0 10.3233 (+23.1 %) X  37.390 (-17.9 %) | I0  9.1527 ( +9.2 %) X  42.324 ( -7.1 %)
+    550 |    3.0346   102.675 | I0  2.8807 ( -5.1 %) X 109.011 ( +6.2 %) | I0  3.5967 (+18.5 %) X  87.074 (-15.2 %) | I0  3.0245 ( -0.3 %) X 103.774 ( +1.1 %)
+    410 |    2.0636   112.743 | I0  1.9686 ( -4.6 %) X 119.022 ( +5.6 %) | I0  2.4197 (+17.3 %) X  96.613 (-14.3 %) | I0  2.0323 ( -1.5 %) X 115.255 ( +2.2 %)
+    275 |    1.4283   109.200 | I0  1.3632 ( -4.6 %) X 115.247 ( +5.5 %) | I0  1.6645 (+16.5 %) X  94.169 (-13.8 %) | I0  1.4050 ( -1.6 %) X 111.784 ( +2.4 %)
+    140 |    0.8058    98.344 | I0  0.7730 ( -4.1 %) X 103.344 ( +5.1 %) | I0  0.9271 (+15.1 %) X  85.970 (-12.6 %) | I0  0.7946 ( -1.4 %) X 100.507 ( +2.2 %)
+    100 |         -         - | I0  0.5911            X  96.451           | I0  0.7017            X  81.059           | I0  0.6068            X  93.923          
+     60 |         -         - | I0  0.3959            X  86.288           | I0  0.4628            X  73.639           | I0  0.4056            X  84.187          
+  (* reference run with the free rotor at 1499.9 rpm; the sweep run at 690 V has the rotor driven at 1500 rpm)
+
+=== low-flux extrapolation (linear in |E_2D|^2 through the two lowest sweep voltages, same method both sides) ===
+  FE : X_m,2D(140 V) = 98.344, X_m,2D(275 V) = 109.200 -> X_m,2D(E -> 0) = 94.566 ohm
+  Carter                       : X_m,2D(140 V) = 103.344, X_m,2D(275 V) = 115.247 -> X_m,2D(E -> 0) = 99.193 ohm (+4.9 % vs FE) ; X_m0(0.2 A) of Table 8 = 71.990
+  operateur (17,4) Phi_O=0     : X_m,2D(140 V) = 85.970, X_m,2D(275 V) = 94.169 -> X_m,2D(E -> 0) = 83.111 ohm (-12.1 % vs FE) ; X_m0(0.2 A) of Table 8 = 61.015
+  operateur+cavite (33,16)     : X_m,2D(140 V) = 100.507, X_m,2D(275 V) = 111.784 -> X_m,2D(E -> 0) = 96.574 ohm (+2.1 % vs FE) ; X_m0(0.2 A) of Table 8 = 70.029
+  the network's own X_m(I_m) rises from 0.2 A to ~2 A (initial permeability of M800-50A) before falling: X_m0 of Table 8 is a low-current definition, not the unsaturated plateau

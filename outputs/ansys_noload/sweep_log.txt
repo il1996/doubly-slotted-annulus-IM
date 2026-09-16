@@ -1,0 +1,119 @@
+2026-09-16 08:32:20 === noload_sweep_com start (solve=False, volts=[690, 550, 410, 275, 140]) ===
+2026-09-16 08:32:30 desktop 2023.1.0
+2026-09-16 08:32:30 projects already open in this desktop: []
+2026-09-16 08:32:48 project IM_18kW_690V_noload_sweep ; designs ['en charge', 'caractéristique', 'a vide', 'rotor bloqué']
+2026-09-16 08:32:52 design NL_V690 created from 'a vide' (pasted as 'a vide1')
+2026-09-16 08:32:52   Phase_A voltage := 690*sqrt(2/3)*sin(time*2*$f*pi)
+2026-09-16 08:32:53   Phase_C voltage := 690*sqrt(2/3)*sin(time*2*$f*pi+2*pi/3)
+2026-09-16 08:32:53   Phase_B voltage := 690*sqrt(2/3)*sin(time*2*$f*pi-2*pi/3)
+2026-09-16 08:32:53   motion := 1500 rpm constant, mechanical transient off
+2026-09-16 08:32:55   saved
+2026-09-16 08:33:00 design NL_V550 created from 'a vide' (pasted as 'a vide1')
+2026-09-16 08:33:00   Phase_A voltage := 550*sqrt(2/3)*sin(time*2*$f*pi)
+2026-09-16 08:33:00   Phase_C voltage := 550*sqrt(2/3)*sin(time*2*$f*pi+2*pi/3)
+2026-09-16 08:33:00   Phase_B voltage := 550*sqrt(2/3)*sin(time*2*$f*pi-2*pi/3)
+2026-09-16 08:33:00   motion := 1500 rpm constant, mechanical transient off
+2026-09-16 08:33:02   saved
+2026-09-16 08:33:07 design NL_V410 created from 'a vide' (pasted as 'a vide1')
+2026-09-16 08:33:07   Phase_A voltage := 410*sqrt(2/3)*sin(time*2*$f*pi)
+2026-09-16 08:33:07   Phase_C voltage := 410*sqrt(2/3)*sin(time*2*$f*pi+2*pi/3)
+2026-09-16 08:33:07   Phase_B voltage := 410*sqrt(2/3)*sin(time*2*$f*pi-2*pi/3)
+2026-09-16 08:33:07   motion := 1500 rpm constant, mechanical transient off
+2026-09-16 08:33:09   saved
+2026-09-16 08:33:14 design NL_V275 created from 'a vide' (pasted as 'a vide1')
+2026-09-16 08:33:14   Phase_A voltage := 275*sqrt(2/3)*sin(time*2*$f*pi)
+2026-09-16 08:33:14   Phase_C voltage := 275*sqrt(2/3)*sin(time*2*$f*pi+2*pi/3)
+2026-09-16 08:33:14   Phase_B voltage := 275*sqrt(2/3)*sin(time*2*$f*pi-2*pi/3)
+2026-09-16 08:33:14   motion := 1500 rpm constant, mechanical transient off
+2026-09-16 08:33:17   saved
+2026-09-16 08:33:22 design NL_V140 created from 'a vide' (pasted as 'a vide1')
+2026-09-16 08:33:22   Phase_A voltage := 140*sqrt(2/3)*sin(time*2*$f*pi)
+2026-09-16 08:33:22   Phase_C voltage := 140*sqrt(2/3)*sin(time*2*$f*pi+2*pi/3)
+2026-09-16 08:33:22   Phase_B voltage := 140*sqrt(2/3)*sin(time*2*$f*pi-2*pi/3)
+2026-09-16 08:33:22   motion := 1500 rpm constant, mechanical transient off
+2026-09-16 08:33:25   saved
+2026-09-16 08:33:27 === noload_sweep_com end ===
+2026-09-16 08:34:08 === noload_sweep_com start (solve=True, volts=[690, 550, 410, 275, 140]) ===
+2026-09-16 08:34:08 desktop 2023.1.0
+2026-09-16 08:34:08 projects already open in this desktop: ['IM_18kW_690V_noload_sweep']
+2026-09-16 08:34:08 project IM_18kW_690V_noload_sweep ; designs ['NL_V690', 'NL_V410', 'NL_V275', 'NL_V140', 'en charge', 'caractéristique', 'a vide', 'rotor bloqué', 'NL_V550']
+2026-09-16 08:34:08 design NL_V690 exists, reusing
+2026-09-16 08:34:08   Analyze Setup1 of NL_V690 ...
+2026-09-16 09:01:18   solved in 1630 s
+2026-09-16 09:01:32 ERROR on NL_V690: SetActiveProject.Save
+2026-09-16 09:01:32 ERROR on NL_V550: (-2147023174, 'Le serveur RPC n’est pas disponible.', None, None)
+2026-09-16 09:01:32 ERROR on NL_V410: (-2147023174, 'Le serveur RPC n’est pas disponible.', None, None)
+2026-09-16 09:01:32 ERROR on NL_V275: (-2147023174, 'Le serveur RPC n’est pas disponible.', None, None)
+2026-09-16 09:01:32 ERROR on NL_V140: (-2147023174, 'Le serveur RPC n’est pas disponible.', None, None)
+2026-09-16 09:04:02 === export_com start ['NL_V690'] ===
+2026-09-16 09:04:12 desktop 2023.1.0 ; open projects []
+2026-09-16 09:04:39 project IM_18kW_690V_noload_sweep ; designs ['a vide', 'en charge', 'rotor bloqué', 'caractéristique', 'NL_V690', 'NL_V410', 'NL_V275', 'NL_V140', 'NL_V550']
+2026-09-16 09:04:44   NL_V690: exported NL_V690_NL_wave.tab (449448 bytes)
+2026-09-16 09:04:46   NL_V690: exported NL_V690_NL_misc.tab (147218 bytes)
+2026-09-16 09:04:52 project saved
+2026-09-16 09:04:54 project closed
+2026-09-16 09:04:54 === export_com end ===
+2026-09-16 09:07:07 === solve_one_com NL_V550 ===
+2026-09-16 09:07:07 desktop 2023.1.0 ; open projects []
+2026-09-16 09:07:27 project IM_18kW_690V_noload_sweep
+2026-09-16 09:07:27   Analyze Setup1 of NL_V550 ...
+2026-09-16 09:32:16   solved in 1490 s
+2026-09-16 09:32:20   saved
+2026-09-16 09:32:21   closed
+2026-09-16 09:32:21 === solve_one_com NL_V550 end ===
+2026-09-16 09:32:31 === export_com start ['NL_V550'] ===
+2026-09-16 09:32:31 desktop 2023.1.0 ; open projects []
+2026-09-16 09:32:44 project IM_18kW_690V_noload_sweep ; designs ['en charge', 'caractéristique', 'NL_V550', 'NL_V140', 'NL_V410', 'a vide', 'NL_V275', 'NL_V690', 'rotor bloqué']
+2026-09-16 09:32:46   NL_V550: exported NL_V550_NL_wave.tab (450323 bytes)
+2026-09-16 09:32:48   NL_V550: exported NL_V550_NL_misc.tab (148838 bytes)
+2026-09-16 09:32:51 project saved
+2026-09-16 09:32:52 project closed
+2026-09-16 09:32:52 === export_com end ===
+2026-09-16 09:32:52 === solve_one_com NL_V410 ===
+2026-09-16 09:32:52 desktop 2023.1.0 ; open projects []
+2026-09-16 09:33:05 project IM_18kW_690V_noload_sweep
+2026-09-16 09:33:05   Analyze Setup1 of NL_V410 ...
+2026-09-16 09:57:30   solved in 1465 s
+2026-09-16 09:57:33   saved
+2026-09-16 09:57:35   closed
+2026-09-16 09:57:35 === solve_one_com NL_V410 end ===
+2026-09-16 09:57:45 === export_com start ['NL_V410'] ===
+2026-09-16 09:57:45 desktop 2023.1.0 ; open projects []
+2026-09-16 09:57:57 project IM_18kW_690V_noload_sweep ; designs ['NL_V690', 'rotor bloqué', 'NL_V140', 'en charge', 'NL_V550', 'caractéristique', 'NL_V275', 'a vide', 'NL_V410']
+2026-09-16 09:58:00   NL_V410: exported NL_V410_NL_wave.tab (452154 bytes)
+2026-09-16 09:58:01   NL_V410: exported NL_V410_NL_misc.tab (149151 bytes)
+2026-09-16 09:58:05 project saved
+2026-09-16 09:58:05 project closed
+2026-09-16 09:58:05 === export_com end ===
+2026-09-16 09:58:06 === solve_one_com NL_V275 ===
+2026-09-16 09:58:06 desktop 2023.1.0 ; open projects []
+2026-09-16 09:58:18 project IM_18kW_690V_noload_sweep
+2026-09-16 09:58:19   Analyze Setup1 of NL_V275 ...
+2026-09-16 10:20:48   solved in 1350 s
+2026-09-16 10:20:51   saved
+2026-09-16 10:20:52   closed
+2026-09-16 10:20:52 === solve_one_com NL_V275 end ===
+2026-09-16 10:21:02 === export_com start ['NL_V275'] ===
+2026-09-16 10:21:02 desktop 2023.1.0 ; open projects []
+2026-09-16 10:21:16 project IM_18kW_690V_noload_sweep ; designs ['NL_V140', 'caractéristique', 'NL_V550', 'NL_V275', 'NL_V690', 'rotor bloqué', 'en charge', 'a vide', 'NL_V410']
+2026-09-16 10:21:19   NL_V275: exported NL_V275_NL_wave.tab (453744 bytes)
+2026-09-16 10:21:21   NL_V275: exported NL_V275_NL_misc.tab (151739 bytes)
+2026-09-16 10:21:25 project saved
+2026-09-16 10:21:26 project closed
+2026-09-16 10:21:26 === export_com end ===
+2026-09-16 10:21:26 === solve_one_com NL_V140 ===
+2026-09-16 10:21:26 desktop 2023.1.0 ; open projects []
+2026-09-16 10:21:40 project IM_18kW_690V_noload_sweep
+2026-09-16 10:21:40   Analyze Setup1 of NL_V140 ...
+2026-09-16 10:44:24   solved in 1364 s
+2026-09-16 10:44:27   saved
+2026-09-16 10:44:29   closed
+2026-09-16 10:44:29 === solve_one_com NL_V140 end ===
+2026-09-16 10:44:39 === export_com start ['NL_V140'] ===
+2026-09-16 10:44:39 desktop 2023.1.0 ; open projects []
+2026-09-16 10:44:52 project IM_18kW_690V_noload_sweep ; designs ['a vide', 'rotor bloqué', 'NL_V275', 'NL_V690', 'en charge', 'caractéristique', 'NL_V410', 'NL_V140', 'NL_V550']
+2026-09-16 10:44:54   NL_V140: exported NL_V140_NL_wave.tab (454211 bytes)
+2026-09-16 10:44:55   NL_V140: exported NL_V140_NL_misc.tab (152887 bytes)
+2026-09-16 10:44:59 project saved
+2026-09-16 10:45:00 project closed
+2026-09-16 10:45:00 === export_com end ===

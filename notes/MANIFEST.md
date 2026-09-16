@@ -235,8 +235,8 @@ Même règle : une grandeur, une chaîne. Les chaînes MATLAB tournent depuis
 | §5.5, calage avec cavités (74,66 N m, 107,5 A) | `RUN_Z5_SWEEP_CAV.m` | `Z5_sweep_cav_out.txt` | 16 sept. |
 | Fig. 6 (champs au mi-entrefer, deux fermetures) | `RUN_Z2_FIELDS.m`, `RUN_Z4_FIELDS_CAV.m` → `make_figures_v2.py` | `Z2_fields_{avide,charge}.txt`, `Z4_fields_cav_{avide,charge}.txt` | 15–16 sept. |
 | §6.3, carte de cavité en charge (variantes A/B/C) | `RUN_Z8_CAVITY_LOAD.m` avec `cavity_src_nO16.mat` (`export_cavity_src.py` ← `cavity_graded.cavity_source_rotor`) ; `+mec/airgap_dtn_tooth_cav.m` (`set_source`), `+mec/solve_network.m` (`AG.f`) | `Z8_cavity_load_out.txt` | 16 sept. |
-| §5.3, essai à vide numérique, côté réseau | `RUN_Z7_NOLOAD_NET.m` | `Z7_noload_net_out.txt` | 16 sept. |
-| §5.3, essai à vide numérique, côté EF (cinq tensions, rotor entraîné à 1500 tr/min) | `code/ansys_noload/noload_sweep_com.py` (copie du projet, designs `NL_V*`) puis `noload_postprocess.py` (phaseurs sur [1, 2) s, E_2D = V − R_s I − jωL_ext I, contrôle contre jωΨ) | `reference/ANSYS_18_5kW/noload_sweep/*.tab`, `outputs/ansys_noload/noload_results.txt` | 16 sept. |
+| §5.7 et Table 12, essai à vide numérique, côté réseau (mêmes tensions, même construction) | `RUN_Z7_NOLOAD_NET.m` | `Z7_noload_net_out.txt` | 16 sept. |
+| §5.7 et Table 12, essai à vide numérique, côté EF (cinq tensions, rotor entraîné à 1500 tr/min) | `code/ansys_noload/noload_sweep_com.py` (copie du projet, designs `NL_V*`), `solve_one_com.py`, `noload_export_com.py`, `run_rest_com.ps1`, puis `noload_postprocess.py` (phaseurs sur [1, 2) s, E_2D = V − R_s I − jωL_ext I, contrôle contre jωΨ) et `rms_check.py` (THD des courants de référence) | `reference/ANSYS_18_5kW/noload_sweep/NL_V*_NL_{wave,misc}.tab`, `outputs/ansys_noload/noload_results.{txt,json}`, `sweep_log.txt` | 16 sept. |
 
 Deux précisions de provenance :
 
