@@ -3,18 +3,21 @@ message: "If you use this archive, please cite it as below."
 title: "Reproduction archive for a doubly slotted annulus operator for magnetic equivalent circuits (Paper II)"
 type: dataset
 license: CC-BY-4.0
-version: "1.0.0"
+version: "1.1.0"
 repository-code: "https://github.com/il1996/doubly-slotted-annulus-IM"
-url: "https://github.com/il1996/doubly-slotted-annulus-IM/releases/tag/v1.0.0"
-date-released: "2026-08-20"
+url: "https://github.com/il1996/doubly-slotted-annulus-IM/releases/tag/v1.1.0"
+date-released: "2026-09-16"
 abstract: >-
   Complete reproduction archive for the paper "A Doubly Slotted Annulus Operator
-  for Magnetic Equivalent Circuits: Carter's Factor Is Low in the Thin-Gap,
-  Wide-Opening Regime, on an 18.5 kW Cage Induction Machine". Contains the MATLAB
-  chain for the 18.5 kW cage induction machine, the execution transcripts from
+  for Magnetic Equivalent Circuits: Trace Conformity, the Slot-Opening Condition,
+  and a Finite-Element Verification of the Slotting Ratio on an 18.5 kW Cage
+  Induction Machine". Contains the MATLAB package and scripts of the performance
+  network for the 18.5 kW cage induction machine, the execution transcripts from
   which every published value originates, the ANSYS Maxwell 2D exports used as
-  the reference, the manuscript source with its five figures, and delivery notes
-  for each verification block.
+  the reference, the independent Python chain of the linear operator, of the
+  finite-element solutions of the slotting ratio and of the slot-cavity
+  admittances, the numerical no-load test, and the scripts that generate every
+  figure and table.
 authors:
   - family-names: Laouar
     given-names: Idris
@@ -37,7 +40,8 @@ keywords:
   - Dirichlet-to-Neumann operator
   - doubly slotted air gap
   - Carter factor
+  - slot opening
   - Schur complement
   - cage induction machine
-  - finite-element validation
+  - finite-element verification
   - reproducibility

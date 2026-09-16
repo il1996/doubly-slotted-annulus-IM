@@ -1,0 +1,28 @@
+=== Z1 : fermetures d'entrefer, avec et sans cavites d'encoche ===
+
+  references EF (t >= 1.0 s) : I0 8.4986 A | E(2D) a vide 381.53 V | Pfe0 249.3 W
+     charge : s 0.01883 | T 121.631 N.m | I1 19.7226 A | E(2D) 370.61 V | Pfe 232.6 W | Pbar 372.1 W | Pring 116.4 W | Pcu_s 520.2 W
+  Carter                       fait (6 s) : Xm0 71.990 | I0 8.612 | T 116.07
+  operateur (17,4) Phi_O=0     fait (13 s) : Xm0 61.015 | I0 10.323 | T 114.31
+  operateur+cavite (17,4)      fait (20 s) : Xm0 67.713 | I0 9.542 | T 115.15
+  operateur+cavite (33,8)      fait (30 s) : Xm0 69.209 | I0 9.407 | T 115.29
+  operateur+cavite (33,16)     fait (43 s) : Xm0 70.029 | I0 9.153 | T 115.53
+
+  fermeture                          Xm0       I0    E1(0)   Bg1(0)     Xm(s)       I1    E1(s)        T  cosphi     eta     Pfe   Pcu_r   Pcu_s
+  Carter                          71.990    8.612   378.68   0.9469    50.446   18.495   371.27   116.07  0.8599  0.9160   232.0   443.4   441.4
+  operateur (17,4) Phi_O=0        61.015   10.323   375.07   0.9381    41.129   19.106   368.20   114.31  0.8203  0.9153   227.6   413.9   471.1
+  operateur+cavite (17,4)         67.713    9.542   376.72   0.9420    45.013   18.807   369.63   115.15  0.8391  0.9158   229.4   426.1   456.5
+  operateur+cavite (33,8)         69.209    9.407   377.00   0.9426    45.767   18.757   369.88   115.29  0.8423  0.9158   229.8   428.5   454.1
+  operateur+cavite (33,16)        70.029    9.153   377.54   0.9440    47.093   18.675   370.31   115.53  0.8477  0.9159   230.4   432.7   450.1
+  reference EF                       ---    8.499   381.53      ---       ---   19.723   370.61   121.63     ---     ---   232.6   488.5   520.2
+
+  ecarts a la reference (%) :
+  fermeture                          I0     E(0)       I1        T      Pfe    Pcu_r
+  Carter                          +1.34    -0.75    -6.23    -4.57    -0.27    -9.22
+  operateur (17,4) Phi_O=0       +21.47    -1.69    -3.13    -6.02    -2.18   -15.27
+  operateur+cavite (17,4)        +12.28    -1.26    -4.64    -5.33    -1.38   -12.76
+  operateur+cavite (33,8)        +10.69    -1.19    -4.90    -5.21    -1.24   -12.27
+  operateur+cavite (33,16)        +7.70    -1.05    -5.31    -5.02    -0.97   -11.41
+
+  duree 43 s
+=== Z1 termine ===

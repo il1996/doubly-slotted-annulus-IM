@@ -1,0 +1,10 @@
+reseau : Xs_slot 0.8673  Xs_tip 0.0373  Xs_ew 0.7603  Xs_end3D 0.4260  total 2.0909 ohm
+projet EF : inductance externe 6.2511 mH = 1.9638 ohm
+warning: load: '/tmp/claude-0/-home-claude/7143d4e0-b0a2-5917-b5fc-cf31bb630d6a/scratchpad/mec/MEC_IM/cavity_nO16.mat' found by searching load path
+warning: called from
+    RUN_Z3_LEAKAGE_main at line 15 column 4
+
+variant 1 (identifie 0.426) Carter           : Xs_leak 2.0909 | I0 8.612  E1(0) 378.68 | I1 18.495  T 116.07  cosphi 0.8599  Pcu_r 443.4  Pfe 232.0  eta 0.9160  (8 s)
+variant 1 (identifie 0.426) cavites (33,16)  : Xs_leak 2.0909 | I0 9.153  E1(0) 377.54 | I1 18.675  T 115.53  cosphi 0.8477  Pcu_r 432.7  Pfe 230.4  eta 0.9159  (40 s)
+variant 2 (EF 1.964 ohm) Carter           : Xs_leak 2.8685 | I0 7.848  E1(0) 374.22 | I1 17.966  T 112.70  cosphi 0.8595  Pcu_r 443.4  Pfe 225.7  eta 0.9158  (47 s)
+variant 2 (EF 1.964 ohm) cavites (33,16)  : Xs_leak 2.8685 | I0 8.315  E1(0) 372.87 | I1 18.096  T 112.07  cosphi 0.8485  Pcu_r 431.5  Pfe 224.0  eta 0.9158  (81 s)

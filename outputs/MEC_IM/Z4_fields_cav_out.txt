@@ -1,0 +1,14 @@
+=== Z4 : champs au mi-entrefer, fermeture a cavites (33,16), N_h=8192, base p1 ===
+operateur 92x92 condense depuis 4508 colonnes (8 s)
+X_m0 = 70.029 ohm
+a vide : I0 9.1246 A, E1 377.40 V | charge : I1 18.6527 A, T 115.941 N.m
+avide : phase EF -0.3009 rad, MEC -1.5716 -> -0.3006 apres recalage (dphi=-36.4032 deg mec)
+   RMSE Br = 0.2463 T (34.2 % du rms EF 0.7207)
+   RMSE Bt = 0.1370 T (106.9 % du rms EF 0.1282)
+   Bg1 MEC 0.9369 T (EF 0.9419) | Bt rms MEC 0.0626 T (EF 0.1282)
+charge : phase EF -0.8610 rad, MEC 3.0649 -> -0.8620 apres recalage (dphi=112.4694 deg mec)
+   RMSE Br = 0.5555 T (74.5 % du rms EF 0.7457)
+   RMSE Bt = 0.1773 T (135.5 % du rms EF 0.1309)
+   Bg1 MEC 0.8777 T (EF 0.9197) | Bt rms MEC 0.1264 T (EF 0.1309)
+duree 19 s
+=== Z4 termine ===

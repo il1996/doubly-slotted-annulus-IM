@@ -1,0 +1,82 @@
+=== Z4B : indicateurs d'erreur des formes d'onde, fermeture a CAVITES ===
+
+  operateur : mec.airgap_dtn_tooth_cav(nT=33, nO=16, N_h=8192, base p1, cavity_nO16.mat)
+  champ     : AT.field(Usurf, R_moy, theta) ; reference : ..\..\reference\ANSYS_18_5kW
+  balayage  : 23 positions rotor sur un pas dentaire (8.1818 deg mec)
+
+     k  phi(deg) |  RMSE vide   RMSE chg |   Bg1 vide    Bg1 chg |   Bt vide    Bt chg
+     1    0.0000 |    0.24623    0.55188 |    0.93672    0.87622 |   0.06299   0.13100   (17 s)
+     2    0.3719 |    0.18716    0.49686 |    0.93661    0.87564 |   0.06394   0.13338   (33 s)
+     3    0.7438 |    0.17211    0.48215 |    0.93637    0.87386 |   0.06297   0.13827   (48 s)
+     4    1.1157 |    0.21424    0.49319 |    0.93575    0.87158 |   0.06391   0.14130   (63 s)
+     5    1.4876 |    0.26832    0.51299 |    0.93514    0.86717 |   0.06036   0.13997   (79 s)
+     6    1.8595 |    0.31032    0.53728 |    0.93441    0.86349 |   0.05870   0.13912   (93 s)
+     7    2.2314 |    0.32443    0.55546 |    0.93384    0.85946 |   0.05455   0.14506   (107 s)
+     8    2.6033 |    0.32255    0.57283 |    0.93316    0.85695 |   0.05295   0.13873   (120 s)
+     9    2.9752 |    0.31796    0.58105 |    0.93263    0.85488 |   0.05090   0.13940   (133 s)
+    10    3.3471 |    0.31882    0.58987 |    0.93203    0.85465 |   0.05041   0.13447   (149 s)
+    11    3.7190 |    0.32497    0.59628 |    0.93175    0.85509 |   0.04897   0.13840   (165 s)
+    12    4.0909 |    0.33347    0.61079 |    0.93154    0.85655 |   0.04861   0.12882   (181 s)
+    13    4.4628 |    0.34808    0.64098 |    0.93166    0.85828 |   0.04922   0.13177   (202 s)
+    14    4.8347 |    0.36324    0.72890 |    0.93184    0.86016 |   0.05064   0.12427   (224 s)
+    15    5.2066 |    0.37626    0.79862 |    0.93239    0.86241 |   0.05124   0.12189   (248 s)
+    16    5.5785 |    0.38974    0.83964 |    0.93291    0.86488 |   0.05356   0.12162   (269 s)
+    17    5.9504 |    0.40307    0.85835 |    0.93359    0.86765 |   0.05498   0.12550   (284 s)
+    18    6.3223 |    0.41374    0.84532 |    0.93422    0.87025 |   0.05867   0.12123   (298 s)
+    19    6.6942 |    0.41916    0.79883 |    0.93503    0.87266 |   0.06016   0.12149   (314 s)
+    20    7.0661 |    0.41029    0.73189 |    0.93570    0.87464 |   0.06324   0.12445   (330 s)
+    21    7.4380 |    0.37888    0.67237 |    0.93633    0.87584 |   0.06272   0.12763   (347 s)
+    22    7.8099 |    0.32244    0.59913 |    0.93662    0.87653 |   0.06384   0.12923   (363 s)
+    23    8.1818 |    0.24643    0.55201 |    0.93675    0.87616 |   0.06299   0.13100   (380 s)
+
+  ---- INDICATEURS A phi = 0 (position du reseau) ----
+  cas               Bg1     Bt rms    RMSE Br  RMSE Br %  RMSE Bt %  err max %
+  a vide         0.9367     0.0630     0.2462      34.2 %     106.8 %      62.1 %
+             Bg1 vs EF 0.9420 : -0.6 % | Bt rms vs EF 0.1280 : -50.8 %
+             recalage -36.4025 deg mec ; residu des deux estimateurs de phase 3.0e-04 rad ; Parseval 1.3e-15
+             energie d'erreur : fondamental 0.0 % | denture stator seule 39.3 % | denture rotor seule 40.3 % | commune aux deux 10.6 % | reste du spectre 9.9 % | 
+  en charge      0.8762     0.1310     0.5519      74.0 %     135.1 %     111.6 %
+             Bg1 vs EF 0.9200 : -4.8 % | Bt rms vs EF 0.1310 : +0.0 %
+             recalage +112.4552 deg mec ; residu des deux estimateurs de phase 4.4e-04 rad ; Parseval 1.1e-15
+             energie d'erreur : fondamental 0.3 % | denture stator seule 34.4 % | denture rotor seule 22.8 % | commune aux deux 30.4 % | reste du spectre 12.2 % | 
+  localisation de l'erreur (phi = 0) :
+  cas         zone                      rms err   part MSE    pts
+  a vide      ouverture stator           0.2321      17.1 %    192
+  a vide      face de dent stator        0.2495      82.9 %    808
+  a vide      ouverture rotor            0.2102      12.5 %    172
+  a vide      face de dent rotor         0.2531      87.5 %    828
+  en charge   ouverture stator           0.5409      18.4 %    192
+  en charge   face de dent stator        0.5545      81.6 %    808
+  en charge   ouverture rotor            0.2186       2.7 %    172
+  en charge   face de dent rotor         0.5983      97.3 %    828
+
+  GARDE periodicite : RMSE(2pi/Nr)-RMSE(0) = 2.01e-04 T (seuil 1e-4) ; champs 5.92e-05 T  -> ECHOUEE
+  GARDE recalage    : residu max des deux estimateurs de phase 1.9e-03 rad (seuil 1e-3) -> ECHOUEE
+
+  ---- POSITION ROTOR APPARIEE (minimum de la RMSE de B_r sur le pas) ----
+    a vide     minimum en phi =  0.6558 deg mec ; RMSE 0.24623 T (phi=0) -> 0.17050 T (-30.8 %) ; second minimum local +84.7 %
+    en charge  minimum en phi =  0.7703 deg mec ; RMSE 0.55188 T (phi=0) -> 0.48208 T (-12.6 %) ; second minimum local +Inf %
+  dispersion sur le pas dentaire rotor (etendue/moyenne) :
+    Bg1 a vide       0.93672 a phi=0 | dispersion 0.56 %
+    Bt rms vide      0.06299 a phi=0 | dispersion 26.90 %
+    Bg1 charge       0.87622 a phi=0 | dispersion 2.53 %
+    Bt rms charge    0.13100 a phi=0 | dispersion 18.10 %
+    X_m0 : 70.029 a phi=0 | dispersion 4.44 % ; I0 9.1246 | T 115.941 | I1 18.6527 a phi=0, dispersions 6.93 / 0.55 / 1.06 %
+
+  ---- INDICATEURS A LA POSITION APPARIEE ----
+    a vide     phi = 0.6558 deg : RMSE Br 0.17150 T (23.8 %) [estimation parabolique 0.17050] | RMSE Bt 0.13265 T (103.5 %) | Bg1 0.9364 | Bt rms 0.0628
+               energie d'erreur : fondamental 0.0 % | denture stator seule 55.0 % | denture rotor seule 21.1 % | commune aux deux 4.4 % | reste du spectre 19.5 % | 
+    en charge  phi = 0.7703 deg : RMSE Br 0.48016 T (64.4 %) [estimation parabolique 0.48208] | RMSE Bt 0.18945 T (144.7 %) | Bg1 0.8736 | Bt rms 0.1387
+               energie d'erreur : fondamental 0.4 % | denture stator seule 42.1 % | denture rotor seule 21.6 % | commune aux deux 23.5 % | reste du spectre 12.5 % | 
+
+  ---- SYNTHESE (colonne cavites de la Table 11) ----
+  grandeur                                             a vide                     en charge                 
+  fondamental Bg1 (T), reseau / EF                     0.9367 / 0.9420 (-0.6 %)   0.8762 / 0.9200 (-4.8 %)  
+  Bt rms (T), reseau / EF                              0.0630 / 0.1280 (-50.8 %)  0.1310 / 0.1310 (+0.0 %)  
+  RMSE Br, position du reseau (T, %% du rms EF)        0.246 T, 34.2 %            0.552 T, 74.0 %           
+  RMSE Br, position appariee (%% du rms EF)            23.8 % (phi 0.656 deg)     64.4 % (phi 0.770 deg)    
+  dispersion Bg1, Bt rms sur un pas rotor              0.56 %, 26.9 %             2.53 %, 18.1 %            
+  energie d'erreur fond./stator/rotor/commun/reste     0.0/39.3/40.3/10.6/9.9 %   0.3/34.4/22.8/30.4/12.2 % 
+
+  duree 408 s
+=== Z4B termine ===

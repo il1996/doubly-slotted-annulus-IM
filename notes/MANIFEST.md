@@ -205,3 +205,48 @@ Décision : les figures gardent « MEC » ; les tableaux écrivent
 **« MEC (mesh) »** et **« MEC (lumped) »**. Aucun label de figure n'est
 touché — les modifier romprait des légendes déjà serrées sans lever
 d'ambiguïté réelle.
+
+---
+
+## 9. Article II, version « Trace Conformity, the Slot-Opening Condition » — grandeurs nouvelles (15–16 septembre 2026)
+
+Même règle : une grandeur, une chaîne. Les chaînes MATLAB tournent depuis
+`code/MEC_IM/` et lisent la référence par le chemin relatif
+`../../reference/ANSYS_18_5kW` ; les chaînes Python tournent depuis
+`code/python/` et écrivent dans `outputs/python/`.
+
+| grandeur publiée | chaîne qui fait foi | sortie | date |
+|---|---|---|---|
+| Table 1 (données machine), Table 6 (références relues des `.tab`, fenêtre t ∈ [1, 2] s) | `fea_audit.py`, `fea_power.py`, `sweep_audit.py`, `fea_conv*.py` ; relecture MATLAB dans `RUN_Z1_CAVITY.m` | `Z1_cavity_out.txt` (en-tête), `outputs/python/` | 15 sept. |
+| Table 2 (invariants, chapeau asymétrique) | `RUN_INVARIANTS.m`, `RUN_R8_TABLE2.m` ; `t_op1.py`, `t_op2.py` (I-1, I-4 en base p1a) | `INV_tests_out.txt`, `R8_table2_out.txt` | 12 août / 15 sept. |
+| Table 3 (troncature, deux bases) | `RUN_B2_KC.m` | `B2_kC_out.txt` | 4 août |
+| Table 4 (référence EF du rapport d'encochage, formulations A et B, maillages, 12 positions) | `prod_fem.py`, `t_fem2.py`, `fem_slots.py`, `fem_annulus.py` | `prod_fem_results.json`, `fem_kc_results.json` | 15 sept. |
+| Table 5, colonnes uniformes (Φ_O = 0, deux bases ; cavités, base chapeau) | `t_op3.py` ; `prod_op.py` | `tiling_sweep_inf_iron.json` ; `prod_op_results.json` (`cav_sweep`, `pos_cav`, `cav_33_16_p1a`) | 15 sept. |
+| Table 5, dernière colonne (pavage gradué, q = 1,5, chapeau asymétrique) et §4.2 (étude de q, contrôle N_h = 16 384) | `t4_graded.py` (+ `cavity_graded.py`) | `t4_graded_results.json`, `t4_graded_log.txt` | 16 sept. |
+| Fig. 2, Fig. 4 | `prod_op.py`, `prod_fem.py` → `make_figures_v2.py` | `prod_op_results.json`, `field_waveforms.npz` | 15–16 sept. |
+| Fig. 3 | `t_op3.py`, `prod_op.py`, `t4_graded.py` → `make_figures_v2.py` | idem | 16 sept. |
+| Table 7 (constantes identifiées) | `+mec/leakage.m`, `machine_18_5kW.m`, `stator_resistance.m`, `mech_losses.m`, `stray_losses.m` (valeurs déclarées dans le code) ; sensibilité §5.3 : `RUN_Z3_LEAKAGE.m` | `Z3_leakage_out.txt` | 15 sept. |
+| Table 8 (cinq fermetures, à vide et nominal) | `RUN_Z1_CAVITY.m` | `Z1_cavity_out.txt` | 15 sept. (reproduit sous MATLAB R2024a le 16 sept., tous chiffres identiques) |
+| Table 9 (schéma équivalent Φ_O = 0, calage) | `RUN_B10_B1_SKEWOFF.m` | `B10_b1_skewoff_out.txt` | 6 août |
+| Table 10 (convergence en pavage, Φ_O = 0 et cavités, huit pavages) | `RUN_Z6_COUPLED_CONV_CAV.m` (garde : reproduit `M5_coupled_conv_out.txt` et la ligne (33,16) de Z1) | `Z6_coupled_conv_cav_out.txt` | 16 sept. |
+| Table 11, colonnes Φ_O = 0 | `RUN_M11_FIELD_ERR.m`, `RUN_M11B_ROTORPOS.m`, `RUN_M11C_MATCHED.m` | `M11_field_err_out.txt`, `M11B_rotorpos_out.txt`, `M11C_matched_out.txt` | 12 août |
+| Table 11, colonnes cavités (33,16) | `RUN_Z4B_FIELD_ERR_CAV.m` | `Z4B_field_err_cav_out.txt` | 16 sept. |
+| Fig. 5 (caractéristiques, deux fermetures ; décrochage) | `RUN_B10_B1_SKEWOFF.m` (`B10_b1_skewoff.mat`), `RUN_Z5_SWEEP_CAV.m` (`Z5_sweep_cav.mat`) → `make_figures_v2.py` | `B10_b1_skewoff_out.txt`, `Z5_sweep_cav_out.txt` | 16 sept. |
+| §5.5, calage avec cavités (74,66 N m, 107,5 A) | `RUN_Z5_SWEEP_CAV.m` | `Z5_sweep_cav_out.txt` | 16 sept. |
+| Fig. 6 (champs au mi-entrefer, deux fermetures) | `RUN_Z2_FIELDS.m`, `RUN_Z4_FIELDS_CAV.m` → `make_figures_v2.py` | `Z2_fields_{avide,charge}.txt`, `Z4_fields_cav_{avide,charge}.txt` | 15–16 sept. |
+| §6.3, carte de cavité en charge (variantes A/B/C) | `RUN_Z8_CAVITY_LOAD.m` avec `cavity_src_nO16.mat` (`export_cavity_src.py` ← `cavity_graded.cavity_source_rotor`) ; `+mec/airgap_dtn_tooth_cav.m` (`set_source`), `+mec/solve_network.m` (`AG.f`) | `Z8_cavity_load_out.txt` | 16 sept. |
+| §5.3, essai à vide numérique, côté réseau | `RUN_Z7_NOLOAD_NET.m` | `Z7_noload_net_out.txt` | 16 sept. |
+| §5.3, essai à vide numérique, côté EF (cinq tensions, rotor entraîné à 1500 tr/min) | `code/ansys_noload/noload_sweep_com.py` (copie du projet, designs `NL_V*`) puis `noload_postprocess.py` (phaseurs sur [1, 2) s, E_2D = V − R_s I − jωL_ext I, contrôle contre jωΨ) | `reference/ANSYS_18_5kW/noload_sweep/*.tab`, `outputs/ansys_noload/noload_results.txt` | 16 sept. |
+
+Deux précisions de provenance :
+
+- `cavity_nO{2,4,8,16}.mat` (matrices **Q** des cavités) sortent de
+  `export_cavity.py` (élément `cavity.py`, gmsh) ; `cavity_Q.pkl` porte les
+  mêmes matrices pour n_O = 4, 8, 16, 32 (`prod_op.py`).
+- Sous MATLAB, `+mec/equivalent_circuit.m` porte la seule modification
+  faite au paquet depuis le 6 août (ligne 82, scission en deux instructions,
+  sans effet sur aucun résultat) ; `+mec/airgap_dtn_tooth_cav.m` et
+  `+mec/solve_network.m` ont reçu le 16 septembre un chemin optionnel de
+  source de flux (`cav.sr`, `AG.f`) inactif tant qu'aucun script n'appelle
+  `set_source` — la garde de `RUN_Z8_CAVITY_LOAD.m` vérifie que la chaîne
+  sans source reproduit la Table 8 au 1e-4 près.
