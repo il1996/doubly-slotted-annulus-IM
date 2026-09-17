@@ -34,4 +34,8 @@ Carter (dsop.carter): approximate ks 1.1313 kr 1.1195 product 1.2665 ; exact ks 
 [B4''] asymmetric hat double limit (n_O-limits by B): A 1.4623 (+0.17 %) B 1.4613 (+0.10 %) vs FE (B) 1.45977
 [P] (33,32) cavities, N_h 8192, p1, 12 positions, vs FE (A) lc 0.045 (prod_pos_33_32.py): closed-form comparator mean 1.27355 -> +0.388 % [+0.347 .. +0.430] ; assembled comparator mean 1.26992 -> +0.102 % [+0.061 .. +0.143]
 [P] (33,32) cavities, N_h 8192, p1a, 12 positions, vs FE (A) lc 0.045 (prod_pos_33_32.py): closed-form comparator mean 1.28620 -> +1.385 % [+1.134 .. +1.641] ; assembled comparator mean 1.28253 -> +1.095 % [+0.846 .. +1.351]
+[M] FE (A) real slots, lc 0.045, 12 positions                                                            min 1.2391 max 1.2986 mean 1.2686 -> modulation +-2.35 %
+[M] operator + cavities (33,32), N_h 8192, p1 (symmetric hat), closed-form comparator, 12 positions      min 1.2434 max 1.3042 mean 1.2736 -> modulation +-2.39 %
+[M] operator + cavities (33,32), N_h 8192, p1a (asymmetric hat), closed-form comparator, 12 positions    min 1.2531 max 1.3199 mean 1.2862 -> modulation +-2.60 %
+[M] side by side, modulation +-(max - min)/2/mean about the mean, same 12 positions, reference grid lc 0.045: FE (A) +-2.35 % | cavities (33,32) p1 +-2.39 % | cavities (33,32) p1a +-2.60 %
 DONE

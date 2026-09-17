@@ -72,4 +72,15 @@ if pos:
         s = pos['series'][b]
         say("[P] (33,32) cavities, N_h 8192, %s, 12 positions, vs FE (A) lc 0.045 (prod_pos_33_32.py): closed-form comparator mean %.5f -> %+.3f %% [%+.3f .. %+.3f] ; assembled comparator mean %.5f -> %+.3f %% [%+.3f .. %+.3f]" % (
             b, s['mean_closed'], s['dev_mean_closed'], s['dev_pos_min_closed'], s['dev_pos_max_closed'], s['mean_asm'], s['dev_mean_asm'], s['dev_pos_min_asm'], s['dev_pos_max_asm']))
+    # [M] modulation with rotor position, +-(max - min)/2/mean, the three series side by side (Section 4.4):
+    #     reference FE (A), real slots, lc 0.045, 12 positions i/12 tau_r ; cavity-coupled operator (33,32), N_h 8192,
+    #     closed-form comparator, same 12 positions, in p1 and in p1a (prod_pos_33_32.py, kC_closed)
+    mod = lambda v: 100 * (v.max() - v.min()) / 2 / v.mean()
+    rows = [("FE (A) real slots, lc 0.045, 12 positions", Apos)]
+    for b, lab in [('p1', 'operator + cavities (33,32), N_h 8192, p1 (symmetric hat), closed-form comparator, 12 positions'),
+                   ('p1a', 'operator + cavities (33,32), N_h 8192, p1a (asymmetric hat), closed-form comparator, 12 positions')]:
+        rows.append((lab, np.array([pos['series'][b]['kC_closed'][k] for k in sorted(pos['series'][b]['kC_closed'], key=float)])))
+    for lab, v in rows:
+        say("[M] %-100s min %.4f max %.4f mean %.4f -> modulation +-%.2f %%" % (lab, v.min(), v.max(), v.mean(), mod(v)))
+    say("[M] side by side, modulation +-(max - min)/2/mean about the mean, same 12 positions, reference grid lc 0.045: FE (A) +-%.2f %% | cavities (33,32) p1 +-%.2f %% | cavities (33,32) p1a +-%.2f %%" % tuple(mod(v) for _, v in rows))
 say("DONE")
