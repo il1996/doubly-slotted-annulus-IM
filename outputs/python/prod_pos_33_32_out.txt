@@ -1,0 +1,33 @@
+prod_pos_33_32: tiling (33, 32), N_h = 8192, cavities, bases p1 / p1a, 12 positions
+comparator (b) closed form: 0.465163920 T/A ; reference FE(A) lc 0.045: mean 1.26863, phi = 0: 1.29444
+  p1  phi/tau_r = 0.0000 : Bg1_slot 0.357839 T/A  kC (a) assembled 1.29622  kC (b) closed 1.29993 | FE 1.29444  dev (a) +0.138 %  dev (b) +0.424 %  (11 s)
+  p1  phi/tau_r = 0.0833 : Bg1_slot 0.361009 T/A  kC (a) assembled 1.28483  kC (b) closed 1.28851 | FE 1.28328  dev (a) +0.121 %  dev (b) +0.408 %  (23 s)
+  p1  phi/tau_r = 0.1667 : Bg1_slot 0.365309 T/A  kC (a) assembled 1.26971  kC (b) closed 1.27334 | FE 1.26847  dev (a) +0.098 %  dev (b) +0.384 %  (34 s)
+  p1  phi/tau_r = 0.2500 : Bg1_slot 0.369678 T/A  kC (a) assembled 1.25470  kC (b) closed 1.25829 | FE 1.25370  dev (a) +0.080 %  dev (b) +0.366 %  (47 s)
+  p1  phi/tau_r = 0.3333 : Bg1_slot 0.372890 T/A  kC (a) assembled 1.24390  kC (b) closed 1.24746 | FE 1.24307  dev (a) +0.066 %  dev (b) +0.353 %  (59 s)
+  p1  phi/tau_r = 0.4167 : Bg1_slot 0.374109 T/A  kC (a) assembled 1.23984  kC (b) closed 1.24339 | FE 1.23909  dev (a) +0.061 %  dev (b) +0.347 %  (71 s)
+  p1  phi/tau_r = 0.5000 : Bg1_slot 0.372890 T/A  kC (a) assembled 1.24390  kC (b) closed 1.24746 | FE 1.24307  dev (a) +0.066 %  dev (b) +0.353 %  (88 s)
+  p1  phi/tau_r = 0.5833 : Bg1_slot 0.369678 T/A  kC (a) assembled 1.25470  kC (b) closed 1.25830 | FE 1.25370  dev (a) +0.080 %  dev (b) +0.367 %  (101 s)
+  p1  phi/tau_r = 0.6667 : Bg1_slot 0.365308 T/A  kC (a) assembled 1.26971  kC (b) closed 1.27335 | FE 1.26841  dev (a) +0.102 %  dev (b) +0.389 %  (112 s)
+  p1  phi/tau_r = 0.7500 : Bg1_slot 0.361009 T/A  kC (a) assembled 1.28483  kC (b) closed 1.28851 | FE 1.28327  dev (a) +0.122 %  dev (b) +0.408 %  (124 s)
+  p1  phi/tau_r = 0.8333 : Bg1_slot 0.357839 T/A  kC (a) assembled 1.29622  kC (b) closed 1.29993 | FE 1.29446  dev (a) +0.136 %  dev (b) +0.423 %  (136 s)
+  p1  phi/tau_r = 0.9167 : Bg1_slot 0.356666 T/A  kC (a) assembled 1.30048  kC (b) closed 1.30420 | FE 1.29861  dev (a) +0.143 %  dev (b) +0.430 %  (147 s)
+  p1  comparator (a, assembled): kC mean 1.26992 (min 1.23984, max 1.30048) ; vs FE mean 1.26863: +0.102 % ; per position +0.061 .. +0.143 %
+  p1  comparator (b, closed form): kC mean 1.27355 (min 1.24339, max 1.30420) ; vs FE mean 1.26863: +0.388 % ; per position +0.347 .. +0.430 %
+  p1a phi/tau_r = 0.0000 : Bg1_slot 0.353684 T/A  kC (a) assembled 1.31144  kC (b) closed 1.31520 | FE 1.29444  dev (a) +1.314 %  dev (b) +1.604 %  (163 s)
+  p1a phi/tau_r = 0.0833 : Bg1_slot 0.357101 T/A  kC (a) assembled 1.29889  kC (b) closed 1.30261 | FE 1.28328  dev (a) +1.217 %  dev (b) +1.506 %  (178 s)
+  p1a phi/tau_r = 0.1667 : Bg1_slot 0.361747 T/A  kC (a) assembled 1.28221  kC (b) closed 1.28588 | FE 1.26847  dev (a) +1.084 %  dev (b) +1.373 %  (193 s)
+  p1a phi/tau_r = 0.2500 : Bg1_slot 0.366440 T/A  kC (a) assembled 1.26579  kC (b) closed 1.26942 | FE 1.25370  dev (a) +0.965 %  dev (b) +1.254 %  (208 s)
+  p1a phi/tau_r = 0.3333 : Bg1_slot 0.369901 T/A  kC (a) assembled 1.25395  kC (b) closed 1.25754 | FE 1.24307  dev (a) +0.875 %  dev (b) +1.163 %  (223 s)
+  p1a phi/tau_r = 0.4167 : Bg1_slot 0.371198 T/A  kC (a) assembled 1.24957  kC (b) closed 1.25314 | FE 1.23909  dev (a) +0.846 %  dev (b) +1.134 %  (238 s)
+  p1a phi/tau_r = 0.5000 : Bg1_slot 0.369901 T/A  kC (a) assembled 1.25395  kC (b) closed 1.25754 | FE 1.24307  dev (a) +0.875 %  dev (b) +1.164 %  (253 s)
+  p1a phi/tau_r = 0.5833 : Bg1_slot 0.366439 T/A  kC (a) assembled 1.26579  kC (b) closed 1.26942 | FE 1.25370  dev (a) +0.965 %  dev (b) +1.254 %  (268 s)
+  p1a phi/tau_r = 0.6667 : Bg1_slot 0.361746 T/A  kC (a) assembled 1.28221  kC (b) closed 1.28588 | FE 1.26841  dev (a) +1.088 %  dev (b) +1.377 %  (283 s)
+  p1a phi/tau_r = 0.7500 : Bg1_slot 0.357101 T/A  kC (a) assembled 1.29890  kC (b) closed 1.30261 | FE 1.28327  dev (a) +1.217 %  dev (b) +1.507 %  (298 s)
+  p1a phi/tau_r = 0.8333 : Bg1_slot 0.353684 T/A  kC (a) assembled 1.31144  kC (b) closed 1.31520 | FE 1.29446  dev (a) +1.312 %  dev (b) +1.602 %  (313 s)
+  p1a phi/tau_r = 0.9167 : Bg1_slot 0.352416 T/A  kC (a) assembled 1.31616  kC (b) closed 1.31993 | FE 1.29861  dev (a) +1.351 %  dev (b) +1.641 %  (328 s)
+  p1a comparator (a, assembled): kC mean 1.28253 (min 1.24957, max 1.31616) ; vs FE mean 1.26863: +1.095 % ; per position +0.846 .. +1.351 %
+  p1a comparator (b, closed form): kC mean 1.28620 (min 1.25314, max 1.31993) ; vs FE mean 1.26863: +1.385 % ; per position +1.134 .. +1.641 %
+basis difference p1a/p1 - 1 on the 12-position mean, comparator (asm): +0.993 %
+basis difference p1a/p1 - 1 on the 12-position mean, comparator (closed): +0.993 %
+DONE (328 s)

@@ -1,0 +1,58 @@
+prod_limits: Phi_O = 0, phi = 0, N_h = 8192 ; reference FE(B) lc 0.025: 1.45977 ; closed-form comparator 0.465163920 T/A
+  ( 33,32) p1a [ 5980 col.] kC (assembled) 1.55144 ; (closed form) 1.55588  (16 s)
+  ( 33,64) p1a [ 8924 col.] kC (assembled) 1.55375 ; (closed form) 1.55819  (33 s)
+  ( 65,32) p1a [ 8924 col.] kC (assembled) 1.50473 ; (closed form) 1.50903  (33 s)
+  ( 65,64) p1a [11868 col.] kC (assembled) 1.50670 ; (closed form) 1.51101  (53 s)
+  (129,16) p1a [13340 col.] kC (assembled) 1.47830 ; (closed form) 1.48253  (60 s)
+  (129,32) p1a [14812 col.] kC (assembled) 1.48165 ; (closed form) 1.48589  (87 s)
+  (129,64) p1a [17756 col.] kC (assembled) 1.48319 ; (closed form) 1.48743  (117 s)
+  ( 33,32) p1  [ 5980 col.] kC (assembled) 1.49966 ; (closed form) 1.50395  (13 s)
+  ( 33,64) p1  [ 8924 col.] kC (assembled) 1.49505 ; (closed form) 1.49933  (28 s)
+  ( 65,32) p1  [ 8924 col.] kC (assembled) 1.48800 ; (closed form) 1.49226  (26 s)
+  ( 65,64) p1  [11868 col.] kC (assembled) 1.48471 ; (closed form) 1.48896  (47 s)
+  (129,16) p1  [13340 col.] kC (assembled) 1.49230 ; (closed form) 1.49658  (51 s)
+  (129,32) p1  [14812 col.] kC (assembled) 1.47944 ; (closed form) 1.48367  (66 s)
+  (129,64) p1  [17756 col.] kC (assembled) 1.47611 ; (closed form) 1.48033  (104 s)
+
+=== basis p1a : branches along n_O (fixed n_T) ===
+  n_T =   9, n_O = 2,4,8,16              terms 1.7050 1.7786 1.8113 1.8274 | incr +0.0736 +0.0328 +0.0161 | ratios 0.445 0.491 | r = 0.491 | limit A (r/(1-r)) 1.8430 | limit B (tail = last incr) 1.8435 | geometric (0 < r < 1)
+  n_T =  17, n_O = 2,4,8,16              terms 1.5475 1.6040 1.6286 1.6402 | incr +0.0565 +0.0246 +0.0116 | ratios 0.436 0.471 | r = 0.471 | limit A (r/(1-r)) 1.6506 | limit B (tail = last incr) 1.6518 | geometric (0 < r < 1)
+  n_T =  33, n_O = 2,4,8,16,32,64        terms 1.4713 1.5184 1.5381 1.5471 1.5514 1.5537 | incr +0.0471 +0.0198 +0.0090 +0.0043 +0.0023 | ratios 0.420 0.454 0.481 0.533 | r = 0.533 | limit A (r/(1-r)) 1.5564 | limit B (tail = last incr) 1.5561 | geometric (0 < r < 1)
+  n_T =  65, n_O = 2,4,8,16,32,64        terms 1.4340 1.4762 1.4935 1.5011 1.5047 1.5067 | incr +0.0422 +0.0172 +0.0077 +0.0036 +0.0020 | ratios 0.409 0.444 0.469 0.548 | r = 0.548 | limit A (r/(1-r)) 1.5091 | limit B (tail = last incr) 1.5087 | geometric (0 < r < 1)
+  n_T = 129, n_O = 16,32,64              terms 1.4783 1.4817 1.4832 | incr +0.0033 +0.0015 | ratios 0.458 | r = 0.458 | limit A (r/(1-r)) 1.4845 | limit B (tail = last incr) 1.4847 | geometric (0 < r < 1)
+=== basis p1a : branches along n_T (fixed n_O) ===
+  n_O =  16, n_T = 9,17,33,65,129        terms 1.8274 1.6402 1.5471 1.5011 1.4783 | incr -0.1872 -0.0931 -0.0460 -0.0228 | ratios 0.497 0.494 0.496 | r = 0.496 | limit A (r/(1-r)) 1.4558 | limit B (tail = last incr) 1.4555 | geometric (0 < r < 1)
+  n_O =  32, n_T = 33,65,129             terms 1.5514 1.5047 1.4817 | incr -0.0467 -0.0231 | ratios 0.494 | r = 0.494 | limit A (r/(1-r)) 1.4591 | limit B (tail = last incr) 1.4586 | geometric (0 < r < 1)
+  n_O =  64, n_T = 33,65,129             terms 1.5537 1.5067 1.4832 | incr -0.0470 -0.0235 | ratios 0.500 | r = 0.500 | limit A (r/(1-r)) 1.4597 | limit B (tail = last incr) 1.4597 | geometric (0 < r < 1)
+=== basis p1a : double limit ===
+  n_O-limits (conv. A) at n_T = 9,17,33,65, extrapolated along n_T terms 1.8430 1.6506 1.5564 1.5091 | incr -0.1924 -0.0942 -0.0473 | ratios 0.489 0.502 | r = 0.502 | limit A (r/(1-r)) 1.4614 | limit B (tail = last incr) 1.4618 | geometric (0 < r < 1)
+     -> double limit (n_O-limits by A, n_T-extrapolation by A): 1.4614 ; vs FE(B) 1.45977: +0.11 %
+     -> double limit (n_O-limits by A, n_T-extrapolation by B): 1.4618 ; vs FE(B) 1.45977: +0.14 %
+  n_O-limits (conv. B) at n_T = 9,17,33,65, extrapolated along n_T terms 1.8435 1.6518 1.5561 1.5087 | incr -0.1917 -0.0958 -0.0474 | ratios 0.500 0.495 | r = 0.495 | limit A (r/(1-r)) 1.4623 | limit B (tail = last incr) 1.4613 | geometric (0 < r < 1)
+     -> double limit (n_O-limits by B, n_T-extrapolation by A): 1.4623 ; vs FE(B) 1.45977: +0.17 %
+     -> double limit (n_O-limits by B, n_T-extrapolation by B): 1.4613 ; vs FE(B) 1.45977: +0.10 %
+  n_T-limit at n_O = 16: A 1.4558, B 1.4555 ; vs FE(B): -0.27 % / -0.29 %
+  n_T-limit at n_O = 32: A 1.4591, B 1.4586 ; vs FE(B): -0.04 % / -0.08 %
+  n_T-limit at n_O = 64: A 1.4597, B 1.4597 ; vs FE(B): -0.00 % / -0.01 %
+
+=== basis p1 : branches along n_O (fixed n_T) ===
+  n_T =   9, n_O = 2,4,8,16              terms 1.6964 1.6227 1.5790 1.5544 | incr -0.0737 -0.0437 -0.0246 | ratios 0.593 0.562 | r = 0.562 | limit A (r/(1-r)) 1.5229 | limit B (tail = last incr) 1.5298 | geometric (0 < r < 1)
+  n_T =  17, n_O = 2,4,8,16              terms 1.6801 1.5912 1.5496 1.5275 | incr -0.0888 -0.0417 -0.0221 | ratios 0.469 0.530 | r = 0.530 | limit A (r/(1-r)) 1.5026 | limit B (tail = last incr) 1.5054 | geometric (0 < r < 1)
+  n_T =  33, n_O = 2,4,8,16,32,64        terms 1.6756 1.5815 1.5298 1.5095 1.4997 1.4950 | incr -0.0941 -0.0516 -0.0203 -0.0099 -0.0046 | ratios 0.548 0.393 0.486 0.467 | r = 0.467 | limit A (r/(1-r)) 1.4910 | limit B (tail = last incr) 1.4904 | geometric (0 < r < 1)
+  n_T =  65, n_O = 2,4,8,16,32,64        terms 1.6744 1.5791 1.5237 1.4967 1.4880 1.4847 | incr -0.0953 -0.0555 -0.0270 -0.0086 -0.0033 | ratios 0.582 0.487 0.320 0.381 | r = 0.381 | limit A (r/(1-r)) 1.4827 | limit B (tail = last incr) 1.4814 | geometric (0 < r < 1)
+  n_T = 129, n_O = 16,32,64              terms 1.4923 1.4794 1.4761 | incr -0.0129 -0.0033 | ratios 0.259 | r = 0.259 | limit A (r/(1-r)) 1.4749 | limit B (tail = last incr) 1.4728 | geometric (0 < r < 1)
+=== basis p1 : branches along n_T (fixed n_O) ===
+  n_O =  16, n_T = 9,17,33,65,129        terms 1.5544 1.5275 1.5095 1.4967 1.4923 | incr -0.0269 -0.0180 -0.0129 -0.0043 | ratios 0.669 0.716 0.337 | r = 0.337 | limit A (r/(1-r)) 1.4901 | limit B (tail = last incr) 1.4880 | geometric (0 < r < 1)
+  n_O =  32, n_T = 33,65,129             terms 1.4997 1.4880 1.4794 | incr -0.0117 -0.0086 | ratios 0.735 | r = 0.735 | limit A (r/(1-r)) 1.4557 | limit B (tail = last incr) 1.4709 | geometric (0 < r < 1)
+  n_O =  64, n_T = 33,65,129             terms 1.4950 1.4847 1.4761 | incr -0.0103 -0.0086 | ratios 0.832 | r = 0.832 | limit A (r/(1-r)) 1.4334 | limit B (tail = last incr) 1.4675 | geometric (0 < r < 1)
+=== basis p1 : double limit ===
+  n_O-limits (conv. A) at n_T = 9,17,33,65, extrapolated along n_T terms 1.5229 1.5026 1.4910 1.4827 | incr -0.0203 -0.0116 -0.0083 | ratios 0.573 0.716 | r = 0.716 | limit A (r/(1-r)) 1.4617 | limit B (tail = last incr) 1.4744 | geometric (0 < r < 1)
+     -> double limit (n_O-limits by A, n_T-extrapolation by A): 1.4617 ; vs FE(B) 1.45977: +0.13 %
+     -> double limit (n_O-limits by A, n_T-extrapolation by B): 1.4744 ; vs FE(B) 1.45977: +1.00 %
+  n_O-limits (conv. B) at n_T = 9,17,33,65, extrapolated along n_T terms 1.5298 1.5054 1.4904 1.4814 | incr -0.0244 -0.0150 -0.0090 | ratios 0.615 0.601 | r = 0.601 | limit A (r/(1-r)) 1.4679 | limit B (tail = last incr) 1.4724 | geometric (0 < r < 1)
+     -> double limit (n_O-limits by B, n_T-extrapolation by A): 1.4679 ; vs FE(B) 1.45977: +0.55 %
+     -> double limit (n_O-limits by B, n_T-extrapolation by B): 1.4724 ; vs FE(B) 1.45977: +0.86 %
+  n_T-limit at n_O = 16: A 1.4901, B 1.4880 ; vs FE(B): +2.08 % / +1.93 %
+  n_T-limit at n_O = 32: A 1.4557, B 1.4709 ; vs FE(B): -0.28 % / +0.76 %
+  n_T-limit at n_O = 64: A 1.4334, B 1.4675 ; vs FE(B): -1.81 % / +0.53 %
+DONE (734 s)
