@@ -1,0 +1,35 @@
+=== Z9 : sensibilite de base p1 / p1a, fermeture cavites, N_h = 8192, s = 0.0188 ===
+  variante p1a : C:\Users\hp\Desktop\Matlab program\MEC\article\Mesures_2026-09-17\R28\code\MEC_IM\variant_p1a\+mec\airgap_fourier.m (en tete du path)
+
+  references EF (t >= 1.0 s) : I0 8.4986 A | E(2D) a vide 381.53 V | T 121.631 N.m | I1 19.7226 A | Pfe 232.6 W | Pcu_r (barres+anneaux) 488.5 W
+
+  (33,16) p1  fait (69 s) : Xm0 70.029 | I0 9.153 | T 115.53  [variante 1]
+  (33,16) p1a fait (138 s) : Xm0 69.228 | I0 9.421 | T 115.28  [variante 1]
+  (33,32) p1  fait (206 s) : Xm0 70.761 | I0 8.919 | T 115.75  [variante 1]
+  (33,32) p1a fait (301 s) : Xm0 69.405 | I0 9.404 | T 115.29  [variante 1]
+  garde 1 : points p1 (33,16) et (33,32), variante contre production seule (Z9_basis_p1a_prod.mat, variante sur le path : 0 0) : ecart relatif max 0.0e+00
+  garde 2 : (33,16) p1 contre Z1_cavity.mat, ligne (33,16) : ecart relatif max 0.0e+00
+
+  grandeur               (33,16) p1  (33,16) p1a        ecart |   (33,32) p1  (33,32) p1a        ecart |    ref. EF
+  Xm0 (0,2 A) [ohm]         70.0293      69.2280       -1.144 |      70.7610      69.4048       -1.917 |        ---  (% p1a/p1 - 1)
+  I0 [A]                     9.1527       9.4210       +3.157 |       8.9191       9.4037       +5.702 |     8.4986  (points, ecart a l'EF)
+  E1(0) [V]                377.5390     376.9734       -0.148 |     378.0316     377.0099       -0.268 |   381.5292  (points, ecart a l'EF)
+  Xm(s) [ohm]               47.0929      45.6990       -2.960 |      48.3824      45.7959       -5.346 |        ---  (% p1a/p1 - 1)
+  I1 [A]                    18.6752      18.7614       +0.437 |      18.6016      18.7552       +0.779 |    19.7226  (points, ecart a l'EF)
+  T [N.m]                  115.5294     115.2768       -0.208 |     115.7489     115.2949       -0.373 |   121.6308  (points, ecart a l'EF)
+  Pfe [W]                  230.3902     229.7338       -0.282 |     230.9629     229.7776       -0.510 |   232.6424  (points, ecart a l'EF)
+  Pcu_r [W]                432.7034     428.2876       -0.904 |     436.8058     428.5947       -1.681 |   488.4533  (points, ecart a l'EF)
+  cosphi                     0.8477       0.8420       -0.669 |       0.8526       0.8424       -1.196 |        ---  (% p1a/p1 - 1)
+  eta                        0.9159       0.9158       -0.009 |       0.9160       0.9158       -0.014 |        ---  (% p1a/p1 - 1)
+
+  ecarts a la reference EF (%) :
+  grandeur               (33,16) p1  (33,16) p1a   (33,32) p1  (33,32) p1a
+  I0 [A]                      +7.70       +10.85        +4.95       +10.65
+  E1(0) [V]                   -1.05        -1.19        -0.92        -1.18
+  I1 [A]                      -5.31        -4.87        -5.68        -4.91
+  T [N.m]                     -5.02        -5.22        -4.84        -5.21
+  Pfe [W]                     -0.97        -1.25        -0.72        -1.23
+  Pcu_r [W]                  -11.41       -12.32       -10.57       -12.25
+
+  duree 301 s
+=== Z9 termine ===
