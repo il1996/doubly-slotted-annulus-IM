@@ -1,0 +1,29 @@
+prod_appB_checks: closed-form fundamental of the staircase potential at mid-gap 0.465163920 T/A (I0 = 1 A)
+
+(1) current sheet on a slotless bore, delta sheet split on the two bracketing bore nodes ; Q = Bg1(FE)/Bg1(closed) - 1
+   lc (mm)  nodes    bore pitch   Q delta sheet  Q 2 mm sheet (prod_fem Jgap)
+   0.120    14924    0.1200          -1.796e-06     +1.571e-04   (1 s)
+   0.080    32089    0.0800          -4.877e-07     -2.039e-04   (5 s)
+   0.060    51352    0.0600          -2.866e-07     -8.189e-05   (9 s)
+   0.050    71028    0.0500          -2.278e-07     -6.912e-05   (8 s)
+   0.045    84389    0.0450          -2.334e-07     -1.334e-04   (109 s)
+   0.035    138573   0.0350          -1.228e-07     -7.662e-05   (34 s)
+   0.028    210205   0.0280          -7.681e-08     -1.468e-04   (56 s)
+   delta sheet: max |Q| over the seven sizes 1.80e-06 ; monotone decrease in |Q| from lc 0.12 to 0.028: no
+
+(2) deep slot (d1) against a sheet at its mouth (d2 gap layer, d3 isthmus) ; stator slotted, rotor smooth, phi = 0
+   lc 0.060 nodes  56913 : (d1) Bg1 0.4098664 | (d2) Bg1 0.4098654  rel -2.30e-06  equal to 5 decimals, differs at the 6th | max_n |dB_n|/Bg1 1.6e-04 at n = 140 | rms(dBr)/rms(Br) 6.3e-04 | max|dBr|/max|Br| 3.8e-03   (11 s)
+   lc 0.060 nodes  56913 : (d1) Bg1 0.4098664 | (d3) Bg1 0.4098652  rel -2.96e-06  equal to 5 decimals, differs at the 6th | max_n |dB_n|/Bg1 1.1e-04 at n = 190 | rms(dBr)/rms(Br) 3.2e-04 | max|dBr|/max|Br| 1.2e-03   (11 s)
+   lc 0.045 nodes  90960 : (d1) Bg1 0.4100544 | (d2) Bg1 0.4100611  rel +1.64e-05  equal to 4 decimals, differs at the 5th | max_n |dB_n|/Bg1 1.7e-04 at n = 194 | rms(dBr)/rms(Br) 7.1e-04 | max|dBr|/max|Br| 4.0e-03   (62 s)
+   lc 0.045 nodes  90960 : (d1) Bg1 0.4100544 | (d3) Bg1 0.4100530  rel -3.41e-06  equal to 5 decimals, differs at the 6th | max_n |dB_n|/Bg1 1.1e-04 at n = 190 | rms(dBr)/rms(Br) 3.3e-04 | max|dBr|/max|Br| 1.4e-03   (62 s)
+   lc 0.035 nodes 146658 : (d1) Bg1 0.4100964 | (d2) Bg1 0.4100933  rel -7.68e-06  equal to 4 decimals, differs at the 5th | max_n |dB_n|/Bg1 1.4e-04 at n = 190 | rms(dBr)/rms(Br) 5.8e-04 | max|dBr|/max|Br| 4.4e-03   (63 s)
+   lc 0.035 nodes 146658 : (d1) Bg1 0.4100964 | (d3) Bg1 0.4100985  rel +5.11e-06  equal to 5 decimals, differs at the 6th | max_n |dB_n|/Bg1 1.1e-04 at n = 194 | rms(dBr)/rms(Br) 3.5e-04 | max|dBr|/max|Br| 1.4e-03   (63 s)
+   lc 0.028 nodes 220023 : (d1) Bg1 0.4102111 | (d2) Bg1 0.4102106  rel -1.27e-06  equal to 6 decimals, differs at the 7th | max_n |dB_n|/Bg1 1.3e-04 at n = 194 | rms(dBr)/rms(Br) 4.8e-04 | max|dBr|/max|Br| 3.5e-03   (50 s)
+   lc 0.028 nodes 220023 : (d1) Bg1 0.4102111 | (d3) Bg1 0.4102105  rel -1.50e-06  equal to 5 decimals, differs at the 6th | max_n |dB_n|/Bg1 1.1e-04 at n = 190 | rms(dBr)/rms(Br) 3.2e-04 | max|dBr|/max|Br| 1.3e-03   (50 s)
+
+(3) formulation B against the staircase potential (Dirichlet on the 96 stator arcs, t_ann_check.py construction) ; ratio FE/analytic of the fundamental
+   lc 0.080 nodes  32146 : FE 0.4650277 analytic 0.4650252 ratio - 1 = +5.41e-06   (15 s)
+   lc 0.050 nodes  71421 : FE 0.4650380 analytic 0.4650252 ratio - 1 = +2.75e-05   (9 s)
+   lc 0.035 nodes 139557 : FE 0.4650297 analytic 0.4650252 ratio - 1 = +9.65e-06   (18 s)
+   lc 0.025 nodes 260745 : FE 0.4650282 analytic 0.4650252 ratio - 1 = +6.38e-06   (34 s)
+DONE (485 s)
