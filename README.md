@@ -99,10 +99,10 @@ Salima Lekhchine, Electrotechnical Laboratory Skikda (LES) and LGMM
 Laboratory, University 20 August 1955 Skikda.
 
 The archive is released under **CC BY 4.0**, with one exception. The
-finite-element exports in `reference/ANSYS_18_5kW/` are carved out: the
-right to redistribute them has not yet been confirmed against the ANSYS
-licence agreement, so no licence is granted over that directory until it
-is. See `LICENSE.txt`.
+finite-element exports in `reference/ANSYS_18_5kW/` may be read and used to
+check the published values, which is why they are here. Redistributing them
+is another matter: the right to do so has not been confirmed against the
+ANSYS licence agreement, and it is not granted here. See `LICENSE.txt`.
 
 ## 7. How to cite
 
