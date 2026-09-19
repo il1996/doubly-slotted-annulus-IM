@@ -11,7 +11,7 @@
     positions      : 19 sur 2 pas d'encoche, pas = 0.014544 rad mec
                      soit 0.8333 deg mec = 1.6667 deg ELECTRIQUES
     etendue        : 15.0000 deg mec = 30.0000 deg ELECTRIQUES
-    reference EF   : C:\Users\hp\Desktop\ANSYS résultat 18.5KW\transitoire\en charge\Plot 1.tab
+    reference EF   : <home>\Desktop\ANSYS résultat 18.5KW\transitoire\en charge\Plot 1.tab
                      T_pp = 105.486548 N.m sur t >= 1.90 s (colonne 3)
 
   FICHIERS APPELES (chemin et derniere modification)

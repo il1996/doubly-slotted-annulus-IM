@@ -25,7 +25,7 @@
 clear; clc; close all;
 addpath(fileparts(mfilename('fullpath')));
 OUT=fileparts(mfilename('fullpath'));
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 
 fprintf('=== Transitoires en modele MONO-TRANCHE (ondulation incluse) ===\n\n');
 M=mec.machine_18_5kW(); ctx=mec.build_context(M);

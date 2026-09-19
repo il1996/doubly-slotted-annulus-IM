@@ -50,7 +50,7 @@
 clear; clc; close all;
 addpath(fileparts(mfilename('fullpath')));
 OUT=fileparts(mfilename('fullpath'));
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 t_all=tic;
 
 fprintf('======================================================================\n');
@@ -61,7 +61,7 @@ M=mec.machine_18_5kW(); ctx=mec.build_context(M); ref=mec.ansys_ref();
 G=ctx.G; W=ctx.W; BH=ctx.BH; p=M.p; Nr=M.Nr; Ns=M.Ns; mu0=4*pi*1e-7;
 % --- Methode ANALYTIQUE (Pyrhonen-Jokinen-Hrabovcova) : 3e voie de comparaison ---
 %     version fonction de main_motor_IM.m (requiert Function_magn/Function_magnd)
-addpath('C:\Users\hp\Desktop\Matlab program\conception\New Folder');
+addpath('<home>\Desktop\Matlab program\conception\New Folder');
 AN=analytical_18_5kW();
 %  §5.5 — PLUS DE DISTINCTION M / Mf. L'entrefer harmonique n'est plus une
 %  option a activer : mec.mesh_refined le prend par defaut, et le reseau de

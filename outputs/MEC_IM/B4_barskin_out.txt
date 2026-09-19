@@ -243,7 +243,7 @@
   ---- 5. la reference a rotor bloque : sourcee, non citee ----
     Le 0,4400 ohm est un LITTERAL code en dur (RUN_T12_CALAGE.m:49,
     RUN_B1_IM_P1.m:30, RUN_COMPARE_ANALYTIC.m:34). Aucune source.
-    racine EF : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+    racine EF : <home>\Desktop\ANSYS résultat 18.5KW
 
   (a) BALAYAGE BRUT (optimetrics) : bruit de la bande 0,90-1,00
       Torque Plot 2.tab : 129 points, s de 0.005 a 1.000
@@ -255,7 +255,7 @@
       est UN echantillon de cette bande, pas sa valeur convergee.
 
   (b) TRANSITOIRE A ROTOR BLOQUE : mesure directe de la cage
-      dossier : C:\Users\hp\Desktop\ANSYS résultat 18.5KW\transitoire\rotor bloqué
+      dossier : <home>\Desktop\ANSYS résultat 18.5KW\transitoire\rotor bloqué
       2001 pas de 1.0000 ms, duree 2.000 s
       controle d'etablissement (0,5 s precedents -> fenetre) :
         couple moyen 104.01 -> 104.18 N.m (+0.17 %) | SolidLoss 15087 -> 15085 W (-0.01 %)

@@ -8,7 +8,7 @@
 clear; clc; t0=tic;
 diary('A8_verif_ancres_out.txt'); diary on;
 M=mec.machine_18_5kW();
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 rd  =@(f)readmatrix(f,'FileType','text','NumHeaderLines',1,'Delimiter','\t');
 rmsw=@(A,c,t0)sqrt(mean(A(A(:,1)>=t0,c).^2,'omitnan'));
 avgw=@(A,c,t0)mean(A(A(:,1)>=t0,c),'omitnan');

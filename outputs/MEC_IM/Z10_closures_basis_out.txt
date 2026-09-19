@@ -1,5 +1,5 @@
 === Z10 : fermetures de Z1 dans les deux bases p1 / p1a, N_h = 8192, s = 0.0188 ===
-  airgap_fourier employe : C:\Users\hp\Desktop\Matlab program\MEC\article\Mesures_2026-09-17\R28\code\MEC_IM\variant_p1a\+mec\airgap_fourier.m
+  airgap_fourier employe : .\Mesures_2026-09-17\R28\code\MEC_IM\variant_p1a\+mec\airgap_fourier.m
 
   references EF (t >= 1.0 s) : I0 8.4986 A | E(2D) a vide 381.53 V | T 121.631 N.m | I1 19.7226 A | Pfe 232.6 W | Pcu_r (barres+anneaux) 488.5 W
 

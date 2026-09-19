@@ -6,7 +6,7 @@ def read_tab(f):
     with open(f, encoding='utf-8', errors='replace') as fh:
         names = re.findall(r'"([^"]+)"', fh.readline())
     return names, np.loadtxt(f, skiprows=1)
-for lab, d in [('no load', r"C:\Users\hp\Desktop\ANSYS résultat 18.5KW\transitoire\a vide"), ('rated load', r"C:\Users\hp\Desktop\ANSYS résultat 18.5KW\transitoire\en charge")]:
+for lab, d in [('no load', r"<home>\Desktop\ANSYS résultat 18.5KW\transitoire\a vide"), ('rated load', r"<home>\Desktop\ANSYS résultat 18.5KW\transitoire\en charge")]:
     names, data = read_tab(os.path.join(d, "Winding Plot 4.tab")); t = data[:, 0]; sel = (t >= 1.0 - 1e-9) & (t < 2.0 - 1e-9)
     out = []
     for ph in 'ABC':

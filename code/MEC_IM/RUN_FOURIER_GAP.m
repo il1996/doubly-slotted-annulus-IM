@@ -19,7 +19,7 @@
 
 clear; clc; close all;
 addpath(fileparts(mfilename('fullpath')));
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 OUT=fileparts(mfilename('fullpath'));
 
 fprintf('=== P1 : entrefer harmonique (couronne de Laplace) ===\n\n');

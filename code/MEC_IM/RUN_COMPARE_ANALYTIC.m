@@ -14,7 +14,7 @@
 
 clear; clc; close all;
 addpath(fileparts(mfilename('fullpath')));
-addpath('C:\Users\hp\Desktop\Matlab program\conception\New Folder');   % analytique
+addpath('<home>\Desktop\Matlab program\conception\New Folder');   % analytique
 OUT=fileparts(mfilename('fullpath'));
 
 fprintf('==================================================================\n');

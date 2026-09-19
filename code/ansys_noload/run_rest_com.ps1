@@ -1,5 +1,5 @@
 # Solve and export the four remaining voltages, one COM session per step.
-$T = "C:\Users\hp\Desktop\claude\T2_ansys"
+$T = "<home>\Desktop\claude\T2_ansys"
 Set-Location $T
 Add-Content "$T\batch_status.txt" "COM CHAIN START $(Get-Date -Format 'HH:mm:ss')"
 foreach ($d in @("NL_V550", "NL_V410", "NL_V275", "NL_V140")) {

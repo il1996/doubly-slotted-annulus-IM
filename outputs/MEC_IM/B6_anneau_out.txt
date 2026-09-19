@@ -1,7 +1,7 @@
 === B6 : rapport anneau/barre, ecart de MODELE ===
   machine : MAS 48/44 | p = 2 | Nr = 44
   pavage nT=17 nO=4 | N_h = 8192 | base P1 | X_m0 = 61.015 ohm
-  reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+  reference : <home>\Desktop\ANSYS résultat 18.5KW
   rapport geometrique ideal 1/(2 sin(p*pi/Nr)) = 3.513337
 
   ---- 1. conditions d'essai lues des .tab ----
@@ -61,8 +61,8 @@
 === B6 : courants d'anneau -- ecart de MODELE, non precision ===
   machine   : MAS 48/44 | p = 2 | Nr = 44 | Ns = 48
   pavage    : nT=17 nO=4 | N_h = 8192 | base P1 | X_m0 = 61.015 ohm
-  reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
-  manuscrit : C:\Users\hp\Desktop\Matlab program\MEC\article\MEC_DtN_paper_v2.tex
+  reference : <home>\Desktop\ANSYS résultat 18.5KW
+  manuscrit : .\MEC_DtN_paper_v2.tex
   glissement nominal : 0.018800 (relu de RUN_B1_IM_P1.m)
                        0.018832 (deduit de Speed Plot 1.tab, n = 1471.753 tr/min)
                        ecart entre les deux : -0.168 %

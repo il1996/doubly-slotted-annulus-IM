@@ -247,7 +247,7 @@ end
 fprintf('\n  ---- 5. la reference a rotor bloque : sourcee, non citee ----\n');
 fprintf('    Le 0,4400 ohm est un LITTERAL code en dur (RUN_T12_CALAGE.m:49,\n');
 fprintf('    RUN_B1_IM_P1.m:30, RUN_COMPARE_ANALYTIC.m:34). Aucune source.\n');
-ROOT = find_dir('C:\Users\hp\Desktop','ANSYS r','18.5KW');
+ROOT = find_dir('<home>\Desktop','ANSYS r','18.5KW');
 FEA = struct('ok',false,'band',struct('ok',false));
 C1  = mec.cage(M,G,W,Lk,1.0);
 r1c = mec.equivalent_circuit(ctx,1.0,ctx.Xm0);

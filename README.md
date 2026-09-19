@@ -93,8 +93,9 @@ only under GNU Octave.
 
 ## 6. Licence
 
-Copyright (c) 2026 Idris Laouar, Ahcene Boukadoum, Nabil Mezhoud,
-Electrotechnical Laboratory Skikda (LES), University 20 August 1955 Skikda.
+Copyright (c) 2026 Idris Laouar, Ahcene Boukadoum, Nabil Mezhoud and
+Salima Lekhchine, Electrotechnical Laboratory Skikda (LES) and LGMM
+Laboratory, University 20 August 1955 Skikda.
 
 The archive is released under **CC BY 4.0**, with one exception. The
 finite-element exports in `reference/ANSYS_18_5kW/` are carved out: the
@@ -104,9 +105,9 @@ is. See `LICENSE.txt`.
 
 ## 7. How to cite
 
-    I. Laouar, A. Boukadoum and N. Mezhoud, "Reproduction archive for a
-    doubly slotted annulus operator for magnetic equivalent circuits
-    (Paper II)", release v1.1.0, GitHub, 2026.
+    I. Laouar, A. Boukadoum, N. Mezhoud and S. Lekhchine, "Reproduction
+    archive for a doubly slotted annulus operator for magnetic equivalent
+    circuits (Paper II)", release v1.1.0, GitHub, 2026.
     https://github.com/il1996/doubly-slotted-annulus-IM/releases/tag/v1.1.0
 
 Cite the **tagged release**, not the branch. A branch moves; a tag does

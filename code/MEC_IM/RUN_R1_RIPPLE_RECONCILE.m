@@ -35,7 +35,7 @@ diary('R1_ripple_reconcile_out.txt'); diary on;
 %% ================= EN-TETE DE CONFIGURATION (regle 2) =================
 M=mec.machine_18_5kW(); ctx=mec.build_context(M);
 G=ctx.G; W=ctx.W; BH=ctx.BH; Ns=M.Ns; Nr=M.Nr; p=M.p;
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 Dch=fullfile(ROOT,'transitoire','en charge');
 rdt=@(f)readmatrix(f,'FileType','text','NumHeaderLines',1,'Delimiter','\t');
 ftrq=fullfile(Dch,'Plot 1.tab');

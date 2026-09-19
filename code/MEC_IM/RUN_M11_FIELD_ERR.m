@@ -52,7 +52,7 @@ clear; clc; t0=tic;
 %  un transcript = une execution : on repart d'un fichier vide.
 if isfile('M11_field_err_out.txt'), delete('M11_field_err_out.txt'); end
 diary('M11_field_err_out.txt'); diary on;
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 
 M=mec.machine_18_5kW(); ctx=mec.build_context(M); G=ctx.G; W=ctx.W;
 p=M.p; Rm=0.5*(G.Rs+G.Rr);

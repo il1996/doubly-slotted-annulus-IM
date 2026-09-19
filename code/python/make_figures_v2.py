@@ -12,7 +12,7 @@ from matplotlib.patches import Polygon, Rectangle, Wedge
 plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 8.5, 'axes.linewidth': 0.6,
                      'xtick.direction': 'in', 'ytick.direction': 'in', 'legend.frameon': False,
                      'axes.titlesize': 9, 'axes.labelsize': 8.5, 'legend.fontsize': 7.5})
-ARCH = r'C:\Users\hp\AppData\Local\Temp\claude\C--Users-hp-Desktop-claude\fb8f7acf-d703-40c5-b60c-b7b9dd7398fa\scratchpad\repo\doubly-slotted-annulus-IM'
+ARCH = r'<home>\AppData\Local\Temp\claude\C--Users-hp-Desktop-claude\fb8f7acf-d703-40c5-b60c-b7b9dd7398fa\scratchpad\repo\doubly-slotted-annulus-IM'
 OUT = os.path.join(ARCH, 'code', 'article', 'figures')
 W = os.path.join(ARCH, 'outputs', 'python')
 MECO = os.path.join(ARCH, 'outputs', 'MEC_IM')        # MATLAB transcripts and .mat files of the archive
@@ -34,55 +34,113 @@ def save(fig, name):
 
 
 def fig1():
-    fig, axs = plt.subplots(1, 2, figsize=(6.8, 3.0))
-    for ax, mode in zip(axs, ['insulating', 'cavity']):
-        ax.set_aspect('equal'); ax.axis('off')
-        g = 1.0; tau = 5.0; b0 = 1.2; face = tau - b0
+    """One slot pitch, with the true slot profiles of Table 1.
+
+    Stator slot : opening 2.000 x 0.500 mm, wedge to 5.236 mm over 2.500 mm,
+                  trapezoidal body to 8.472 mm over 24.724 mm.
+    Rotor slot  : isthmus 2.000 x 1.000 mm, then a 5.804 mm circle centred
+                  3.902 mm below the bore, joined by tangents of half-angle
+                  6.44 deg to a 2.038 mm circle centred 16.790 mm deeper;
+                  total depth 21.711 mm.
+    The slot cross-sections are to scale in both directions and are cut by
+    the edge of the window; the air gap is drawn wider than scale.
+    """
+    TAU = 10.719
+    BS0, HS0, BS1, HS1, BS2, HS2 = 2.0, 0.5, 5.236, 2.5, 8.472, 24.724
+    BR0, HR0 = 2.0, 1.0
+    DR1, DR2, HR2 = 5.80425613768, 2.038213646116, 16.78981901905
+    GAP, HS_WIN, HR_WIN, XOFF = 1.0, 4.6, 7.4, 2.2
+    IRON, TILE = '#d5d8dc', '#aeb6bf'
+
+    def stator_half(hmax):
+        w = BS1 / 2 + (BS2 - BS1) / 2 * (hmax - HS0 - HS1) / HS2
+        return [(BS0 / 2, 0.0), (BS0 / 2, HS0), (BS1 / 2, HS0 + HS1), (w, hmax)]
+
+    def rotor_half(hmax, narc=70):
+        r1, r2 = DR1 / 2, DR2 / 2
+        c1 = HR0 + r1
+        alpha = np.arcsin((r1 - r2) / HR2)
+        t0, t1 = np.arcsin((BR0 / 2) / r1), np.pi / 2 + alpha
+        pts = [(BR0 / 2, 0.0), (BR0 / 2, HR0)]
+        for t in np.linspace(t0, t1, narc):
+            y = c1 - r1 * np.cos(t)
+            if y > hmax:
+                break
+            pts.append((r1 * np.sin(t), y))
+        ytan, xtan = c1 + r1 * np.sin(alpha), r1 * np.cos(alpha)
+        if hmax > ytan:
+            pts.append((xtan - (hmax - ytan) * np.tan(alpha), hmax))
+        return pts
+
+    def slot(ax, half, xc, sign, y_shift):
+        right = [(xc + x, sign * y + y_shift) for x, y in half]
+        left = [(xc - x, sign * y + y_shift) for x, y in reversed(half)]
+        ax.add_patch(Polygon(right + left, closed=True, fc='white', ec='none', zorder=2))
+        ax.plot([p[0] for p in right], [p[1] for p in right], color='k', lw=0.7, zorder=3)
+        ax.plot([p[0] for p in left], [p[1] for p in left], color='k', lw=0.7, zorder=3)
+
+    def panel(ax, mode):
         col = C['neu'] if mode == 'insulating' else C['cav']
-        ax.add_patch(Rectangle((-0.5, -2.6), tau + 1.0, 2.6, fc='#d5d8dc', ec='k', lw=0.6))
-        ax.add_patch(Rectangle((-0.5, g), tau + 1.0, 2.8, fc='#d5d8dc', ec='k', lw=0.6))
-        x0 = face / 2
-        ax.add_patch(Polygon([(x0, g), (x0 + b0, g), (x0 + b0, g + 0.45), (x0 + b0 + 1.0, g + 1.4),
-                              (x0 + b0 + 1.0, g + 2.8), (x0 - 1.0, g + 2.8), (x0 - 1.0, g + 1.4), (x0, g + 0.45)],
-                             closed=True, fc='white', ec='k', lw=0.6))
-        ax.text(tau / 2, g + 2.1, 'stator slot', ha='center', va='center', fontsize=7)
-        xr = x0 + 0.9
-        ax.add_patch(Rectangle((xr, -0.7), b0, 0.7, fc='white', ec='k', lw=0.6))
-        ax.add_patch(Wedge((xr + b0 / 2, -1.55), 0.85, 0, 360, fc='white', ec='k', lw=0.6))
-        ax.text(tau + 0.35, -2.35, 'rotor', ha='right', fontsize=7.5)
-        ax.text(tau + 0.35, g + 2.6, 'stator', ha='right', va='top', fontsize=7.5)
-        nT, nO = 5, 3
-        for i in range(nT):
-            xx = -face / 2 + i * face / nT
-            if xx + face / nT > -0.5:
-                ax.add_patch(Rectangle((max(xx, -0.5), g - 0.22), face / nT - max(0, -0.5 - xx), 0.22, fc='#aeb6bf', ec='k', lw=0.3))
-        for i in range(nT):
-            xx = face / 2 + b0 + i * face / nT
-            if xx < tau + 0.5:
-                ax.add_patch(Rectangle((xx, g - 0.22), min(face / nT, tau + 0.5 - xx), 0.22, fc='#aeb6bf', ec='k', lw=0.3))
-        for i in range(nO):
-            ax.add_patch(Rectangle((x0 + i * b0 / nO, g - 0.22), b0 / nO, 0.22, fc=col, ec='k', lw=0.3))
-        xs = np.linspace(x0 - 0.9, x0 + b0 + 0.9, 8)
-        for xx in xs:
-            if x0 + 0.05 < xx < x0 + b0 - 0.05:
+        x0, x1 = -0.7, TAU + 0.7
+        ax.set_aspect('equal'); ax.axis('off')
+        ax.add_patch(Rectangle((x0, GAP), x1 - x0, HS_WIN, fc=IRON, ec='k', lw=0.6))
+        ax.add_patch(Rectangle((x0, -HR_WIN), x1 - x0, HR_WIN, fc=IRON, ec='k', lw=0.6))
+        xs = TAU / 2
+        slot(ax, stator_half(HS_WIN), xs, +1, GAP)
+        ax.text(xs, GAP + HS_WIN - 0.9, 'stator slot', ha='center', va='center', fontsize=7, zorder=4)
+        xr = xs + XOFF
+        slot(ax, rotor_half(HR_WIN), xr, -1, 0.0)
+        ax.text(xr, -HR_WIN + 1.35, 'rotor bar', ha='center', va='center', fontsize=7, zorder=4)
+
+        h = 0.22
+
+        def tile(xa, xb, y, n, c):
+            for i in range(n):
+                xx = xa + i * (xb - xa) / n
+                ax.add_patch(Rectangle((xx, y), (xb - xa) / n, h, fc=c, ec='k', lw=0.25, zorder=5))
+        nT, nO = 4, 3
+        tile(x0, xs - BS0 / 2, GAP - h, nT, TILE)
+        tile(xs + BS0 / 2, x1, GAP - h, nT, TILE)
+        tile(xs - BS0 / 2, xs + BS0 / 2, GAP - h, nO, col)
+        tile(x0, xr - BR0 / 2, 0.0, nT, TILE)
+        tile(xr + BR0 / 2, x1, 0.0, nT, TILE)
+        tile(xr - BR0 / 2, xr + BR0 / 2, 0.0, nO, col)
+
+        for xx in np.linspace(xs - 3.4, xs + 3.4, 9):
+            if xs - BS0 / 2 + 0.05 < xx < xs + BS0 / 2 - 0.05:
                 if mode == 'insulating':
-                    tgt = (x0 - 0.12, g - 0.22) if xx < x0 + b0 / 2 else (x0 + b0 + 0.12, g - 0.22)
-                    rad = 0.4 if xx < x0 + b0 / 2 else -0.4
+                    tgt = (xs - BS0 / 2 - 0.10, GAP - h) if xx < xs else (xs + BS0 / 2 + 0.10, GAP - h)
+                    rad = 0.5 if xx < xs else -0.5
                 else:
-                    tgt = (x0 - 0.02, g + 0.75) if xx < x0 + b0 / 2 else (x0 + b0 + 0.02, g + 0.75)
-                    rad = -0.3 if xx < x0 + b0 / 2 else 0.3
-                ax.annotate('', xy=tgt, xytext=(xx, 0.0), arrowprops=dict(arrowstyle='->', lw=0.8, color=col, connectionstyle='arc3,rad=%.2f' % rad))
+                    tgt = (xs - BS0 / 2 - 0.03, GAP + HS0 + 0.5) if xx < xs else (xs + BS0 / 2 + 0.03, GAP + HS0 + 0.5)
+                    rad = -0.35 if xx < xs else 0.35
+                ax.annotate('', xy=tgt, xytext=(xx, h + 0.04), zorder=6,
+                            arrowprops=dict(arrowstyle='->', lw=0.8, color=col,
+                                            connectionstyle='arc3,rad=%.2f' % rad))
             else:
-                ax.annotate('', xy=(xx, g - 0.22), xytext=(xx, 0.0), arrowprops=dict(arrowstyle='->', lw=0.8, color=C['fe']))
-        ax.text(-0.45, g / 2 - 0.12, r'$g$', ha='right', va='center', fontsize=8)
-        ax.text(x0 + b0 / 2, g + 0.12, r'$b_0$', ha='center', va='bottom', fontsize=7.5)
-        ax.text(-0.1, g + 0.35, r'$n_T$ columns per face', ha='left', va='bottom', fontsize=7)
-        ax.text(x0 + b0 / 2, -0.95, r'$n_O$ columns per opening', ha='center', va='top', fontsize=7, color=col)
-        if mode == 'insulating':
-            ax.set_title(r'(a) condition $\Phi_O = 0$ : the opening is a flux barrier', fontsize=8)
-        else:
-            ax.set_title(r'(b) cavity admittance $\mathbf{Q}$ : flux enters the slot walls', fontsize=8)
-        ax.set_xlim(-0.6, tau + 0.6); ax.set_ylim(-2.7, g + 2.9)
+                ax.annotate('', xy=(xx, GAP - h), xytext=(xx, h + 0.04), zorder=6,
+                            arrowprops=dict(arrowstyle='->', lw=0.8, color=C['fe']))
+
+        ax.plot([x0 + 0.10, x0 + 0.46], [h, h], color='k', lw=0.6, zorder=6)
+        ax.plot([x0 + 0.10, x0 + 0.46], [GAP - h, GAP - h], color='k', lw=0.6, zorder=6)
+        ax.plot([x0 + 0.28, x0 + 0.28], [h, GAP - h], color='k', lw=0.6, zorder=6)
+        ax.text(x0 + 0.56, GAP / 2, r'$g$', ha='left', va='center', fontsize=8, zorder=6)
+        ax.text(xs, GAP + 0.06, r'$b_0$', ha='center', va='bottom', fontsize=7.5, zorder=4)
+        ax.text(x0, GAP + HS_WIN + 0.18, r'$n_T$ columns per tooth face', ha='left', va='bottom', fontsize=6.6)
+        ax.text(x1, GAP + HS_WIN + 0.18, r'$n_O$ columns per opening', ha='right', va='bottom',
+                fontsize=6.6, color=col)
+        ax.text(x1 - 0.15, GAP + HS_WIN - 0.22, 'stator', ha='right', va='top', fontsize=7.5)
+        ax.text(x0 + 0.15, -HR_WIN + 0.22, 'rotor', ha='left', va='bottom', fontsize=7.5)
+        t = (r'(a) condition $\Phi_O=0$: the opening is a flux barrier' if mode == 'insulating'
+             else r'(b) cavity admittance $\mathbf{Q}$: flux enters the slot walls')
+        ax.set_title(t, fontsize=7.6, pad=14)
+        ax.set_xlim(x0 - 0.05, x1 + 0.05)
+        ax.set_ylim(-HR_WIN - 0.15, GAP + HS_WIN + 0.9)
+
+    fig, axs = plt.subplots(1, 2, figsize=(6.8, 3.75))
+    panel(axs[0], 'insulating')
+    panel(axs[1], 'cavity')
+    fig.subplots_adjust(wspace=0.10)
     save(fig, 'fig1_opening_conditions')
 
 

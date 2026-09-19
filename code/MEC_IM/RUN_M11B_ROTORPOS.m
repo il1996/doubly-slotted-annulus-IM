@@ -45,7 +45,7 @@
 clear; clc; t0=tic;
 if isfile('M11B_rotorpos_out.txt'), delete('M11B_rotorpos_out.txt'); end
 diary('M11B_rotorpos_out.txt'); diary on;
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 
 M=mec.machine_18_5kW(); ctx0=mec.build_context(M); G=ctx0.G; W=ctx0.W;
 p=M.p; Rm=0.5*(G.Rs+G.Rr); Nr=M.Nr;

@@ -39,15 +39,15 @@
 %                celui dont la Table 16 est issue ; OFF (M.opt.skew_harm=0)
 %                = etat loyal etabli par B8, la reference EF etant une
 %                tranche droite (NumberOfSlices = 1).
-%    reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+%    reference : <home>\Desktop\ANSYS résultat 18.5KW
 %                transitoire\en charge et transitoire\rotor bloqué
 %
 %  Sortie : B6_anneau_out.txt, B6_anneau.mat
 clear; clc; t0v=tic;
 diary('B6_anneau_out.txt'); diary on;
 
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
-TEX ='C:\Users\hp\Desktop\Matlab program\MEC\article\MEC_DtN_paper_v2.tex';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
+TEX ='.\MEC_DtN_paper_v2.tex';
 SRCB1='RUN_B1_IM_P1.m';
 rd  =@(f)readmatrix(f,'FileType','text','NumHeaderLines',1,'Delimiter','\t');
 rmsw=@(A,c,t0)sqrt(mean(A(A(:,1)>=t0,c).^2,'omitnan'));

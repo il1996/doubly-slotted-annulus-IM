@@ -6,7 +6,7 @@
     point        : s = 0.0188
     vrillage     : harmonique NEUTRALISE (M.opt.skew_harm = 0)
                    ET actif, pour verifier la note
-    reference EF : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+    reference EF : <home>\Desktop\ANSYS résultat 18.5KW
 
   ---- REFERENCES ----
     I0  = 8.4886 A     RELUE  (transitoire\a vide\Winding Plot 4.tab, t > 1.0 s)

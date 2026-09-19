@@ -29,7 +29,7 @@
 clear; clc; t0=tic;
 if isfile('M11C_matched_out.txt'), delete('M11C_matched_out.txt'); end
 diary('M11C_matched_out.txt'); diary on;
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 S=load('M11B_rotorpos.mat');            % POS et RMIN viennent de M-11b
 
 M=mec.machine_18_5kW(); ctx0=mec.build_context(M); G=ctx0.G; W=ctx0.W;

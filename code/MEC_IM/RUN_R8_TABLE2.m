@@ -30,7 +30,7 @@
 clear; clc; t0=tic;
 diary('R8_table2_out.txt'); diary on;
 nT=17; nO=4; Nh=8192; s_ch=0.0188;
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 TEX=fullfile('..','article','ArticleII_Carter_IM.tex');
 rd=@(f)readmatrix(f,'FileType','text','NumHeaderLines',1,'Delimiter','\t');
 rmsw=@(A,c,tw)sqrt(mean(A(A(:,1)>=tw,c).^2,'omitnan'));

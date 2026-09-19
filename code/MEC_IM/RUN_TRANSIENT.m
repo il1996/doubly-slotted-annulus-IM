@@ -28,7 +28,7 @@ fprintf('  Rs=%.3f  Rr''=%.3f ohm   Lm=%.1f mH  Lls=%.2f mH  Llr=%.2f mH\n', ...
 fprintf('  J=%.3f kg.m2   B=%.3f N.m.s/rad\n\n', out.params.J, out.params.B);
 
 % ---- Référence EF (ANSYS, essai à vide) ----
-base = 'C:\Users\hp\Desktop\ANSYS résultat 18.5KW\transitoire\a vide';
+base = '<home>\Desktop\ANSYS résultat 18.5KW\transitoire\a vide';
 spd = load_tab(fullfile(base,'la vitesse en fonction du temps.tab'));
 trq = load_tab(fullfile(base,'Torque Plot 1.tab'));   % [t, LoadTorque, Torque]
 
@@ -70,7 +70,7 @@ saveas(gcf, fullfile(fileparts(mfilename('fullpath')),'transitoire_MEC.png'));
 fprintf('Figure enregistree : transitoire_MEC.png\n');
 
 %% ---- Démarrage EN CHARGE (profil de charge TL(t) relevé d'ANSYS) ----
-Dc = 'C:\Users\hp\Desktop\ANSYS résultat 18.5KW\transitoire\en charge';
+Dc = '<home>\Desktop\ANSYS résultat 18.5KW\transitoire\en charge';
 trqc = load_tab(fullfile(Dc,'Plot 1.tab'));        % [t, -LoadTorque, Torque]
 spdc = load_tab(fullfile(Dc,'Speed Plot 1.tab'));
 curc = load_tab(fullfile(Dc,'Winding Plot 4.tab'));

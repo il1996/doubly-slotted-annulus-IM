@@ -7,7 +7,7 @@
     entrefer g     : 0.00024300 m = 0.2430 mm
     R mi-entrefer  : 0.08176725 m
     longueur L     : 0.16478245 m
-    projet EF      : C:\Users\hp\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt
+    projet EF      : <home>\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt
 
   ---- 1. GARDE ANALYTIQUE (a verifier sur le run lisse) ----
     Lambda_lisse = mu0*(2*pi*R*L)/g

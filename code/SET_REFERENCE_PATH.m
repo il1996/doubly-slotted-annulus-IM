@@ -11,8 +11,8 @@ function SET_REFERENCE_PATH(mode)
 %   SET_REFERENCE_PATH('dryrun')  montre ce qui serait fait, sans rien ecrire
 %
 %   Ce que la fonction remplace, et rien d'autre :
-%     'C:\Users\hp\Desktop\ANSYS résultat 750W'    -> <archive>/reference/ANSYS_750W
-%     'C:\Users\hp\Desktop\ANSYS résultat 18.5KW'  -> <archive>/reference/ANSYS_18_5kW
+%     '<home>\Desktop\ANSYS résultat 750W'    -> <archive>/reference/ANSYS_750W
+%     '<home>\Desktop\ANSYS résultat 18.5KW'  -> <archive>/reference/ANSYS_18_5kW
 %
 %   Les sous-dossiers gardent leur nom d'origine, accents et parentheses
 %   compris : les scripts les nomment explicitement.
@@ -27,8 +27,8 @@ here = fileparts(mfilename('fullpath'));          % <archive>/code
 root = fileparts(here);                           % <archive>
 ref  = fullfile(root,'reference');
 
-sub = { 'C:\Users\hp\Desktop\ANSYS résultat 750W',   fullfile(ref,'ANSYS_750W'); ...
-        'C:\Users\hp\Desktop\ANSYS résultat 18.5KW', fullfile(ref,'ANSYS_18_5kW') };
+sub = { '<home>\Desktop\ANSYS résultat 750W',   fullfile(ref,'ANSYS_750W'); ...
+        '<home>\Desktop\ANSYS résultat 18.5KW', fullfile(ref,'ANSYS_18_5kW') };
 
 for k=1:size(sub,1)
     if ~isfolder(sub{k,2})

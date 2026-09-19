@@ -9,7 +9,7 @@ import numpy as np, scipy.io as sio
 from dsop import Machine
 from cavity_graded import cavity_source_rotor
 M = Machine(); L = M.L; b0 = 2.0
-src = r"C:\Users\hp\AppData\Local\Temp\claude\C--Users-hp-Desktop-claude\fb8f7acf-d703-40c5-b60c-b7b9dd7398fa\scratchpad\repo\doubly-slotted-annulus-IM\code\MEC_IM"
+src = r"<home>\AppData\Local\Temp\claude\C--Users-hp-Desktop-claude\fb8f7acf-d703-40c5-b60c-b7b9dd7398fa\scratchpad\repo\doubly-slotted-annulus-IM\code\MEC_IM"
 for nO in [16]:
     cav = sio.loadmat(f"{src}\\cavity_nO{nO}.mat")
     Qr = cav['Qr']; Qs = cav['Qs']

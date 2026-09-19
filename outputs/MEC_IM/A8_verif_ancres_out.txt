@@ -1,5 +1,5 @@
 === A8-0 : les ancres de mec.ansys_ref, mesurees ===
-  reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+  reference : <home>\Desktop\ANSYS résultat 18.5KW
 
   ---- I0, courant a vide ----
     fichier : transitoire\a vide\Winding Plot 4.tab (2001 points)

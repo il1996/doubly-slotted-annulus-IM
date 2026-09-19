@@ -4,7 +4,7 @@
     chaine    : RUN_B1_IM_P1 sec. 4, operateur reconstruit a chaque phi
     operateur : airgap_dtn_tooth(phi, nT=17, nO=4, N_h=8192, base p1)
     balayage  : 23 positions sur un pas dentaire rotor (8.1818 deg mec)
-    reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+    reference : <home>\Desktop\ANSYS résultat 18.5KW
 
        k  phi (deg)    RMSE vide  RMSE charge |     Bg1 vide   Bg1 charge
        1     0.0000      0.40554      0.67485 |      0.94519      0.89828

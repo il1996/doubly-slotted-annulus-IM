@@ -8,7 +8,7 @@ import os, sys, time
 for v in ("PYTHONPATH", "PYTHONHOME"):
     os.environ.pop(v, None)
 import win32com.client
-HERE = r"C:\Users\hp\Desktop\claude\T2_ansys"
+HERE = r"<home>\Desktop\claude\T2_ansys"
 PROJ = os.path.join(HERE, "IM_18kW_690V_noload_sweep.aedt")
 LOG = os.path.join(HERE, "sweep_log.txt")
 name = sys.argv[1]

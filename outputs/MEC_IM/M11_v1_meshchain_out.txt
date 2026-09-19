@@ -4,7 +4,7 @@
     machine  : MAS 48/44, 18,5 kW
     chaine   : mec.mesh_refined(6 colonnes, 3 couches) + mec.solve_mesh
     champ    : me.gapF.field au rayon moyen d'entrefer
-    reference: C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+    reference: <home>\Desktop\ANSYS résultat 18.5KW
 
   solutions calculees (16 s)
 

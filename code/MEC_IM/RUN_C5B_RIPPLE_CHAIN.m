@@ -24,7 +24,7 @@ Npos=19; nT=17; nO=4; Nh=8192;
 %  l'ondulation observee sur oc.Tem est la COMPOSITION de la carte et de la
 %  charge -- pas la carte seule. C'est la derniere hypothese restante pour
 %  expliquer l'ecart aux 101,4 N.m publies.
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 Dch=fullfile(ROOT,'transitoire','en charge');
 rdt=@(f)readmatrix(f,'FileType','text','NumHeaderLines',1,'Delimiter','\t');
 trq=rdt(fullfile(Dch,'Plot 1.tab'));

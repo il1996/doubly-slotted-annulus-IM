@@ -18,7 +18,7 @@
 
 clear; clc; close all;
 addpath(fileparts(mfilename('fullpath')));
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 fprintf('=== P7 : attribution des courants de cage a vide (nu=3 ?) ===\n\n');
 
 M=mec.machine_18_5kW(); ctx=mec.build_context(M);

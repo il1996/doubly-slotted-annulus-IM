@@ -31,7 +31,7 @@ fprintf('    R_r (rotor)    : %.8f m\n',G.Rr);
 fprintf('    entrefer g     : %.8f m = %.4f mm\n',G.Rs-G.Rr,(G.Rs-G.Rr)*1e3);
 fprintf('    R mi-entrefer  : %.8f m\n',0.5*(G.Rs+G.Rr));
 fprintf('    longueur L     : %.8f m\n',M.L);
-fprintf('    projet EF      : C:\\Users\\hp\\Desktop\\ANSYS-\\moteur_18_5\\IM_18kW_690V.aedt\n');
+fprintf('    projet EF      : <home>\\Desktop\\ANSYS-\\moteur_18_5\\IM_18kW_690V.aedt\n');
 
 %% ---- 1. LA GARDE ANALYTIQUE ------------------------------------------
 %  v4 §R3 : "la geometrie lisse doit redonner, a quelques dixiemes de pour

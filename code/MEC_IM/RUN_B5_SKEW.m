@@ -16,13 +16,13 @@
 %
 %  CONFIGURATION DECLAREE
 %    machine   : MAS 48/44, 18,5 kW | Ns = 48, Nr = 44, p = 2
-%    projet EF : C:\Users\hp\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt
+%    projet EF : <home>\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt
 %    chaine    : mec.cage, facteur de vrillage ksq (cage.m:47-63)
 %    pavage    : nT = 17, nO = 4 | N_h = 8192 | base P1  (identique a B1)
 clear; clc; t0v=tic;
 diary('B5_skew_out.txt'); diary on;
 M=mec.machine_18_5kW(); ctx=mec.build_context(M); G=ctx.G; W=ctx.W; Lk=ctx.Lk;
-AEDT='C:\Users\hp\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt';
+AEDT='<home>\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt';
 
 fprintf('=== B5 : le vrillage, tranche ===\n');
 fprintf('  machine : MAS 48/44 | Ns = %d, Nr = %d, p = %d\n\n',M.Ns,M.Nr,M.p);

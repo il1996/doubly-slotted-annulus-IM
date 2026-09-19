@@ -18,7 +18,7 @@ nT=17; nO=4; Nh=8192; s_ch=0.0188;
 A1=mec.airgap_dtn_tooth(M,G,0,nT,nO,Nh,'p1');
 ctx.AG=A1; ctx.Xm0=mec.magnetizing(ctx,0.2).Xm;
 %  M.FEA est un champ du PMSM ; la MAS porte sa racine ailleurs.
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 rd=@(f)readmatrix(f,'FileType','text','NumHeaderLines',1,'Delimiter','\t');
 rmsw=@(A,c,t0_)sqrt(mean(A(A(:,1)>=t0_,c).^2,'omitnan'));
 avgw=@(A,c,t0_)mean(A(A(:,1)>=t0_,c),'omitnan');

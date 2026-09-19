@@ -23,7 +23,7 @@
 clear; clc; t0=tic;
 diary('A1_ripple_basis_out.txt'); diary on;
 Npos=19; nT=17; nO=4; Nh=8192;
-ROOT='C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT='<home>\Desktop\ANSYS résultat 18.5KW';
 Dch=fullfile(ROOT,'transitoire','en charge');
 rdt=@(f)readmatrix(f,'FileType','text','NumHeaderLines',1,'Delimiter','\t');
 trq=rdt(fullfile(Dch,'Plot 1.tab'));

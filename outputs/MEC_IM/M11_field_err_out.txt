@@ -5,7 +5,7 @@
     operateur : mec.airgap_dtn_tooth(nT=17, nO=4, N_h=8192, base p1)
     champ     : AT.field(Usurf, R_moy, theta) -- operateur condense
     source    : copie conforme de RUN_B1_IM_P1.m sec. 4
-    reference : C:\Users\hp\Desktop\ANSYS résultat 18.5KW
+    reference : <home>\Desktop\ANSYS résultat 18.5KW
 
     operateur 92x92 | X_m0 = 61.015 ohm
     solutions calculees (18 s)

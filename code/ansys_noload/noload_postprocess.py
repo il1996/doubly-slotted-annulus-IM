@@ -20,10 +20,10 @@ Z7_noload_net.mat at the same line voltages.
 """
 import numpy as np, re, os, sys, json, glob
 import scipy.io as sio
-HERE = r"C:\Users\hp\Desktop\claude\T2_ansys"
+HERE = r"<home>\Desktop\claude\T2_ansys"
 EXP = os.path.join(HERE, "exports")
-REF = r"C:\Users\hp\Desktop\ANSYS résultat 18.5KW\transitoire\a vide"
-Z7 = r"C:\Users\hp\AppData\Local\Temp\claude\C--Users-hp-Desktop-claude\fb8f7acf-d703-40c5-b60c-b7b9dd7398fa\scratchpad\repo\doubly-slotted-annulus-IM\outputs\MEC_IM\Z7_noload_net.mat"
+REF = r"<home>\Desktop\ANSYS résultat 18.5KW\transitoire\a vide"
+Z7 = r"<home>\AppData\Local\Temp\claude\C--Users-hp-Desktop-claude\fb8f7acf-d703-40c5-b60c-b7b9dd7398fa\scratchpad\repo\doubly-slotted-annulus-IM\outputs\MEC_IM\Z7_noload_net.mat"
 if not os.path.exists(Z7):
     raise SystemExit("Z7_noload_net.mat not found: " + Z7)
 RS, LS, F = 0.44574, 6.251120231328e-3, 50.0

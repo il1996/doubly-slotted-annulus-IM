@@ -2,7 +2,7 @@
   machine : MAS 48/44 | Ns = 48, Nr = 44, p = 2
 
   ---- 1. reglage du projet EF, lu dans le .aedt ----
-    fichier : C:\Users\hp\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt
+    fichier : <home>\Desktop\ANSYS-\moteur_18_5\IM_18kW_690V.aedt
     174493 lignes lues, 12 occurrences trouvees
     UseSkewModel     : 4 occurrence(s)
         l.557 : UseSkewModel=true

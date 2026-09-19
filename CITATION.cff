@@ -34,6 +34,10 @@ authors:
     orcid: "https://orcid.org/0000-0002-9383-2097"
     affiliation: "Electrotechnical Laboratory Skikda (LES), University 20 August 1955 Skikda, Algeria"
     email: n.mezhoud@univ-skikda.dz
+  - family-names: Lekhchine
+    given-names: Salima
+    affiliation: "LGMM Laboratory, University 20 August 1955 Skikda, Algeria"
+    email: s.lekhchine@univ-skikda.dz
 keywords:
   - magnetic equivalent circuit
   - reluctance network

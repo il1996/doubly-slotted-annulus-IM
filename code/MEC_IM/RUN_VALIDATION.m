@@ -15,7 +15,7 @@
 
 clear; clc; close all;
 addpath(fileparts(mfilename('fullpath')));
-ROOT = 'C:\Users\hp\Desktop\ANSYS résultat 18.5KW';
+ROOT = '<home>\Desktop\ANSYS résultat 18.5KW';
 
 fprintf('==================================================================\n');
 fprintf('     VALIDATION MEC vs ANSYS Maxwell 2D  -  18,5 kW / 690 V\n');
