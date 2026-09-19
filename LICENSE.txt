@@ -1,5 +1,7 @@
-Copyright (c) 2026 Idris Laouar, Ahcene Boukadoum, Nabil Mezhoud
-Electrotechnical Laboratory Skikda (LES), University 20 August 1955 Skikda, Algeria
+Copyright (c) 2026 Idris Laouar, Ahcene Boukadoum, Nabil Mezhoud and
+Salima Lekhchine
+Electrotechnical Laboratory Skikda (LES) and LGMM Laboratory,
+University 20 August 1955 Skikda, Algeria
 
 ================================================================
 CREATIVE COMMONS ATTRIBUTION 4.0 INTERNATIONAL (CC BY 4.0)
@@ -31,10 +33,10 @@ ATTRIBUTION
 
 Cite the archive as:
 
-    I. Laouar, A. Boukadoum and N. Mezhoud, "Reproduction archive for a
-    doubly slotted annulus operator for magnetic equivalent circuits
-    (Paper II)", release v1.0.0, GitHub, 2026.
-    https://github.com/il1996/doubly-slotted-annulus-IM/releases/tag/v1.0.0
+    I. Laouar, A. Boukadoum, N. Mezhoud and S. Lekhchine, "Reproduction
+    archive for a doubly slotted annulus operator for magnetic equivalent
+    circuits (Paper II)", release v1.1.0, GitHub, 2026.
+    https://github.com/il1996/doubly-slotted-annulus-IM/releases/tag/v1.1.0
 
 and, where the result rather than the code is used, the paper it supports.
 
