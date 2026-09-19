@@ -215,6 +215,25 @@ Même règle : une grandeur, une chaîne. Les chaînes MATLAB tournent depuis
 `../../reference/ANSYS_18_5kW` ; les chaînes Python tournent depuis
 `code/python/` et écrivent dans `outputs/python/`.
 
+**Numérotation.** Ce registre a été écrit contre la source du 16 septembre
+2026 et garde sa numérotation. Le manuscrit soumis scinde ces tables entre
+le corps de l'article et le supplément ; la correspondance, établie légende
+par légende, est la suivante.
+
+| ce registre | manuscrit soumis | | ce registre | manuscrit soumis |
+|---|---|---|---|---|
+| Table 1 | Table 1 | | Table 7 | Table 4 |
+| Table 2 | Table S1 | | Table 8 | Table 5 |
+| Table 3 | Table S2 | | Table 9 | Table 6 |
+| Table 4 | Table 2 | | Table 10 | Table S4 |
+| Table 5 | Table S3 | | Table 11 | Table S5 |
+| Table 6 | Table 3 | | Table 12 | Table 7 |
+
+La Table S6 du supplément (courant à vide du réseau couplé dans les deux
+bases de surface, sous les deux fermetures, à trois pavages) sort de
+`RUN_Z10_CLOSURES_BASIS.m`, transcription `outputs/MEC_IM/Z10_closures_basis_out.txt`.
+Les sections 5.3, 5.7 et 6.3 de cette source deviennent V-C, V-G et VI-C.
+
 | grandeur publiée | chaîne qui fait foi | sortie | date |
 |---|---|---|---|
 | Table 1 (données machine), Table 6 (références relues des `.tab`, fenêtre t ∈ [1, 2] s) | `fea_audit.py`, `fea_power.py`, `sweep_audit.py`, `fea_conv*.py` ; relecture MATLAB dans `RUN_Z1_CAVITY.m` | `Z1_cavity_out.txt` (en-tête), `outputs/python/` | 15 sept. |

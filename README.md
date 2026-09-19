@@ -27,7 +27,7 @@ and the transcripts from which every published value originates are here.
 
 ## 2. The one-minute test
 
-Do this before anything else. The block below reproduces Table 8 of the
+Do this before anything else. The block below reproduces Table 5 of the
 paper, the five closures of the air gap at the no-load and rated points,
 and prints the reference values it reads from `reference/`. Under MATLAB
 R2024a it takes about 45 s.
@@ -49,20 +49,21 @@ If it passes, the archive works on your machine. The transcript it writes,
 
 | script | what it produces |
 |---|---|
-| `RUN_Z1_CAVITY.m` | Table 8 (five closures, no-load and rated points) |
-| `RUN_Z6_COUPLED_CONV_CAV.m` | Table 10 (tiling sweep of the coupled solution, both closures) |
+| `RUN_Z1_CAVITY.m` | Table 5 (five closures, no-load and rated points) |
+| `RUN_Z6_COUPLED_CONV_CAV.m` | Table S4 (tiling sweep of the coupled solution, both closures) |
+| `RUN_Z10_CLOSURES_BASIS.m` | Table S6 (no-load current in the two surface bases, both closures, three tilings) |
 | `RUN_Z2_FIELDS.m`, `RUN_Z4_FIELDS_CAV.m` | mid-gap waveforms of Fig. 6, both closures |
-| `RUN_M11_FIELD_ERR.m`, `RUN_M11B_ROTORPOS.m`, `RUN_M11C_MATCHED.m`, `RUN_Z4B_FIELD_ERR_CAV.m` | Table 11 |
-| `RUN_B10_B1_SKEWOFF.m`, `RUN_Z5_SWEEP_CAV.m` | slip characteristics of Fig. 5, both closures; Table 9; standstill |
-| `RUN_Z3_LEAKAGE.m` | leakage sensitivity of Section 5.3 |
-| `RUN_Z7_NOLOAD_NET.m` | network side of the numerical no-load test (Section 5.7, Table 12) |
-| `RUN_Z8_CAVITY_LOAD.m` | rotor cavity map with the bar current (Section 6.3) |
-| `RUN_R8_TABLE2.m`, `RUN_INVARIANTS.m` | Table 2 |
-| `RUN_B2_KC.m` | Table 3 |
-| `code/python/prod_fem.py` | Table 4, Fig. 2 (finite-element references) |
-| `code/python/prod_op.py`, `t_op*.py` | Table 5 (uniform tilings), Fig. 2, Fig. 4 |
-| `code/python/t4_graded.py` | Table 5 (graded tiling), Fig. 3 |
-| `code/ansys_noload/noload_sweep_com.py`, `solve_one_com.py`, `noload_export_com.py`, `noload_postprocess.py` | the numerical no-load test (Section 5.7, Table 12); the `.tab` exports it produced are in `reference/ANSYS_18_5kW/noload_sweep/` |
+| `RUN_M11_FIELD_ERR.m`, `RUN_M11B_ROTORPOS.m`, `RUN_M11C_MATCHED.m`, `RUN_Z4B_FIELD_ERR_CAV.m` | Table S5 |
+| `RUN_B10_B1_SKEWOFF.m`, `RUN_Z5_SWEEP_CAV.m` | slip characteristics of Fig. 5, both closures; Table 6; standstill |
+| `RUN_Z3_LEAKAGE.m` | leakage sensitivity of Section V-C |
+| `RUN_Z7_NOLOAD_NET.m` | network side of the numerical no-load test (Section V-G, Table 7) |
+| `RUN_Z8_CAVITY_LOAD.m` | rotor cavity map with the bar current (Section VI-C) |
+| `RUN_R8_TABLE2.m`, `RUN_INVARIANTS.m` | Table S1 |
+| `RUN_B2_KC.m` | Table S2 |
+| `code/python/prod_fem.py` | Table 2, Fig. 2 (finite-element references) |
+| `code/python/prod_op.py`, `t_op*.py` | Table S3 (uniform tilings), Fig. 2, Fig. 4 |
+| `code/python/t4_graded.py` | Table S3 (graded tiling), Fig. 3 |
+| `code/ansys_noload/noload_sweep_com.py`, `solve_one_com.py`, `noload_export_com.py`, `noload_postprocess.py` | the numerical no-load test (Section V-G, Table 7); the `.tab` exports it produced are in `reference/ANSYS_18_5kW/noload_sweep/` |
 
 Every script that reads the finite-element reference does so through the
 relative path `../../reference/ANSYS_18_5kW`; the older scripts archived
