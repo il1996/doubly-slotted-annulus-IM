@@ -1,0 +1,7 @@
+prod_sweep_b0g_meshcheck.py -- run of 2026-09-19 14:43:52 ; lc_gap 0.045 -> 0.0225 mm at the gaps not covered by G5 of prod_sweep_b0g.py
+b0/g = 12.000 (g = 0.166667 mm) : twelve positions ; FE mean lc 0.045 = 1.309783, lc 0.0225 = 1.308176, shift -0.1227 % ; per-position shifts -0.1474 .. -0.0957 % ; nodes 252970-253079 ; 361 s
+b0/g =  4.000 (g = 0.500000 mm) : twelve positions ; FE mean lc 0.045 = 1.183487, lc 0.0225 = 1.182616, shift -0.0736 % ; per-position shifts -0.0833 .. -0.0634 % ; nodes 643703-643925 ; 1356 s
+b0/g =  2.000 (g = 1.000000 mm) : phi = 0 only ; FE lc 0.045 = 1.115837, lc 0.0225 = 1.115188, shift -0.0581 % ; nodes 1225632 ; 200 s (the twelve-position check at this gap would cost twelve such solves and was not run)
+for the record, G5 of prod_sweep_b0g.py at b0/g = 16 : lc [0.045, 0.0225, 0.01125] -> means ['1.337986', '1.336241', '1.335573'], shifts ['-0.1304', '-0.0500'] %, validated lc 0.0225
+nominal (Table 2 of the paper): lc 0.045 -> 0.028 moves k_C at phi = 0 by -0.0824 % (conv_real)
+end 2026-09-19 15:15:48 ; total 1916 s

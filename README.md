@@ -63,6 +63,7 @@ If it passes, the archive works on your machine. The transcript it writes,
 | `code/python/prod_fem.py` | Table 2, Fig. 2 (finite-element references) |
 | `code/python/prod_op.py`, `t_op*.py` | Table S3 (uniform tilings), Fig. 2, Fig. 4 |
 | `code/python/t4_graded.py` | Table S3 (graded tiling), Fig. 3 |
+| `code/python/prod_sweep_b0g.py`, `FIG7_B0G_SWEEP.py`, `prod_sweep_b0g_meshcheck.py` | Fig. 7 (sweep of the opening-to-gap ratio $b_0/g$ on the linear chain; five guards in the transcript header; mesh check at the other gaps) |
 | `code/ansys_noload/noload_sweep_com.py`, `solve_one_com.py`, `noload_export_com.py`, `noload_postprocess.py` | the numerical no-load test (Section V-G, Table 7); the `.tab` exports it produced are in `reference/ANSYS_18_5kW/noload_sweep/` |
 
 Every script that reads the finite-element reference does so through the
