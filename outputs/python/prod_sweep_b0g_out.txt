@@ -7,13 +7,15 @@ G3 PASS  assembled smooth comparator (hat basis, position-independent) at nomina
 G4 PASS  Q (n_O = 16) reloaded from cavity_Q.pkl: max|dQ| against a recompute (cavity.cavity_element, lc_mouth 0.01, gmsh) stator 0.000e+00 rotor 4.075e-10 of max|Q| 6.342e-07 / 1.013e-06 ; against code/MEC_IM/cavity_nO16.mat 0.000e+00 / 0.000e+00 ; k_C (cavities, phi = 0) with the reloaded Q 1.302394, with the recomputed Q 1.302411 -> equal to 4 decimals: True
 G5 PASS  at b0/g = 16 (g = 0.125000 mm): FE twelve-position mean at lc 0.04500 / 0.02250 / 0.01125 = 1.337986 / 1.336241 / 1.335573 ; shifts under halving -0.1304 / -0.0500 % ; validated lc = 0.02250 (< 0.1 % criterion) ; nodes [(63868, 63980), (203697, 203846), (692351, 692698)] ; FE row of that g reported at lc 0.02250
 durations (s): G1 171, G2 193, G4 8, b0g_4 466, b0g_12 681, b0g_16 505, b0g_2 746, G5 1218, total 3989
+note 2026-09-20 12:27:22 : the FE row of b0/g = 12 is promoted to lc 0.0225 (twelve positions of prod_sweep_b0g_meshcheck_results.json, shift of the mean -0.1227 %), as G5 did for b0/g = 16 ; the production-mesh row is kept below it, marked
 
 TABLE 1 -- values per b0/g (twelve-position statistics ; FE at the lc shown ; operator (33,16) p1 N_h 8192 ; Carter from the dimensions ; comparators recomputed at each g)
     b0/g     g [mm]  lc [mm] |    FE mean     FE min     FE max | Carter apx  Carter ex | PhiO=0 mean        min        max |   cav mean    cav min    cav max |  comp closed     comp asm
   2.0000   1.000000  0.04500 |   1.109811   1.102775   1.116753 |   1.111287   1.108615 |   1.276692   1.244686   1.309432 |   1.112769   1.105409   1.120055 |   113.023480   112.700985
   4.0000   0.500000  0.04500 |   1.183487   1.167157   1.199816 |   1.180727   1.182680 |   1.382009   1.328508   1.437830 |   1.187589   1.170500   1.204699 |   226.053279   225.408271
   8.2310   0.242984  0.04500 |   1.268631   1.239087   1.298614 |   1.266466   1.267932 |   1.449046   1.381901   1.519972 |   1.275099   1.243921   1.306829 |   465.163920   463.836648
- 12.0000   0.166667  0.04500 |   1.309783   1.272989   1.347420 |   1.310180   1.308794 |   1.469251   1.397801   1.545027 |   1.318020   1.279018   1.358055 |   678.165455   676.230416
+ 12.0000   0.166667  0.02250 |   1.308176   1.271772   1.345433 |   1.310180   1.308794 |   1.469251   1.397801   1.545027 |   1.318020   1.279018   1.358055 |   678.165455   676.230416   <- lc 0.0225 (promoted, prod_sweep_b0g_meshrow.py)
+ 12.0000   0.166667  0.04500 |   1.309783   1.272989   1.347420 |   1.310180   1.308794 |   1.469251   1.397801   1.545027 |   1.318020   1.279018   1.358055 |   678.165455   676.230416   <- production mesh lc 0.045, superseded
  16.0000   0.125000  0.02250 |   1.336241   1.294602   1.379071 |   1.340687   1.336714 |   1.479948   1.406101   1.558442 |   1.347831   1.303052   1.394081 |   904.221016   901.640964
 
 TABLE 2 -- deviations from the FE twelve-position mean (%) ; FE modulation = (min - mean)/mean and (max - mean)/mean over the twelve positions
@@ -21,7 +23,8 @@ TABLE 2 -- deviations from the FE twelve-position mean (%) ; FE modulation = (mi
   2.0000   1.000000 |       +0.133       -0.108      +15.037       +0.267 |       -0.634       +0.626 |       -0.661       +0.655
   4.0000   0.500000 |       -0.233       -0.068      +16.774       +0.347 |       -1.380       +1.380 |       -1.439       +1.441
   8.2310   0.242984 |       -0.171       -0.055      +14.221       +0.510 |       -2.329       +2.363 |       -2.445       +2.488
- 12.0000   0.166667 |       +0.030       -0.076      +12.175       +0.629 |       -2.809       +2.873 |       -2.959       +3.038
+ 12.0000   0.166667 |       +0.153       +0.047      +12.313       +0.752 |       -2.783       +2.848 |       -2.959       +3.038   <- lc 0.0225 (promoted, prod_sweep_b0g_meshrow.py)
+ 12.0000   0.166667 |       +0.030       -0.076      +12.175       +0.629 |       -2.809       +2.873 |       -2.959       +3.038   <- production mesh lc 0.045, superseded
  16.0000   0.125000 |       +0.333       +0.035      +10.755       +0.867 |       -3.116       +3.205 |       -3.322       +3.431
 
 TABLE 3 -- per position (phi/tau_r) : FE (A) k_C, operator Phi_O = 0, operator + cavities, at each b0/g

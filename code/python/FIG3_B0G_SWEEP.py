@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Fig. 7 -- sweep of the opening-to-gap ratio b_0/g on the linear chain
+"""Fig. 3 of the body (file fig3_b0g_sweep ; the tiling-convergence figure, file fig3_tiling_convergence, is Fig. S1 of the supplement since 20 Sept. 2026) -- sweep of the opening-to-gap ratio b_0/g on the linear chain
 (prod_sweep_b0g.py -> outputs/python/prod_sweep_b0g_results.json).
 
 One panel, 3.375 in wide, <= 2.0 in high.  Abscissa b_0/g ; ordinate the
@@ -8,9 +8,9 @@ twelve-position mean) of Carter's product (exact conformal form), of the
 condensed operator with Phi_O = 0 and of the operator coupled to the slot
 cavities, tiling (33, 16), symmetric hat, N_h = 8192.  The bars at zero are the
 min-max modulation of the reference over the twelve rotor positions, relative
-to its mean.  Colours and fonts are those of make_figures_v2.py ; identity is
+to its mean.  The FE rows of b0/g = 12 and 16 are at the halved mesh lc 0.0225 (G5 ;\nprod_sweep_b0g_meshrow.py).  Colours and fonts are those of make_figures_v2.py ; identity is
 also carried by marker shape and direct labels.
-Run from code/python/ ; writes code/article/figures/fig7_b0g_sweep.{pdf,png}."""
+Run from code/python/ ; writes code/article/figures/fig3_b0g_sweep.{pdf,png}."""
 import os, sys, json
 sys.dont_write_bytecode = True
 import numpy as np
@@ -55,8 +55,8 @@ ax.grid(axis='y', color='#dddddd', lw=0.4, zorder=0)
 ax.legend(loc='center left', bbox_to_anchor=(0.0, 0.58), handlelength=2.0, borderaxespad=0.3, labelspacing=0.25)   # the band between the near-zero curves and the Phi_O = 0 curve
 fig.tight_layout(pad=0.2)
 os.makedirs(OUT, exist_ok=True)
-fig.savefig(os.path.join(OUT, 'fig7_b0g_sweep.png'), dpi=400)
-fig.savefig(os.path.join(OUT, 'fig7_b0g_sweep.pdf'))
-print('fig7 written: %.3f x %.3f in ; points b0/g = %s' % (fig.get_figwidth(), fig.get_figheight(), np.round(x, 3)))
+fig.savefig(os.path.join(OUT, 'fig3_b0g_sweep.png'), dpi=400)
+fig.savefig(os.path.join(OUT, 'fig3_b0g_sweep.pdf'))
+print('fig3 written: %.3f x %.3f in ; points b0/g = %s' % (fig.get_figwidth(), fig.get_figheight(), np.round(x, 3)))
 for b, yc, yn, yk in zip(pts, y_cav, y_neu, y_carter):
     print('  b0/g %7.4f : Carter ex %+7.3f %%  Phi_O=0 %+7.3f %%  cavities %+7.3f %%  FE band %+6.3f..%+6.3f %%' % (b['b0_over_g'], yk, yn, yc, 100 * (b['fe']['min'] / b['fe']['mean'] - 1), 100 * (b['fe']['max'] / b['fe']['mean'] - 1)))
