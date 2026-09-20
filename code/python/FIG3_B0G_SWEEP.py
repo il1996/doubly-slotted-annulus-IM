@@ -43,14 +43,15 @@ ax.errorbar(x, np.zeros_like(x), yerr=[-lo, hi], fmt='none', ecolor=C['fe'], eli
 ax.plot(x, y_neu, color=C['op'], marker='v', ms=3.5, lw=1.0, ls='--', zorder=3, label=r'operator, $\Phi_O = 0$, (33, 16)')
 ax.plot(x, y_cav, color=C['cav'], marker='s', ms=3.2, lw=1.0, zorder=4, label='operator + slot cavities, (33, 16)')
 ax.plot(x, y_carter, color=C['carter'], marker='o', ms=3.2, lw=1.0, ls='-.', zorder=3, label="Carter's product, exact conformal form")
-ax.plot([x[inom]], [y_cav[inom]], marker='s', ms=6.5, mfc='none', mec=C['cav'], mew=0.8, ls='none', zorder=5)
-ax.annotate('this paper\n(8.2)', xy=(x[inom], y_cav[inom]), xytext=(4, 6), textcoords='offset points', fontsize=6.2, color='#333333', ha='left', va='bottom')
-ax.set_xlabel(r'slot opening to gap ratio $b_0/g$')
+ymin = min(lo.min(), y_carter.min(), y_cav.min()) - 1.5; ymax = max(y_neu.max(), hi.max()) + 1.5
+ax.set_ylim(ymin, ymax)
+ax.axvline(x[inom], color='#333333', lw=0.6, ls=(0, (1.5, 2.5)), zorder=1)                      # the machine of the paper, b0/g = 8.23
+ax.text(x[inom] + 0.25, ymin + 0.35, 'this machine', fontsize=6.2, color='#333333', ha='left', va='bottom')
+ax.set_xlabel(r'slot opening to gap ratio $b_0/g$ (linear scale)')
 ax.set_ylabel('deviation from FE mean (%)')
 ax.set_xlim(0, max(x) + 1.5)
 ax.set_xticks([2, 4, 8.2, 12, 16] if min(x) < 3 else [4, 8.2, 12, 16]); ax.set_xticklabels(['2', '4', '8.2', '12', '16'] if min(x) < 3 else ['4', '8.2', '12', '16'])
-ymin = min(lo.min(), y_carter.min(), y_cav.min()) - 1.5; ymax = max(y_neu.max(), hi.max()) + 1.5
-ax.set_ylim(ymin, ymax)
+ax.set_xticks(np.arange(1, int(max(x)) + 2), minor=True); ax.tick_params(axis='x', which='minor', length=2, width=0.5)
 ax.grid(axis='y', color='#dddddd', lw=0.4, zorder=0)
 ax.legend(loc='center left', bbox_to_anchor=(0.0, 0.58), handlelength=2.0, borderaxespad=0.3, labelspacing=0.25)   # the band between the near-zero curves and the Phi_O = 0 curve
 fig.tight_layout(pad=0.2)
