@@ -1,5 +1,5 @@
-function FIG3_TILING_CONVERGENCE
-%FIG3_TILING_CONVERGENCE  Figure 3 : convergence du rapport d'encochage en
+function FIGS1_TILING_CONVERGENCE(outdir)
+%FIGS1_TILING_CONVERGENCE  Figure S1 du supplement : convergence du rapport d'encochage en
 %                         nombre de colonnes d'ouverture.
 %
 %   k_C a phi = 0, fer infiniment permeable, troncature harmonique
@@ -25,12 +25,30 @@ function FIG3_TILING_CONVERGENCE
 %   Les points (n_T, n_O) = (65, 32) n'ont pas ete calcules : les deux
 %   courbes concernees s'arretent a n_O = 16.
 %
-%   Usage :  FIG3_TILING_CONVERGENCE
+%   Sorties : fig3_tiling_convergence.fig (figure MATLAB rouvrable),
+%   .pdf (vectoriel) et .png (400 ppp). Le .fig ne s'insere pas dans Word :
+%   le supplement prend le .png.
+%
+%   Renommee le 20 septembre 2026 : cette figure etait la Fig. 3 du corps ;
+%   le balayage b0/g l'a remplacee (FIG3_B0G_SWEEP) et elle est passee au
+%   supplement sous le numero S1. Les series et leur provenance sont
+%   inchangees.
+%
+%   Usage :  FIGS1_TILING_CONVERGENCE
+%            FIGS1_TILING_CONVERGENCE('chemin/de/sortie')
+%   (ancien nom : FIG3_TILING_CONVERGENCE)
 %
 %   Auteurs : I. Laouar, A. Boukadoum, N. Mezhoud.
 
 %% ---------------------------------------------------------------- options
 USE_LATEX = true;      % false : interprete TeX de MATLAB, compatible Octave
+
+here = fileparts(mfilename('fullpath'));
+if nargin < 1 || isempty(outdir)
+    figdir = fullfile(here, '..', 'article', 'figures');      % depuis code/MEC_IM/
+    if exist(figdir, 'dir') == 7, outdir = figdir; else, outdir = here; end
+end
+if exist(outdir, 'dir') ~= 7, mkdir(outdir); end
 
 %% ---------------------------------------------------------------- donnees
 nO_a = [2 4 8 16];             % colonnes d'ouverture, panneau (a)
@@ -174,11 +192,24 @@ lgB = legend(axB,hb,lb,'Interpreter',itp,'Location','northeast','FontSize',5.8);
 set(lgB,'Box','off');
 
 %% ---------------------------------------------------------------- export
-if exist('exportgraphics','file')                % MATLAB R2020a et au-dela
-    exportgraphics(f,'fig3_tiling_convergence.png','Resolution',400);
-    exportgraphics(f,'fig3_tiling_convergence.pdf','ContentType','vector');
+% Le nom du fichier reste 'fig3_tiling_convergence' : c'est celui que portent
+% l'image publiee, le supplement, README §3 et MANIFEST §9. Seule la figure a
+% change de numero (Fig. 3 du corps -> Fig. S1 du supplement), pas le fichier.
+base = fullfile(outdir, 'fig3_tiling_convergence');
+
+% .fig : la figure elle-meme, rouvrable et modifiable (openfig ou double-clic)
+if exist('savefig','file') == 2
+    savefig(f, [base '.fig']);
 else
-    print(f,'-dpng','-r400','fig3_tiling_convergence.png');
-    print(f,'-dpdf','-painters','fig3_tiling_convergence.pdf');
+    hgsave(f, [base '.fig']);                    % Octave
 end
+
+if exist('exportgraphics','file')                % MATLAB R2020a et au-dela
+    exportgraphics(f, [base '.png'], 'Resolution', 400);
+    exportgraphics(f, [base '.pdf'], 'ContentType', 'vector');
+else
+    print(f, '-dpng', '-r400', [base '.png']);
+    print(f, '-dpdf', '-painters', [base '.pdf']);
+end
+fprintf('ecrit : %s.fig, %s.pdf et %s.png\n', base, base, base);
 end
